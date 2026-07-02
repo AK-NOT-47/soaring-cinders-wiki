@@ -1,0 +1,173 @@
+/* Soaring Cinders Wiki — editorial dark theme (ink / gold / teal, Palatino serif) */
+:root{
+  --ink:#0e1419; --ink2:#131c23; --ink3:#1a2530; --paper:#ece4d4; --paper-dim:#b9ae99; --paper-dim2:#8f8672;
+  --gold:#d4a937; --gold-soft:#9c7f2e; --teal:#5aa39a; --rust:#c0644a; --violet:#9b8bd0;
+  --rule:rgba(212,169,55,.35); --line:rgba(236,228,212,.10); --panel:#131c23;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink); color:var(--paper); font-family:"Segoe UI",system-ui,sans-serif; line-height:1.62; overflow-x:hidden;
+  background-image:
+    radial-gradient(1200px 700px at 88% -8%, rgba(90,163,154,.10), transparent 60%),
+    radial-gradient(900px 600px at -8% 108%, rgba(212,169,55,.08), transparent 60%);
+  background-attachment:fixed;}
+body::before{content:"";position:fixed;inset:0;z-index:-1;opacity:.045;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");}
+::selection{background:var(--gold); color:var(--ink)}
+.serif,h1,h2,h3,.page-head h1,.hero h1{font-family:"Palatino Linotype","Book Antiqua",Georgia,serif}
+a{color:var(--gold);text-decoration:none}
+code,kbd,.mono{font-family:"JetBrains Mono",Consolas,monospace}
+
+/* progress bar */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--teal));z-index:100;transition:width .1s}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:12px clamp(16px,3vw,26px);
+  background:rgba(14,20,25,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.menu-btn{display:none;background:none;border:none;color:var(--paper);font-size:20px;cursor:pointer}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Palatino Linotype",Georgia,serif;font-size:19px;color:var(--paper);white-space:nowrap}
+.brand .mark{font-size:18px;filter:saturate(1.2)}
+.brand b{color:var(--gold);font-weight:600}
+.wikitag{font:600 9.5px/1 "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--gold);border:1px solid var(--rule);border-radius:4px;padding:3px 6px;margin-left:8px;vertical-align:2px}
+.header-spacer{flex:1}
+.search-wrap{position:relative;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:24px;padding:7px 14px;background:rgba(0,0,0,.28);min-width:180px}
+.search-wrap .icon{color:var(--gold);font-size:15px}
+.search-wrap input{background:none;border:none;color:var(--paper);font-size:13.5px;outline:none;width:clamp(120px,18vw,240px)}
+.search-wrap input::placeholder{color:var(--paper-dim)}
+.search-wrap kbd{font-size:11px;color:var(--paper-dim);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+#results{position:absolute;top:calc(100% + 8px);right:0;width:min(460px,86vw);max-height:66vh;overflow:auto;background:var(--ink2);border:1px solid var(--rule);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:none;z-index:60}
+#results.show{display:block}
+#results a{display:block;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--paper)}
+#results a:hover,#results a.sel{background:rgba(212,169,55,.10)}
+#results .r-grp{font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
+#results .r-t{font-weight:600;margin:3px 0}
+#results .r-x{font-size:12.5px;color:var(--paper-dim)}
+#results mark{background:rgba(212,169,55,.28);color:var(--paper)}
+
+/* layout */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:39;opacity:0;pointer-events:none;transition:.3s}
+body.nav-open .scrim{opacity:1;pointer-events:auto}
+.layout{display:grid;grid-template-columns:264px minmax(0,1fr);gap:0;max-width:1280px;margin:0 auto}
+.home-layout{grid-template-columns:264px minmax(0,1fr)}
+.sidebar{position:sticky;top:57px;align-self:start;height:calc(100vh - 57px);overflow-y:auto;padding:22px 12px 40px;border-right:1px solid var(--line);scrollbar-width:thin}
+.sidebar::-webkit-scrollbar{width:7px}.sidebar::-webkit-scrollbar-thumb{background:rgba(212,169,55,.2);border-radius:4px}
+.grp{font:600 10.5px/1 "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin:20px 12px 8px}
+.nav{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:8px;color:var(--paper-dim);font-size:14px;transition:.15s}
+.nav:hover{background:rgba(212,169,55,.08);color:var(--paper)}
+.nav.active{background:rgba(212,169,55,.14);color:var(--gold);font-weight:600}
+.nav .ic{font-size:15px;width:18px;text-align:center}
+.nav.nsrow .cnt,.nsgroup>summary .cnt{margin-left:auto;font:500 11px/1 "JetBrains Mono",monospace;opacity:.55}
+.nsgroup{margin:1px 0}
+.nsgroup>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:8px;font-weight:600;color:var(--paper-dim)}
+.nsgroup>summary::-webkit-details-marker{display:none}
+.nsgroup>summary:hover{background:rgba(212,169,55,.08);color:var(--paper)}
+.nav.sub{padding-left:32px;font-size:13px;font-weight:400}
+.nav.sub.idxlink{opacity:.7;font-style:italic}
+
+main{padding:34px clamp(20px,4vw,56px) 60px;min-width:0}
+
+/* breadcrumb + page head */
+.breadcrumb{font-size:12.5px;color:var(--paper-dim);margin-bottom:22px;letter-spacing:.02em}
+.breadcrumb a{color:var(--paper-dim)}.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb .sep{margin:0 8px;opacity:.5}
+.eyebrow{font:600 12px/1 "Segoe UI",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-head h1{font-size:clamp(34px,5vw,56px);font-weight:400;line-height:1.02;letter-spacing:-.01em;color:var(--paper)}
+.page-head .blurb{margin-top:16px;max-width:640px;font-size:16.5px;color:var(--paper-dim);font-weight:300}
+.facets{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.facet{font:600 10.5px/1.5 "JetBrains Mono",monospace;letter-spacing:.06em;padding:3px 9px;border-radius:20px;border:1px solid}
+.f-iter{color:var(--violet);border-color:rgba(155,139,208,.5)}
+.f-real{color:var(--teal);border-color:rgba(90,163,154,.5)}
+.f-ph{color:var(--rust);border-color:rgba(192,100,74,.5)}
+.aliases{color:var(--paper-dim);font-size:14px;margin-top:8px}.aliases i{color:var(--paper)}
+.datemeta{color:var(--paper-dim);font-size:12px;margin-top:12px;font-family:"JetBrains Mono",monospace}.datemeta b{color:var(--paper);font-weight:600}
+.rule{height:1px;background:var(--rule);margin:26px 0 30px}
+
+/* prose */
+.prose{max-width:760px;font-size:16px;color:var(--paper-dim)}
+.prose h2{font-size:clamp(22px,3vw,30px);font-weight:400;color:var(--paper);margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:19px;font-weight:600;color:var(--gold);margin:28px 0 10px;font-family:"Segoe UI",sans-serif;letter-spacing:.01em}
+.prose h4{font-size:15px;font-weight:600;color:var(--paper);margin:22px 0 8px;font-family:"Segoe UI",sans-serif}
+.prose h5{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin:18px 0 6px}
+.prose p{margin:12px 0;font-weight:300}
+.prose strong,.prose b{color:var(--paper);font-weight:600}
+.prose em{color:var(--teal);font-style:italic}
+.prose ul,.prose ol{margin:12px 0 12px 4px;padding-left:22px}
+.prose li{margin:6px 0;font-weight:300}
+.prose li::marker{color:var(--gold-soft)}
+.prose a[href]{color:var(--gold);border-bottom:1px solid rgba(212,169,55,.28)}
+.prose a[href]:hover{border-bottom-color:var(--gold);background:rgba(212,169,55,.06)}
+.prose blockquote{border-left:2px solid var(--rule);padding:4px 0 4px 18px;margin:16px 0;font-family:"Palatino Linotype",Georgia,serif;font-style:italic;font-size:17px;color:var(--paper)}
+.prose code{background:rgba(212,169,55,.10);color:var(--gold);padding:1px 6px;border-radius:5px;font-size:.86em}
+.prose table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+.prose th{text-align:left;color:var(--gold);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border-bottom:1px solid var(--rule)}
+.prose td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--paper-dim);vertical-align:top;font-weight:300}
+.prose hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+.prose .headerlink{opacity:0;margin-left:8px;font-size:.7em;color:var(--gold-soft)}
+.prose h2:hover .headerlink,.prose h3:hover .headerlink{opacity:1}
+
+/* status badges */
+.badge{display:inline-block;font:600 10px/1.4 "JetBrains Mono",monospace;letter-spacing:.1em;padding:2px 8px;border-radius:20px;border:1px solid;vertical-align:1px;white-space:nowrap}
+.b-canon{color:var(--teal);border-color:rgba(90,163,154,.55);background:rgba(90,163,154,.08)}
+.b-debated{color:var(--gold);border-color:rgba(212,169,55,.5);background:rgba(212,169,55,.07)}
+.b-proposed{color:var(--violet);border-color:rgba(155,139,208,.5);background:rgba(155,139,208,.07)}
+.b-evolved{color:var(--paper-dim);border-color:rgba(236,228,212,.28)}
+.b-scrapped{color:var(--rust);border-color:rgba(192,100,74,.5);text-decoration:line-through}
+.b-editorial{color:var(--paper-dim);border-color:rgba(236,228,212,.25)}
+
+/* backlinks */
+.backlinks{margin:38px 0 0;padding:20px 24px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.015)}
+.backlinks h3{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.backlinks ul{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+.backlinks li{break-inside:avoid;padding:5px 0}
+.backlinks a{color:var(--paper-dim);border-bottom:1px solid transparent}
+.backlinks a:hover{color:var(--gold)}
+.backlinks .blns{font-size:11px;color:var(--paper-dim);opacity:.6;font-family:"JetBrains Mono",monospace;margin-left:6px}
+@media(max-width:700px){.backlinks ul{columns:1}}
+
+.foot{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--paper-dim);opacity:.7}
+.foot code{color:var(--gold-soft)}
+
+/* ---------- HOME ---------- */
+.hero{position:relative;padding:8vh 0 6vh;min-height:64vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero .kicker{font:600 12px/1 "Segoe UI",sans-serif;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;z-index:2}
+.hero h1{font-size:clamp(52px,9vw,112px);font-weight:400;line-height:.96;letter-spacing:-.015em;color:var(--paper);z-index:2}
+.hero .tagline{margin-top:28px;max-width:600px;font-size:clamp(15px,1.7vw,18px);color:var(--paper-dim);font-weight:300;z-index:2}
+.hero .tagline b{color:var(--paper);font-weight:600}
+.embers{position:absolute;inset:0;right:0;pointer-events:none;overflow:hidden;z-index:1}
+.embers i{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--gold),rgba(192,100,74,.4) 60%,transparent 72%);box-shadow:0 0 8px rgba(212,169,55,.5);animation:floatup linear infinite}
+.embers i.cool{background:radial-gradient(circle at 40% 35%,var(--teal),rgba(90,163,154,.3) 60%,transparent 72%);box-shadow:0 0 8px rgba(90,163,154,.5)}
+@keyframes floatup{0%{transform:translateY(0) scale(.7);opacity:0}12%{opacity:.85}80%{opacity:.6}100%{transform:translateY(-72vh) translateX(var(--dx,12px)) scale(1.05);opacity:0}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px;z-index:2}
+.stat{background:var(--ink);padding:24px 20px}
+.stat .n{font-family:"Palatino Linotype",Georgia,serif;font-size:clamp(30px,4vw,46px);color:var(--gold);line-height:1}
+.stat .l{margin-top:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim)}
+
+.section-title{font-family:"Palatino Linotype",Georgia,serif;font-size:clamp(22px,3vw,30px);font-weight:400;color:var(--paper);margin:56px 0 22px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{display:block;padding:24px 22px;border:1px solid var(--line);background:var(--ink2);text-decoration:none;transition:.3s;position:relative}
+.card:hover{transform:translateY(-6px);border-color:var(--rule);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.card .ic{font-size:26px;margin-bottom:12px}
+.card h3{font-family:"Palatino Linotype",Georgia,serif;font-size:20px;font-weight:600;color:var(--paper);margin:0 0 6px}
+.card p{font-size:13.5px;color:var(--paper-dim);font-weight:300;line-height:1.5}
+.card .ct{display:block;margin-top:12px;font:500 11px/1 "JetBrains Mono",monospace;color:var(--gold-soft);letter-spacing:.06em}
+
+.legend-box{border:1px solid var(--line);background:var(--ink2);padding:22px 24px}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 24px;font-size:13.5px;color:var(--paper-dim)}
+
+/* ---------- namespace index cards ---------- */
+.wcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.wcard{display:block;padding:20px 22px;border:1px solid var(--line);background:var(--ink2);text-decoration:none;transition:.3s}
+.wcard:hover{transform:translateY(-4px);border-color:var(--rule);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.wc-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.wcard h3{margin:0;font-family:"Palatino Linotype",Georgia,serif;font-size:18px;font-weight:600;color:var(--paper)}
+.wcard p{margin:0;font-size:13.5px;color:var(--paper-dim);font-weight:300;line-height:1.5}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .layout,.home-layout{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:0;top:0;height:100vh;width:280px;z-index:40;background:var(--ink);transform:translateX(-100%);transition:transform .3s;padding-top:70px}
+  body.nav-open .sidebar{transform:none}
+  .menu-btn{display:block}
+}

@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reserve Skills System (Locke's Borrow) · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub active" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Reserve Skills System (Locke's Borrow)</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Reserve Skills System (Locke's Borrow)</h1>
+      <div class="facets"><span class="badge b-debated">DEBATED</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Locke's Borrow</i>, <i>Reserve Skills</i>, <i>borrow one ally's skill</i></div>
+      <div class="datemeta">First conceived <b>2023-02-10 (M01390, FreshToast)</b> · last in chat <b>2023-02-10 (M01390; still deferred — see Design history)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="reserve-skills-system-locke-s-borrow-debated" tabindex="-1"><a class="header-anchor" href="#reserve-skills-system-locke-s-borrow-debated">Reserve Skills System (Locke’s Borrow) <code><span class="badge b-debated">DEBATED</span></code></a></h1>
+<blockquote>
+<p>Locke’s signature party mechanic: she borrows a designated skill from a benched ally, once per battle — leadership and versatility over personal power.</p>
+</blockquote>
+<p><strong>Summary</strong> — The Reserve Skills System lets <a href="../characters/locke.html">Locke</a> <strong>borrow a skill from a character in reserve to use, once per battle</strong>; each character has a <strong>designated reserve skill</strong> that Locke can call on (M01391, FreshToast, 2023-02-10; 008 §5). It exists to express Locke’s design identity: her strength is <strong>leadership and versatility rather than personal power</strong>, making her dependent on and defined by her party (M01392, FreshToast, 2023-02-10). The mechanic is <strong>designed but not implemented</strong> — it is documented in the GameBible and <code>GAME_DESIGN.md §5.8</code> but sits on the proto’s <strong>Still-deferred</strong> list, absent from the combat reducer and UI (008 §5, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</p>
+<h2 id="description-the-borrow-mechanic-notes-design" tabindex="-1"><a class="header-anchor" href="#description-the-borrow-mechanic-notes-design">Description — the borrow mechanic (notes-design)</a></h2>
+<ul>
+<li><strong>What it does:</strong> Locke borrows <strong>one skill from a character in reserve</strong> (a benched party member), usable <strong>once per battle</strong> (M01391, FreshToast, 2023-02-10; 000 Part 5 §Reserve Skills System).</li>
+<li><strong>Designated reserve skill:</strong> each character has a single <strong>designated</strong> reserve skill that Locke may use — not their whole kit (M01391; 000 Part 5).</li>
+<li><strong>Design intent:</strong> reflects that “Locke’s strength is in her leadership and versatility, rather than personal strength and thus dependent on her party” (M01392, FreshToast, 2023-02-10). It complements Locke’s support identity — she “warps around her party with a variety of skills and useful support effects” (M01881, FreshToast, 2023-02-13).</li>
+</ul>
+<h2 id="rules-status" tabindex="-1"><a class="header-anchor" href="#rules-status">Rules / status</a></h2>
+<p><code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code> — <strong>not yet wired in.</strong> The borrow-one-ally’s-skill mechanic is designed (<code>GAME_DESIGN.md §5.8</code>) but explicitly listed as <strong>Still-deferred</strong>; it is not in the combat reducer or UI (008 §5; proto <code>GAME_DESIGN.md §17 &quot;Still deferred&quot;</code>). Locke’s <strong>implemented</strong> kit is instead a fixed spear set — Pierce, Sunder, Phalanx, and the finisher Emberlance (008 §5; proto <code>src/core/combat/content.ts</code>). The exact implementation of reserve skills was flagged unresolved in the notes themselves (000 Part 5).</p>
+<h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
+<ul>
+<li>Ties into the broader <strong>borrowing-power</strong> motif: in the <a href="../story/two-path-system.html">two-path</a> lore, “the original Undying is very good at borrowing powers” — a thread that later informs Locke’s leadership-through-borrowing design (M00244, CrunchyConniptions, 2021-06-26; 008 §10).</li>
+<li>Layered on the <a href="../systems/position-system.html">position system</a> and reserve/bench roster — a benched character is a “character in reserve.” See also the <code><span class="badge b-debated">DEBATED</span></code> <a href="../systems/position-system.html">team skills</a> built around party pairings (008 §Team Skills).</li>
+<li>Locke’s kit and role: see <a href="../characters/locke.html">Locke</a> and <a href="../magic/character-skills.html">character skills</a>.</li>
+</ul>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Exact implementation is unresolved</strong> — the notes explicitly list “exact implementation of reserve skills” as an open item (000 Part 5); the proto ships Locke’s four spear skills only (008 §5).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> Whether the once-per-battle borrow ever ships, given it’s on the Still-deferred list (008 §5; <code>GAME_DESIGN.md §17</code>).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-10</strong> — original concept: FreshToast proposes “RESERVE SKILLS” — “locke gets to borrow a skill from a character in reserve to use, once per battle. Each character has a designated reserve skill, which Locke can use,” justified by Locke’s leadership/versatility identity over personal strength (M01390–M01392, FreshToast, 2023-02-10). <em>(Origin.)</em></li>
+<li><strong>2023-02-13</strong> — reinforced by Locke’s support-warper framing: she “has some movement and modular abilities but does not need to even slot them” and “warps around her party with a variety of skills and useful support effects” (M01880–M01881, FreshToast, 2023-02-13).</li>
+<li><strong>2026-06-16</strong> — implemented-code pass: the borrow mechanic is documented but placed on the <strong>Still-deferred</strong> list; Locke’s implemented kit is the Pierce / Sunder / Phalanx / Emberlance spear set instead (008 §5; proto <code>content.ts</code>, <code>GAME_DESIGN.md §17</code>). <em>(Current status: designed, not implemented.)</em></li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M01390–M01392 (FreshToast, 2023-02-10); M01880–M01881 (FreshToast, 2023-02-13)</li>
+<li><strong>Cleaned:</strong> 000 Part 5 §Reserve Skills System (notes lines 2365–2367; 2087–2088; unresolved-implementation note 2522)</li>
+<li><strong>Docs:</strong> 008 §5 Reserve Skills System / Locke’s Borrow; 007 §Reserve Skills System; 002 §Locke</li>
+<li><strong>Ledger:</strong> the M01390–M01392 Reserve Skills thread in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../characters/locke.html">Locke Evertide</a> <span class="blns">Characters</span></li><li><a href="../story/two-path-system.html">Two-Path System (Undying vs Heroes)</a> <span class="blns">Story</span></li></ul></div>
+    <footer class="foot">Source docs: 008 §5 Reserve Skills System / Locke's Borrow · 000 Part 5 §Reserve Skills System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

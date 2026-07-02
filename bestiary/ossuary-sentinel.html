@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ossuary Sentinel · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><details class="nsgroup" open><summary><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></summary><a class="nav sub idxlink" href="../bestiary/index.html">All bestiary →</a><a class="nav sub" href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a><a class="nav sub" href="../bestiary/brigands.html">Brigands &amp; Bandits</a><a class="nav sub" href="../bestiary/death-daemon.html">DD, the Death Daemon</a><a class="nav sub" href="../bestiary/dracosis.html">Dracosis (The Dragon Virus)</a><a class="nav sub" href="../bestiary/eldritch-superboss.html">Eldritch Super Boss</a><a class="nav sub" href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a><a class="nav sub" href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../bestiary/eye-dungeon-boss.html">Eye Dungeon Boss</a><a class="nav sub" href="../bestiary/fear-effect.html">Fear Effect</a><a class="nav sub" href="../bestiary/giant-beetle.html">Giant Beetle ("Round Boi")</a><a class="nav sub" href="../bestiary/golems.html">Golems</a><a class="nav sub" href="../bestiary/grafting-cult.html">Grafting Cult &amp; Monster Evolution</a><a class="nav sub" href="../bestiary/imps.html">Imps</a><a class="nav sub" href="../bestiary/minor-creatures.html">Minor &amp; Undeveloped Creatures</a><a class="nav sub active" href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a><a class="nav sub" href="../bestiary/pirate-monkeys.html">Pirate Monkeys</a><a class="nav sub" href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a><a class="nav sub" href="../bestiary/skeletons.html">Skeletons</a><a class="nav sub" href="../bestiary/slimes.html">Slimes</a><a class="nav sub" href="../bestiary/telekinetic-sword-boss.html">Telekinetic Sword Boss</a><a class="nav sub" href="../bestiary/vaenngrym.html">Vaenngrym</a><a class="nav sub" href="../bestiary/vampires.html">Vampires</a><a class="nav sub" href="../bestiary/vampirism.html">Vampirism</a></details><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></a><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Ossuary Sentinel</span></div>
+    <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Ossuary Sentinel</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Project Magitech</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Tomb Golem</i>, <i>Tomb Guardian</i></div>
+      <div class="datemeta">First conceived <b>2023-02-08 (M01162, CrunchyConniptions — adaptive-armor concept)</b> · last in chat <b>2023-02-16 (M02168, CrunchyConniptions — golem enemy type)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="ossuary-sentinel-canon" tabindex="-1"><a class="header-anchor" href="#ossuary-sentinel-canon">Ossuary Sentinel <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>The single boss of the playable vertical slice — a tomb-golem guardian (🗿) that stands watch at the threshold of <a href="../locations/ajaxs-tomb.html">Ajax’s Tomb</a>, beaten by reading its telegraphs and coordinating rather than out-damaging its 132 HP.</p>
+</blockquote>
+<p><strong>Summary</strong> — The Ossuary Sentinel (“Boss · Tomb Guardian”, glyph 🗿, id <code>tomb_golem</code>) is the lone boss shipped in the browser vertical slice, “The Descent into Ajax’s Tomb.” It is an adaptive heavy that self-hardens mid-fight — the “changes its armor / hardens itself” behavior once pitched for the <a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a> is prototyped here instead, via its <strong>Adamant Shell</strong> skill (005 §Boss: Ossuary Sentinel (proto)). As an implemented <a href="../bestiary/golems.html">golem</a> it is currently a pure tomb guardian, <strong>not yet tied</strong> to Gideon’s soul-harvest golem origin — that origin remains design lore (005 §Implemented golem boss).</p>
+<h2 id="description-role" tabindex="-1"><a class="header-anchor" href="#description-role">Description &amp; role</a></h2>
+<ul>
+<li>The slice’s <strong>single boss</strong> — a tomb-golem guardian of Ajax’s Tomb, deployed at graph node <code>n5</code> (“The Ossuary Sentinel”, boss), where it fights <strong>alone</strong> (proto: src/core/campaign/content.ts — node <code>n5</code>; 005 §Encounter context (proto)).</li>
+<li>It realizes the adaptive / self-hardening design the group wanted from the <a href="../bestiary/blacksmith-boss.html">Blacksmith</a>; that concept was prototyped on the golem rather than on a distinct blacksmith enemy (005 §Boss: Ossuary Sentinel (proto)).</li>
+<li>As a <a href="../bestiary/golems.html">golem</a>, it appears in the proto <strong>only as the boss</strong>, not as rank-and-file (005 §Implemented golem boss; §Proto reconciliation).</li>
+</ul>
+<h2 id="stats-implemented" tabindex="-1"><a class="header-anchor" href="#stats-implemented">Stats <code>[IMPLEMENTED]</code></a></h2>
+<p>All values: proto: src/core/combat/content.ts — <code>tomb_golem</code>. Position 1 = front rank; for enemies, a skill that “targets a hero” uses <code>targetSide: 'enemy'</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id / role</td>
+<td><code>tomb_golem</code> · “Boss · Tomb Guardian” 🗿</td>
+</tr>
+<tr>
+<td>HP</td>
+<td><strong>132</strong></td>
+</tr>
+<tr>
+<td>AP</td>
+<td><strong>4</strong> (enough to fire its 3-AP AoE; high vs. the 2-AP rank-and-file)</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>3</td>
+</tr>
+<tr>
+<td>STR / MAG</td>
+<td>16 / 6</td>
+</tr>
+<tr>
+<td>DEF / RES</td>
+<td>18 / 12</td>
+</tr>
+<tr>
+<td>ACC / Crit</td>
+<td>90 / 8</td>
+</tr>
+<tr>
+<td>Start rank</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="abilities-implemented" tabindex="-1"><a class="header-anchor" href="#abilities-implemented">Abilities <code>[IMPLEMENTED]</code></a></h2>
+<p>Skills (proto: src/core/combat/content.ts — <code>tomb_golem</code>; intent weights in parentheses):</p>
+<ul>
+<li><strong>Sundering Slam</strong> (<code>g_slam</code>, 2 AP) — 13 phys to a hero in ranks 1–2. (weight 3) — its big single-target hit; a one-per-fight <a href="../systems/shields-and-wounded.html">shield</a> blunts a would-be killing blow from it (005 §Shields).</li>
+<li><strong>Tomb-Quake</strong> (<code>g_quake</code>, 3 AP) — 8 phys to <strong>all</strong> heroes (<code>scope: 'all'</code>). (weight 2)</li>
+<li><strong>Grave Curse</strong> (<code>g_curse</code>, 1 AP) — 5 mag + <strong>Strength Down</strong> to any hero. (weight 2)</li>
+<li><strong>Adamant Shell</strong> (<code>g_harden</code>, 1 AP) — <strong>Defense Up + Resistance Up</strong> on self — the adaptive-hardening tell inherited from the Blacksmith concept. (weight 1)</li>
+</ul>
+<h2 id="design-read" tabindex="-1"><a class="header-anchor" href="#design-read">Design read</a></h2>
+<p>The Sentinel telegraphs hard and is meant to be beaten by reading its <a href="../systems/enemy-intent.html">intent</a> and coordinating — <em>“become as the goblin — many, coordinated, humble”</em> — not by out-damaging its 132 HP, directly enacting the <a href="../bestiary/enemy-design-philosophy.html">“tactical complexity over HP bloat”</a> philosophy (proto: src/core/campaign/content.ts node <code>n5</code> story; 005 §Boss: Ossuary Sentinel (proto)). Fights also grow deadlier over time via <a href="../systems/escalation.html">Escalation</a>, so a stalling war of attrition is discouraged.</p>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Blacksmith vs golem</strong> — is the <a href="../bestiary/blacksmith-boss.html">Blacksmith</a> a separate boss, or did its adaptive-armor concept simply become this tomb golem? (005 §Boss reconciliation).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Soul-harvest origin</strong> — the proto golem is a plain tomb guardian, not yet tied to the <a href="../characters/gideon-azurith.html">Gideon</a> soul-harvest <a href="../bestiary/golems.html">golem</a> origin; whether the Sentinel is meant to carry that lore is unresolved (005 §Implemented golem boss).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-08</strong> — the adaptive-armor idea is first pitched as the <a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a>: “We fight blacksmith who changes their armor based on your attack” (M01162, CrunchyConniptions), one of the gaming-deconstruction pillars.</li>
+<li><strong>2023-02-16</strong> — Golems established as a baseline enemy type (M02168, CrunchyConniptions) with a soul-harvest origin under <a href="../characters/gideon-azurith.html">Gideon</a> (M02173–M02174, FreshToast); <a href="../characters/locke.html">Locke</a> is noted uneasy around them (M02180, FreshToast).</li>
+<li><strong>(proto, undated)</strong> — the vertical slice ships the golem <strong>only as this boss</strong>, the Ossuary Sentinel, a self-hardening tomb guardian decoupled from the soul-harvest origin; it inherits the Blacksmith’s adaptive-armor behavior via Adamant Shell. [IMPLEMENTED] — <em>current presentation.</em></li>
+</ul>
+<h2 id="related-pages" tabindex="-1"><a class="header-anchor" href="#related-pages">Related pages</a></h2>
+<ul>
+<li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster</a> — the five rank-and-file enemies shipped alongside this boss.</li>
+<li><a href="../bestiary/golems.html">Golems</a> — the enemy family and its design-lore origin.</li>
+<li><a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a> — the design pitch whose adaptive-armor mechanic this boss prototypes.</li>
+<li><a href="../bestiary/encounters-and-ambushes.html">Encounters &amp; Ambushes</a> — how enemies (including this boss at <code>n5</code>) are deployed across the dungeon graph.</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M01162 (CrunchyConniptions, 2023-02-08, adaptive blacksmith); M02168 (CrunchyConniptions, 2023-02-16, golems); M02173–M02174, M02180 (FreshToast, 2023-02-16, golem origin &amp; Locke’s unease)</li>
+<li><strong>Cleaned:</strong> 000 Part 7 §Gaming Deconstruction; 000 Part 8 (golem origin)</li>
+<li><strong>Docs:</strong> 005 §Boss: Ossuary Sentinel (proto); §Implemented golem boss; §Encounter context (proto); §Proto reconciliation</li>
+<li><strong>Proto:</strong> src/core/combat/content.ts (<code>tomb_golem</code>, <code>g_slam</code>/<code>g_quake</code>/<code>g_curse</code>/<code>g_harden</code>); src/core/campaign/content.ts (node <code>n5</code>)</li>
+<li><strong>Ledger:</strong> golem-boss / adaptive-blacksmith rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/golems.html">Golems</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> <span class="blns">Bestiary</span></li></ul></div>
+    <footer class="foot">Source docs: 005 §Boss: Ossuary Sentinel (proto) · 005 §Implemented golem boss · 005 §Encounter context (proto) · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

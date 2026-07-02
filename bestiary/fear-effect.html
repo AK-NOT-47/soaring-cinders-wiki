@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fear Effect · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><details class="nsgroup" open><summary><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></summary><a class="nav sub idxlink" href="../bestiary/index.html">All bestiary →</a><a class="nav sub" href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a><a class="nav sub" href="../bestiary/brigands.html">Brigands &amp; Bandits</a><a class="nav sub" href="../bestiary/death-daemon.html">DD, the Death Daemon</a><a class="nav sub" href="../bestiary/dracosis.html">Dracosis (The Dragon Virus)</a><a class="nav sub" href="../bestiary/eldritch-superboss.html">Eldritch Super Boss</a><a class="nav sub" href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a><a class="nav sub" href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../bestiary/eye-dungeon-boss.html">Eye Dungeon Boss</a><a class="nav sub active" href="../bestiary/fear-effect.html">Fear Effect</a><a class="nav sub" href="../bestiary/giant-beetle.html">Giant Beetle ("Round Boi")</a><a class="nav sub" href="../bestiary/golems.html">Golems</a><a class="nav sub" href="../bestiary/grafting-cult.html">Grafting Cult &amp; Monster Evolution</a><a class="nav sub" href="../bestiary/imps.html">Imps</a><a class="nav sub" href="../bestiary/minor-creatures.html">Minor &amp; Undeveloped Creatures</a><a class="nav sub" href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a><a class="nav sub" href="../bestiary/pirate-monkeys.html">Pirate Monkeys</a><a class="nav sub" href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a><a class="nav sub" href="../bestiary/skeletons.html">Skeletons</a><a class="nav sub" href="../bestiary/slimes.html">Slimes</a><a class="nav sub" href="../bestiary/telekinetic-sword-boss.html">Telekinetic Sword Boss</a><a class="nav sub" href="../bestiary/vaenngrym.html">Vaenngrym</a><a class="nav sub" href="../bestiary/vampires.html">Vampires</a><a class="nav sub" href="../bestiary/vampirism.html">Vampirism</a></details><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></a><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Fear Effect</span></div>
+    <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Fear Effect</h1>
+      <div class="facets"><span class="badge b-proposed">PROPOSED</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Notes / Design</span></div>
+      <div class="datemeta">First conceived <b>2023-02-11 (M01770, FreshToast)</b> · last in chat <b>2023-02-11 (M01786, FreshToast)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="fear-effect-proposed" tabindex="-1"><a class="header-anchor" href="#fear-effect-proposed">Fear Effect <code><span class="badge b-proposed">PROPOSED</span></code></a></h1>
+<blockquote>
+<p>A monster-inflicted debuff — first seen on the dragon, which “just existing” terrifies the party for the opening turns, and floated as a shared tool other scary monsters could use.</p>
+</blockquote>
+<p><strong>Summary</strong> — The Fear Effect is a debuff that scary enemies inflict to weaken the party. It originated as a <a href="../bestiary/vaenngrym.html">Vaenngrym</a> (best-a) mechanic: the dragon “literally inflicts a fear effect on the party to weaken them at the start of battle” (the first two turns), with the party’s initiative maybe decreased “because they fear facing him” (M01770–M01786, 2023-02-11). It was explicitly floated as reusable “elsewhere by other monsters to weaken you” (M01786, FreshToast, 2023-02-11). As of the proto it is <strong>not implemented</strong>; only its inverse (Fear Immunity) exists.</p>
+<h2 id="effect-as-designed" tabindex="-1"><a class="header-anchor" href="#effect-as-designed">Effect (as designed)</a></h2>
+<ul>
+<li><strong>Inflicted at battle start:</strong> “Maybe it literally inflicts a fear effect on the party to weaken them at the start of battle” (M01770, FreshToast, 2023-02-11); for the dragon, “everybody gets it for the first two turns” simply because the dragon exists (M01786, FreshToast, 2023-02-11).</li>
+<li><strong>Decreases initiative:</strong> “Maybe they are terrified and their initiative is decreased because they fear facing him” (M01783, CrunchyConniptions, 2023-02-11). Recorded as “maybe fear decreases initiative” (005 §Fear Effect).</li>
+<li><strong>Reusable across monsters:</strong> “Maybe it’s used elsewhere by other monsters to weaken you” (M01786, FreshToast, 2023-02-11).</li>
+<li>Connects to the broader <a href="../bestiary/enemy-design-philosophy.html">“making enemies scary”</a> toolkit and the <a href="../bestiary/encounters-and-ambushes.html">lantern</a> tension (some monsters fear the lantern; some are feared themselves).</li>
+</ul>
+<h2 id="proto-status-proposed-not-yet-implemented" tabindex="-1"><a class="header-anchor" href="#proto-status-proposed-not-yet-implemented">Proto status <code><span class="badge b-proposed">PROPOSED → not yet implemented</span></code></a></h2>
+<ul>
+<li>A standalone <strong>“Fear” negative status does not exist</strong> in the proto status bank (proto: src/core/combat/types.ts <code>StatusId</code>; status.ts <code>STATUS_DEFS</code> — no <code>fear</code> entry). The dragon’s fear effect and the “fear decreases initiative” idea remain design intent (005 §Fear Effect, proto note).</li>
+<li>What <strong>is</strong> implemented is the inverse: a <strong>Fear Immunity</strong> <em>positive</em> status (<code>fear_immune</code>) that blocks the disrupt-class effects — <strong>Stun, Blind, and Silence</strong> (proto: src/core/combat/status.ts — <code>DISRUPT = ['stun','blind','silence']</code>).</li>
+<li>If Fear were added, it would most naturally land as a <strong>Speed Down</strong>-style debuff, since Speed Down (<code>spd_down</code>, −3 speed/stack) is the implemented initiative-reduction effect (005 §Fear Effect, proto note). See the systems namespace for the status bank and <a href="../systems/escalation.html">escalation</a>.</li>
+</ul>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li>Exact implementation of fear-effect mechanics — no “Fear” status exists in the proto yet (005 §Unresolved Questions).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-11</strong> — conceived as a dragon mechanic: a battle-start fear effect weakening the party (first two turns), possibly by decreasing initiative, and floated as reusable by other monsters (M01770–M01786, FreshToast &amp; CrunchyConniptions). <em>Current design intent; unimplemented.</em></li>
+<li><strong>(proto, undated)</strong> — only the inverse <strong>Fear Immunity</strong> positive status is implemented; no negative “Fear” exists. [IMPLEMENTED — inverse only]</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M01770, M01783, M01786 (FreshToast &amp; CrunchyConniptions, 2023-02-11)</li>
+<li><strong>Cleaned:</strong> 000 (Fear Effect)</li>
+<li><strong>Docs:</strong> 005 §Fear Effect, §Special Mechanics &amp; Notes, §Unresolved Questions</li>
+<li><strong>Ledger:</strong> fear-effect rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a> <span class="blns">Bestiary</span></li></ul></div>
+    <footer class="foot">Source docs: 005 §Fear Effect · 005 §Special Mechanics &amp; Notes · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proto Enemy Roster (Implemented) · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><details class="nsgroup" open><summary><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></summary><a class="nav sub idxlink" href="../bestiary/index.html">All bestiary →</a><a class="nav sub" href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a><a class="nav sub" href="../bestiary/brigands.html">Brigands &amp; Bandits</a><a class="nav sub" href="../bestiary/death-daemon.html">DD, the Death Daemon</a><a class="nav sub" href="../bestiary/dracosis.html">Dracosis (The Dragon Virus)</a><a class="nav sub" href="../bestiary/eldritch-superboss.html">Eldritch Super Boss</a><a class="nav sub" href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a><a class="nav sub" href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../bestiary/eye-dungeon-boss.html">Eye Dungeon Boss</a><a class="nav sub" href="../bestiary/fear-effect.html">Fear Effect</a><a class="nav sub" href="../bestiary/giant-beetle.html">Giant Beetle ("Round Boi")</a><a class="nav sub" href="../bestiary/golems.html">Golems</a><a class="nav sub" href="../bestiary/grafting-cult.html">Grafting Cult &amp; Monster Evolution</a><a class="nav sub" href="../bestiary/imps.html">Imps</a><a class="nav sub" href="../bestiary/minor-creatures.html">Minor &amp; Undeveloped Creatures</a><a class="nav sub" href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a><a class="nav sub" href="../bestiary/pirate-monkeys.html">Pirate Monkeys</a><a class="nav sub active" href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a><a class="nav sub" href="../bestiary/skeletons.html">Skeletons</a><a class="nav sub" href="../bestiary/slimes.html">Slimes</a><a class="nav sub" href="../bestiary/telekinetic-sword-boss.html">Telekinetic Sword Boss</a><a class="nav sub" href="../bestiary/vaenngrym.html">Vaenngrym</a><a class="nav sub" href="../bestiary/vampires.html">Vampires</a><a class="nav sub" href="../bestiary/vampirism.html">Vampirism</a></details><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></a><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Proto Enemy Roster (Implemented)</span></div>
+    <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Proto Enemy Roster (Implemented)</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Project Magitech</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Implemented Proto Bestiary</i>, <i>Goblin Imp</i>, <i>Cinder Slime</i>, <i>Skeleton Archer</i>, <i>River Brigand</i>, <i>Hex Imp</i></div>
+      <div class="datemeta">First conceived <b>2023-02-16 (M02168, CrunchyConniptions)</b> · last in chat <b>2023-02-16 (M02168, CrunchyConniptions)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="proto-enemy-roster-implemented-canon" tabindex="-1"><a class="header-anchor" href="#proto-enemy-roster-implemented-canon">Proto Enemy Roster (Implemented) <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>The runnable truth: five fully-statted rank-and-file enemies shipped in the browser vertical slice, “The Descent into Ajax’s Tomb.”</p>
+</blockquote>
+<p><strong>Summary</strong> — The playable proto ships a small, fully-statted enemy roster used by the combat prototype. These are five common/elite archetypes — <strong>Goblin Imp, Cinder Slime, Skeleton Archer, River Brigand, Hex Imp</strong> — plus one boss (the <a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a>, owned on its own page). The numbers are tuned for the slice, not final balance, but they are how these archetypes currently behave. All values: proto: src/core/combat/content.ts (<code>ENEMY_DEFS</code>, <code>ENEMY_SKILLS</code>). For enemies, a skill’s <code>targetSide: 'enemy'</code> means it targets a <strong>hero</strong>; position 1 = front rank.</p>
+<h2 id="common-elite-enemies-implemented" tabindex="-1"><a class="header-anchor" href="#common-elite-enemies-implemented">Common / elite enemies <code>[IMPLEMENTED]</code></a></h2>
+<table>
+<thead>
+<tr>
+<th>Enemy (id)</th>
+<th>Role</th>
+<th>HP</th>
+<th>AP</th>
+<th>Speed</th>
+<th>STR / MAG</th>
+<th>DEF / RES</th>
+<th>ACC / Crit</th>
+<th>Start rank</th>
+<th>Skills (AP · effect)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="../bestiary/imps.html">Goblin Imp</a></strong> (<code>goblin_imp</code>) 👺</td>
+<td>Skirmisher</td>
+<td>16</td>
+<td>2</td>
+<td>5</td>
+<td>8 / 2</td>
+<td>4 / 2</td>
+<td>86 / 8</td>
+<td>1</td>
+<td><strong>Stab</strong> (1 · 6 phys, ranks 1–2); <strong>Snatch</strong> (1 · 3 phys + Speed Down). Intent weights: Stab 3, Snatch 1</td>
+</tr>
+<tr>
+<td><strong><a href="../bestiary/slimes.html">Cinder Slime</a></strong> (<code>slime</code>) 🟢</td>
+<td>Bruiser</td>
+<td>26</td>
+<td>2</td>
+<td>3</td>
+<td>7 / 2</td>
+<td>8 / 4</td>
+<td>88 / 4</td>
+<td>2</td>
+<td><strong>Splash</strong> (1 · 5 phys, ranks 1–3); <strong>Dissolve</strong> (2 · 4 phys + Defense Down). Weights: Splash 2, Dissolve 1</td>
+</tr>
+<tr>
+<td><strong><a href="../bestiary/skeletons.html">Skeleton Archer</a></strong> (<code>skeleton_archer</code>) 💀</td>
+<td>Marksman</td>
+<td>15</td>
+<td>2</td>
+<td>6</td>
+<td>9 / 2</td>
+<td>4 / 4</td>
+<td>90 / 12</td>
+<td>3</td>
+<td><strong>Arrow</strong> (1 · 7 phys, any rank 1–4); <strong>Bone Shot</strong> (2 · 10 phys, any rank). Weights: Arrow 2, Bone Shot 1</td>
+</tr>
+<tr>
+<td><strong><a href="../bestiary/brigands.html">River Brigand</a></strong> (<code>brigand</code>) 🗡️</td>
+<td>Cutthroat</td>
+<td>24</td>
+<td>2</td>
+<td>5</td>
+<td>11 / 2</td>
+<td>6 / 4</td>
+<td>88 / 12</td>
+<td>1</td>
+<td><strong>Slash</strong> (1 · 8 phys, ranks 1–2); <strong>Cutpurse</strong> (2 · 6 phys + Bleed). Weights: Slash 2, Cutpurse 1</td>
+</tr>
+<tr>
+<td><strong><a href="../bestiary/imps.html">Hex Imp</a></strong> (<code>imp_caster</code>) 🔮</td>
+<td>Caster</td>
+<td>18</td>
+<td>2</td>
+<td>5</td>
+<td>3 / 12</td>
+<td>4 / 8</td>
+<td>88 / 8</td>
+<td>3</td>
+<td><strong>Hex</strong> (2 · magic, 7 mag + Blind, any rank); <strong>Ward</strong> (1 · magic, Resistance Up on self). Weights: Hex 3, Ward 1</td>
+</tr>
+</tbody>
+</table>
+<p>Notes (005 §Common / elite enemies (proto)):</p>
+<ul>
+<li>The <strong>Cinder Slime</strong> is the proto’s realization of the <a href="../bestiary/slimes.html">slime</a> archetype — a stone-cored bruiser whose body shatters the borrowed sword in the prologue (proto: src/core/campaign/content.ts node <code>n2a</code>). “Cinder” ties it to the game’s title rather than any decided lore name.</li>
+<li>The <strong>Hex Imp</strong> is a magic-using <a href="../bestiary/imps.html">imp</a> variant (caster), distinct from the melee <strong>Goblin Imp</strong>. Neither is the lore-finalized name (Imps/Goblins naming still open).</li>
+<li>The <strong>River Brigand</strong> realizes the <a href="../bestiary/brigands.html">Brigands/Bandits</a> archetype; “River” ties to the Mediterranean/Caribbean river throughline.</li>
+<li><a href="../bestiary/skeletons.html">Skeletons</a> appear as <strong>Skeleton Archers</strong> (ranged), consistent with “mandatory for dungeons”; they fight in the Bone Gallery and the ambush narrows (proto: content.ts nodes <code>n2b</code>, <code>n4</code>).</li>
+</ul>
+<h2 id="boss" tabindex="-1"><a class="header-anchor" href="#boss">Boss</a></h2>
+<p>The slice’s single boss — the tomb-golem <a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> (<code>tomb_golem</code>, 🗿) — has its own page (best-a). It realizes the adaptive-armor design once pitched as the Blacksmith; see also <a href="../bestiary/golems.html">Golems</a>.</p>
+<h2 id="encounter-deployment-implemented" tabindex="-1"><a class="header-anchor" href="#encounter-deployment-implemented">Encounter deployment <code>[IMPLEMENTED]</code></a></h2>
+<p>Enemies are placed across the dungeon graph (proto: src/core/campaign/content.ts):</p>
+<ul>
+<li><strong>The Crumbling Stair</strong> (<code>n1</code>, fight): 2× Goblin Imp + Cinder Slime.</li>
+<li><strong>Ambush in the Narrows</strong> (<code>n2b</code>, elite, <strong>ambush: true</strong>): River Brigand + Skeleton Archer + Hex Imp. The ambush flag <strong>scatters the party’s formation</strong> at battle start (proto: src/core/campaign/run.ts — <code>scatterFormation</code>) — see <a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a>.</li>
+<li><strong>The Bone Gallery</strong> (<code>n4</code>, fight): Cinder Slime + 2× Skeleton Archer.</li>
+<li><strong>The Ossuary Sentinel</strong> (<code>n5</code>, boss): the tomb golem alone.</li>
+<li>Repeated archetypes get unique instance ids and are placed front-to-back (positions capped at rank 3) (proto: src/core/campaign/run.ts — <code>buildEncounter</code>).</li>
+</ul>
+<h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
+<p>The behavior of this roster is shaped by systems owned by other batches: enemies telegraph via the proto’s <a href="../systems/enemy-intent.html">6 readable intent categories</a>; they draw statuses from the shared status bank; and they get deadlier under <a href="../systems/escalation.html">Escalation</a> (attackers gain an accuracy/crit “edge” the longer a fight runs), with the <strong>Wounded</strong> amplifier (×1.25 taken below 50% HP) and a one-per-fight <strong>shield</strong> blunting big hits. See the systems namespace for those.</p>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-16</strong> — the brainstorm “versus” test roster listed Goblins, <a href="../bestiary/slimes.html">Slimes</a>, <a href="../bestiary/golems.html">Golems</a>, <a href="../bestiary/brigands.html">Brigands</a> as enemies (M02168, CrunchyConniptions). The implemented roster differs: it uses Goblin Imp + Hex Imp for the imp/goblin archetype, Cinder Slime, Skeleton Archer, River Brigand, and puts the golem only as the boss.</li>
+<li><strong>(proto, undated)</strong> — the five-enemy roster + golem boss shipped in the vertical slice. [IMPLEMENTED] (005 §Design Decisions Finalized: “a 6-enemy roster… + a golem boss”).</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M02168 (CrunchyConniptions, 2023-02-16, test roster)</li>
+<li><strong>Cleaned:</strong> 000 (test setup)</li>
+<li><strong>Docs:</strong> 005 §Implemented Proto Bestiary, §Common / elite enemies (proto), §Encounter context (proto), §Design Decisions Finalized</li>
+<li><strong>Proto:</strong> src/core/combat/content.ts (<code>ENEMY_DEFS</code>, <code>ENEMY_SKILLS</code>); src/core/campaign/content.ts; src/core/campaign/run.ts</li>
+<li><strong>Ledger:</strong> enemy/test-roster rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/brigands.html">Brigands &amp; Bandits</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/imps.html">Imps</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/skeletons.html">Skeletons</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/slimes.html">Slimes</a> <span class="blns">Bestiary</span></li></ul></div>
+    <footer class="foot">Source docs: 005 §Implemented Proto Bestiary · 005 §Common / elite enemies (proto) · 005 §Encounter context (proto) · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navigation Compass (Compass-over-Maps) · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub active" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Navigation Compass (Compass-over-Maps)</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Navigation Compass (Compass-over-Maps)</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Compass system</i>, <i>Compass navigation</i>, <i>Minimal Maps</i>, <i>Maps are taboo</i></div>
+      <div class="datemeta">First conceived <b>2021-05-13 (M00092, CrunchyConniptions)</b> · last in chat <b>2021-05-13 (M00092; later refined — see Design history)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="navigation-compass-compass-over-maps-canon" tabindex="-1"><a class="header-anchor" href="#navigation-compass-compass-over-maps-canon">Navigation Compass (Compass-over-Maps) <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>How the player finds their way through the world and dungeons: a compass-first navigation model that deliberately avoids maps and minimaps.</p>
+</blockquote>
+<p><strong>Summary</strong> — Soaring Cinders navigates by <strong>compass, not map</strong>. The proto ships <code><span class="badge b-canon">CANON · implemented</span></code> <strong>compass-style node navigation with no minimap</strong>: each dungeon node presents next-node choices labelled with compass-style prompts — <em>“Descend,” “Press into the dark,” “Take the faster, darker way”</em> — rather than a spatial map (008 §3; proto <code>src/core/campaign/types.ts</code> <code>DungeonNode.compass</code>, <code>src/web/screens.ts</code>; <code>GAME_DESIGN.md §14 &quot;Compass &gt; maps. No minimaps.&quot;</code>). This grew out of a 2021 design rule that <strong>“maps are taboo”</strong> — a Skyrim-inspired preference for a compass that “guides you to the fun” over a map you stare at (M00092, M00108, CrunchyConniptions, 2021-05-13). The rule was later softened: the <strong>real</strong> taboo is a world too hard to traverse without a map, not maps themselves (M00115–M00116, CrunchyConniptions, 2021-05-13).</p>
+<h2 id="description-current-model" tabindex="-1"><a class="header-anchor" href="#description-current-model">Description (current model)</a></h2>
+<ul>
+<li><strong>Compass over maps:</strong> navigation emphasizes a compass; any actual map is “very simple and not that necessary” (M00108, CrunchyConniptions, 2021-05-13; 008 §3).</li>
+<li><strong>No minimap in the proto:</strong> the vertical slice ships node navigation with <strong>no minimap</strong>; each <code>DungeonNode</code> carries <code>compass</code> prompt labels for its onward choices (008 §3, §13; proto <code>types.ts</code>, <code>screens.ts</code>).</li>
+<li><strong>Node graph, never a spatial map:</strong> the playable dungeon <em>“The Descent into Ajax’s Tomb”</em> is a <strong>compass-navigated node graph</strong> — start → fight → branch → riverside camp → fight → boss — never a spatial map (008 §13; proto <code>src/core/campaign/content.ts</code>). See <a href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a> for the full run structure.</li>
+</ul>
+<h2 id="rules-design-intent" tabindex="-1"><a class="header-anchor" href="#rules-design-intent">Rules / Design intent</a></h2>
+<ul>
+<li><strong>Minimal Maps</strong> is one of the summarized core design pillars — “compass-based navigation preferred” (008 §Summary of Core Design Pillars; see <a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a>).</li>
+<li><strong>Maps are taboo (debated):</strong> the standing design rule, quoted verbatim from the notes — <em>“Maps are boring. Maps are tedious. Maps are effective and productive. Maps are not fun. Maps are for boring nerds”</em> (M00092, CrunchyConniptions, 2021-05-13; 008 §3, §19).</li>
+<li><strong>Purpose of a map, if used:</strong> only to “guide people to the fun, not because MAPS are fun” — they guide you to the fun (M00095–M00096, CrunchyConniptions, 2021-05-13).</li>
+<li><strong>The real taboo:</strong> a world so hard to traverse yourself that you’re forced onto the minimap — flagged against Final Fantasy and Witcher as what to avoid (M00115–M00117, CrunchyConniptions, 2021-05-13; 008 §3).</li>
+</ul>
+<h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
+<ul>
+<li>The <strong>river</strong> doubles as an in-world wayfinding aid — “the river also acts as a visual compass” (M04021, CrunchyConniptions, 2023-10-13). See <a href="../items/river-flask.html">River Flask</a> and <a href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a>.</li>
+<li>The compass node graph is the traversal layer of the <a href="../systems/dungeon-run-loop.html">dungeon run</a>; nodes may attach a fight, reward, <a href="../systems/dungeon-run-loop.html#ambush">ambush</a>, or camp.</li>
+</ul>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> “Maps are taboo” is explicitly tagged debated: FreshToast disagreed about maps outright but accepted “pleasant alternatives,” liking Skyrim/Ghost-style maps that show where found things are (M00093, M00105–M00106, FreshToast, 2021-05-13). The compromise landed on compass-first with a de-emphasized simple map.</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> Elevation cues — FreshToast wished the compass had “a better way to indicate elevation” (M00111, FreshToast, 2021-05-13); unresolved.</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2021-05-13</strong> — the <strong>“maps are taboo”</strong> design rule is stated: maps are effective but not fun, “for boring nerds” (M00092, CrunchyConniptions, 2021-05-13). FreshToast pushes back, preferring Skyrim/Ghost-of-Tsushima maps that hint at cool stuff (M00093, M00105–M00106, FreshToast).</li>
+<li><strong>2021-05-13</strong> — the position lands on <strong>compass-over-maps</strong>: “The use of the compass, I love! Emphasising the map even less… the actual map is very simple and not that necessary” (M00108, CrunchyConniptions); “The compass is a neat minimap, definitely better in some ways” (M00109, FreshToast).</li>
+<li><strong>2021-05-13</strong> — Crunchy re-scopes the taboo: his real dislike is <strong>minimaps</strong>, and the <strong>real taboo</strong> is a world too hard to traverse without one (M00110, M00115–M00116, CrunchyConniptions) — <em>refines the blanket anti-map stance</em>.</li>
+<li><strong>2023-10-13</strong> — the world’s <strong>river</strong> is designated a “visual compass,” reinforcing in-world wayfinding over UI maps (M04021, CrunchyConniptions, 2023-10-13).</li>
+<li><strong>2026-06-16</strong> — implemented-code pass: the proto ships <strong>compass-style node navigation with no minimap</strong>, with per-node compass prompts, honouring the compass-over-maps pillar (008 §3, §13; proto <code>campaign/types.ts</code>, <code>web/screens.ts</code>). <em>(Current presentation above.)</em></li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M00092–M00118 (CrunchyConniptions/FreshToast, 2021-05-13); M04021 (CrunchyConniptions, 2023-10-13)</li>
+<li><strong>Cleaned:</strong> 000 Part 1 §Design Rules (Maps are taboo); 000 Part 3 §Navigation</li>
+<li><strong>Docs:</strong> 008 §3 Navigation Systems; 008 §13 Vertical-Slice Dungeon; 008 §19 Design Rules; 008 §Summary of Core Design Pillars</li>
+<li><strong>Ledger:</strong> the M00092–M00118 maps/compass thread in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a> <span class="blns">Systems</span></li></ul></div>
+    <footer class="foot">Source docs: 008 §3 Navigation Systems · 008 §13 Vertical-Slice Dungeon · 008 §19 Design Rules · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

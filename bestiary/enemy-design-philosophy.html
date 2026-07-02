@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enemy Design Philosophy · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><details class="nsgroup" open><summary><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></summary><a class="nav sub idxlink" href="../bestiary/index.html">All bestiary →</a><a class="nav sub" href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a><a class="nav sub" href="../bestiary/brigands.html">Brigands &amp; Bandits</a><a class="nav sub" href="../bestiary/death-daemon.html">DD, the Death Daemon</a><a class="nav sub" href="../bestiary/dracosis.html">Dracosis (The Dragon Virus)</a><a class="nav sub" href="../bestiary/eldritch-superboss.html">Eldritch Super Boss</a><a class="nav sub" href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a><a class="nav sub active" href="../bestiary/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../bestiary/eye-dungeon-boss.html">Eye Dungeon Boss</a><a class="nav sub" href="../bestiary/fear-effect.html">Fear Effect</a><a class="nav sub" href="../bestiary/giant-beetle.html">Giant Beetle ("Round Boi")</a><a class="nav sub" href="../bestiary/golems.html">Golems</a><a class="nav sub" href="../bestiary/grafting-cult.html">Grafting Cult &amp; Monster Evolution</a><a class="nav sub" href="../bestiary/imps.html">Imps</a><a class="nav sub" href="../bestiary/minor-creatures.html">Minor &amp; Undeveloped Creatures</a><a class="nav sub" href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a><a class="nav sub" href="../bestiary/pirate-monkeys.html">Pirate Monkeys</a><a class="nav sub" href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a><a class="nav sub" href="../bestiary/skeletons.html">Skeletons</a><a class="nav sub" href="../bestiary/slimes.html">Slimes</a><a class="nav sub" href="../bestiary/telekinetic-sword-boss.html">Telekinetic Sword Boss</a><a class="nav sub" href="../bestiary/vaenngrym.html">Vaenngrym</a><a class="nav sub" href="../bestiary/vampires.html">Vampires</a><a class="nav sub" href="../bestiary/vampirism.html">Vampirism</a></details><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></a><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Enemy Design Philosophy</span></div>
+    <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Enemy Design Philosophy</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Scaling &amp; Progression</i>, <i>Making Enemies Scary</i>, <i>Creature Design Philosophy</i></div>
+      <div class="datemeta">First conceived <b>2023-02-11 (M01498, FreshToast)</b> · last in chat <b>2024-09-01 (M05683, FreshToast)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="enemy-design-philosophy-canon" tabindex="-1"><a class="header-anchor" href="#enemy-design-philosophy-canon">Enemy Design Philosophy <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>The rules the whole bestiary obeys: enemies get harder through <strong>tactical complexity, not bigger numbers</strong> — you go from fighting bandits to a dragon, never from bandits to bandits with quadruple HP.</p>
+</blockquote>
+<p><strong>Summary</strong> — The bestiary is governed by a few finalized principles: (1) progression comes from tactical complexity, not HP bloat; (2) enemies vary in sensory gimmicks (blind, invisible, light-sensitive) so different dungeons reward different skills; (3) scary enemies are built through resource starvation, escalation, and phases that express their power, plus tapping relatable fears; and (4) classic creature traits are preserved (hydrae have loads of heads, griffons are bird-lions, dragons breathe fire). “Simple fantasy world upfront, weird stuff out back.”</p>
+<h2 id="scaling-progression-canon" tabindex="-1"><a class="header-anchor" href="#scaling-progression-canon">Scaling &amp; progression <code><span class="badge b-canon">CANON</span></code></a></h2>
+<ul>
+<li>“Later enemies will <strong>not</strong> have bigger numbers than beginning enemies… They will rather be more complicated and tactical fights” — maybe some bigger numbers for balance, “but with reason” (005 §Scaling &amp; Progression; the leveling/quality-system note).</li>
+<li><strong>Bandits → dragon, not bandits with quadruple HP:</strong> progression is meant to move from bandits to a dragon rather than “bandits to bandits with quadruple HP” (005 §Scaling &amp; Progression). Backed by the linear-scaling decision: “Linear scaling over exponential scaling to limit number bloat and reduce numerical impact of later levels to emphasi[ze] the tactical depth of combat and equipment choice” (M02100, FreshToast, 2023-02-16).</li>
+<li><strong>Recycle minibosses to flatter the player:</strong> “you can throw what was once a miniboss at the player in a pair or trio to make the player feel cool” (M01498, FreshToast, 2023-02-11).</li>
+<li>The strategic-progression <strong>arc is goblins → dragon → <a href="../characters/lysander.html">Lysander</a></strong>: the game teaches different strategic approaches through gameplay (<a href="../bestiary/imps.html">Imps/Goblins</a> → <a href="../bestiary/vaenngrym.html">Vaenngrym</a> → <a href="../characters/lysander.html">Lysander</a>). “The best strat to beat goblins is raw individual overwhelming power” (005 §Combat Strategy).</li>
+</ul>
+<blockquote>
+<p><strong>Proto note:</strong> the “make fights end fast” instinct is implemented as the <strong>Escalation</strong> system (enemies gain an accuracy/crit “edge” the longer a fight runs) — an item owned by the systems batch. See <a href="../systems/escalation.html">Escalation Mechanic</a>.</p>
+</blockquote>
+<h2 id="enemy-variety-debated" tabindex="-1"><a class="header-anchor" href="#enemy-variety-debated">Enemy variety <code><span class="badge b-debated">DEBATED</span></code></a></h2>
+<p>Discussed sensory gimmicks that let different dungeons incentivize different skills (M01448-region, CrunchyConniptions, 2023-02-11):</p>
+<ul>
+<li>Some enemies are <strong>blind</strong>.</li>
+<li>Some enemies are <strong>invisible and can only be seen with magic, but you can hear them</strong>.</li>
+<li>Some enemies are <strong>sensitive to light</strong> and “will see your torch before you see them” — countered by a party member who sees in the dark without a torch (005 §Enemy Variety). See the <a href="../bestiary/encounters-and-ambushes.html">lantern/light interaction</a>.</li>
+<li>“Different dungeons have levels and enemies that incentivize different skills to be used” (005 §Enemy Variety).</li>
+</ul>
+<h2 id="making-enemies-scary" tabindex="-1"><a class="header-anchor" href="#making-enemies-scary">Making enemies scary</a></h2>
+<p>Techniques the team catalogued for frightening encounters (M01799–M01801, FreshToast, 2023-02-11):</p>
+<ul>
+<li><strong>Mechanically scary:</strong> resource starvation; extended conflict; events or phases that express the monster’s power (M01799).</li>
+<li><strong>Thematically scary:</strong> make it seem you only stand a chance because it’s weakened; have it kill something else scary; tap into common relatable fears — <strong>body horror, fear of heights, megalophobia, thalassophobia</strong> (M01800).</li>
+<li><strong>Herd instinct:</strong> “humans are herd animals. If the characters are scared — especially non-player characters like the villains — that’s a signal… for people to also feel apprehensive” (M01801).</li>
+<li>Making a monster interesting needs “both writing experience… AND game design experience/creativity to make it work mechanically” (005 §Making Enemies Scary). These techniques are applied hardest to <a href="../bestiary/vaenngrym.html">Vaenngrym</a> (best-a) and its <a href="../bestiary/fear-effect.html">fear effect</a>.</li>
+</ul>
+<h2 id="creature-design-philosophy-canon" tabindex="-1"><a class="header-anchor" href="#creature-design-philosophy-canon">Creature design philosophy <code><span class="badge b-canon">CANON</span></code></a></h2>
+<ul>
+<li><strong>Consistent with the vision:</strong> “simple fantasy world upfront, weird stuff out back” (005 §Core Concept).</li>
+<li><strong>Keep classic traits intact:</strong> “Hydrae have loads of heads, griffons are bird-lions and dragons breath[e] fire” (M04623, FreshToast, 2023-10-24); “I think I want goblins as is, not changed much. There aren’t enough goblins out there” (M04618, CrunchyConniptions, 2023-10-24). See <a href="../bestiary/imps.html">Imps</a> and <a href="../bestiary/minor-creatures.html">Hydrae/Griffons</a>.</li>
+</ul>
+<h2 id="tactical-complexity-summary-of-the-throughline" tabindex="-1"><a class="header-anchor" href="#tactical-complexity-summary-of-the-throughline">Tactical complexity (summary of the throughline)</a></h2>
+<ul>
+<li>Later enemies focus on tactical complexity rather than stat inflation, incentivizing different party compositions and strategies for different dungeons (005 §Tactical Complexity). This is the design intent that the proto’s <a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> boss enacts — beaten by reading intent, not out-damaging 132 HP.</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-11</strong> — core scaling ideas: recycle minibosses in pairs/trios (M01498); the “make it scary” toolkit — resource starvation, phases, relatable fears, herd instinct (M01799–M01801); enemy-variety sensory gimmicks (blind/invisible/light-sensitive) (M01448-region).</li>
+<li><strong>2023-02-16</strong> — linear-over-exponential scaling locked to emphasize tactical depth (M02100, FreshToast).</li>
+<li><strong>2023-10-24</strong> — “keep classic traits intact” fixed as a creature-design principle (M04618, M04623).</li>
+<li><strong>2024-09-01</strong> — the ethos continues to guide new creature discussion (e.g. slimes following natural forms, M05683). <em>These principles are recorded as finalized decisions (005 §Design Decisions Finalized).</em></li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M01448-region, M01498, M01799–M01801 (2023-02-11); M02100 (FreshToast, 2023-02-16); M04618, M04623 (2023-10-24); M05683 (2024-09-01)</li>
+<li><strong>Cleaned:</strong> 000 (Enemy Design Philosophy; Making Enemies Scary; Creature Design)</li>
+<li><strong>Docs:</strong> 005 §Enemy Design Philosophy, §Scaling &amp; Progression, §Enemy Variety, §Making Enemies Scary, §Creature Design Philosophy, §Core Concept, §Tactical Complexity, §Design Decisions Finalized</li>
+<li><strong>Ledger:</strong> scaling/creature-design rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/brigands.html">Brigands &amp; Bandits</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/fear-effect.html">Fear Effect</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/golems.html">Golems</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/imps.html">Imps</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/minor-creatures.html">Minor &amp; Undeveloped Creatures</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> <span class="blns">Bestiary</span></li></ul></div>
+    <footer class="foot">Source docs: 005 §Enemy Design Philosophy · 005 §Scaling &amp; Progression · 005 §Enemy Variety · 005 §Creature Design Philosophy · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

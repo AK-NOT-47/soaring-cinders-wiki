@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Game+ System · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub active" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>New Game+ System</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>New Game+ System</h1>
+      <div class="facets"><span class="badge b-proposed">PROPOSED</span><span class="facet f-iter">Skyward Cinders</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>NG+</i></div>
+      <div class="datemeta">First conceived <b>2024-09-04 (M05684, FreshToast)</b> · last in chat <b>2024-09-04 (M05686, FreshToast)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="new-game-system-proposed" tabindex="-1"><a class="header-anchor" href="#new-game-system-proposed">New Game+ System <code><span class="badge b-proposed">PROPOSED</span></code></a></h1>
+<blockquote>
+<p>A Fire-Emblem-Three-Houses-inspired second-playthrough layer where a special resource lets you buy skills early and gamble on random gear rolls.</p>
+</blockquote>
+<p><strong>Summary</strong> — In New Game+, players <strong>earn and spend a special resource</strong> to <strong>buy skills early</strong> and <strong>acquire random rolls on gear at varying rarities</strong>, inspired by <em>Fire Emblem: Three Houses</em> (M05684, FreshToast, 2024-09-04; 008 §15). Discovering a piece of gear unlocks it in a <strong>gacha menu</strong> for repeat random rolls; skills get cheaper the closer you are to their natural unlock; and obsolete gear can be <strong>broken down into the resource</strong>. The whole design <strong>assumes</strong> a classic levels-and-rarities gear model in the late game and is <strong>not implemented in the proto</strong> (008 §preamble lists NG+ among systems “not yet coded”).</p>
+<h2 id="core-concept" tabindex="-1"><a class="header-anchor" href="#core-concept">Core concept</a></h2>
+<p>Inspired by <em>Fire Emblem: Three Houses</em> (M05684, 2024-09-04; 008 §15):</p>
+<ul>
+<li><strong>Earn and spend a special resource in NG+.</strong></li>
+<li><strong>Buy skills early.</strong></li>
+<li><strong>Acquire random rolls on gear at varying rarities.</strong></li>
+</ul>
+<h2 id="gear-system-ng" tabindex="-1"><a class="header-anchor" href="#gear-system-ng">Gear system (NG+)</a></h2>
+<ul>
+<li>Once you <strong>discover a piece of gear at any rarity, unlock it for the gacha menu</strong>, where you can purchase a <strong>random roll of it at available rarities</strong> (008 §15).</li>
+<li><strong>Rarities for purchase unlock as you progress</strong> through the game.</li>
+<li><strong>Gear found in the previous playthrough is available for purchase.</strong></li>
+<li><strong>Lowest rarity is especially cheap</strong> — to encourage experimentation, or early acquisition of usually-unavailable build options.</li>
+<li><strong>Unique pieces of gear</strong> are available but <strong>at a higher price and with fixed statistics</strong>.</li>
+<li><strong>Gear purchased scales to level</strong>, and <strong>all gear can have its level (but not rarity) increased</strong> via the new resource.</li>
+</ul>
+<h2 id="skills-purchase-ng" tabindex="-1"><a class="header-anchor" href="#skills-purchase-ng">Skills purchase (NG+)</a></h2>
+<ul>
+<li><strong>Skills are expensive</strong>, but <strong>the closer you get to a skill’s natural unlock, the easier it is to acquire</strong> (008 §15).</li>
+<li><strong>Decision-unlock skills remain unavailable for purchase</strong> — but you <em>can</em> acquire the item used to get <strong>alternative-path skills</strong>, meaning <strong>all 14 path skills can be unlocked in NG+</strong>.</li>
+</ul>
+<h2 id="resource-acquisition-ng" tabindex="-1"><a class="header-anchor" href="#resource-acquisition-ng">Resource acquisition (NG+)</a></h2>
+<ul>
+<li><strong>Earned naturally alongside other rewards</strong>, but <strong>most efficiently acquired from quest completion and filling out the bestiary</strong> (008 §15).</li>
+<li>You can now <strong>break down gear into this resource</strong> in addition to what is naturally found — so <strong>obsolete gear serves an additional purpose</strong> and can always be converted into something useful.</li>
+</ul>
+<h2 id="assumptions" tabindex="-1"><a class="header-anchor" href="#assumptions">Assumptions</a></h2>
+<p>The whole NG+ design leans on how gear scales into the late game (M05685, M05686, FreshToast, 2024-09-04; 008 §15):</p>
+<ul>
+<li>“This kinda assumes a lot about how gear scales into late game.”</li>
+<li>“But I assume it all has classic levels &amp; rarities” — i.e. <strong>levels inflate the numbers a bit and higher rarities give more/better bonuses.</strong></li>
+</ul>
+<p>This ties NG+ to the still-unimplemented <strong>Tier + Quality + Rune</strong> equipment model (see <a href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a> and 008 §9 Equipment Progression), which is likewise design-target-only.</p>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-proposed">PROPOSED</span></code> Whether gear actually uses “classic levels &amp; rarities” late-game — the entire NG+ economy depends on an assumption FreshToast flagged as unconfirmed (M05685-M05686, 2024-09-04; 008 §15 Assumptions).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2024-09-04</strong> — New Game+ proposed in full: a Three-Houses-inspired special resource to buy skills early and roll random gear; the gacha-unlock, cheap-lowest-rarity, unique-fixed-stat, level-scaling, skill-cost-near-unlock, all-14-path-skills, and gear-breakdown rules (M05684, FreshToast, 2024-09-04; 008 §15).</li>
+<li><strong>2024-09-04</strong> — Follow-up caveat: the design “assumes a lot about how gear scales into late game,” presuming classic levels &amp; rarities (M05685, M05686, FreshToast, 2024-09-04; 008 §15 Assumptions).</li>
+<li><strong>2026-06-16</strong> — Implemented-code pass confirms NG+ is <strong>not yet coded</strong> — it remains notes-era design intent (008 §preamble).</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M05684, M05685, M05686 (FreshToast, 2024-09-04)</li>
+<li><strong>Cleaned:</strong> 000 §New Game+ (lines ~7479-7496)</li>
+<li><strong>Docs:</strong> 008 §15 New Game+ System</li>
+<li><strong>Ledger:</strong> <code>Documentation/Verification/discord_provenance_ledger.csv</code> (mechanics rows)</li>
+</ul>
+</article>
+    
+    <footer class="foot">Source docs: 008 §15 New Game+ System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

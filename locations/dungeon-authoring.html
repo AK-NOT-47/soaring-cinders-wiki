@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dungeon Authoring &amp; Design Canon · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><details class="nsgroup" open><summary><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></summary><a class="nav sub idxlink" href="../locations/index.html">All locations →</a><a class="nav sub" href="../locations/ajaxs-tomb.html">Ajax's Tomb &amp; the Prologue Dungeon</a><a class="nav sub" href="../locations/caelia.html">Caelia</a><a class="nav sub" href="../locations/camps-and-wells.html">Camps &amp; the Wells (Bonfire Network)</a><a class="nav sub" href="../locations/countries-and-regions.html">Countries and Regions</a><a class="nav sub active" href="../locations/dungeon-authoring.html">Dungeon Authoring &amp; Design Canon</a><a class="nav sub" href="../locations/elemental-dungeons.html">Elemental &amp; Themed Dungeon Types</a><a class="nav sub" href="../locations/biomes.html">Environmental Biomes</a><a class="nav sub" href="../locations/fiore.html">Fiore</a><a class="nav sub" href="../locations/gacha-fountain.html">Gacha Fountain</a><a class="nav sub" href="../locations/lycosia.html">Lycosia</a><a class="nav sub" href="../locations/maid-inn.html">Maid Inn (MAIDEN)</a><a class="nav sub" href="../locations/marketplace-caelia.html">Marketplace (Caelia)</a><a class="nav sub" href="../locations/mountains.html">Mountains — Key Mountain, Sneak Peak &amp; Ashen Crags</a><a class="nav sub" href="../locations/ninja-village.html">Ninja Village</a><a class="nav sub" href="../locations/santier.html">Santier</a><a class="nav sub" href="../locations/hundred-floor-dungeon.html">The 100-Floor Dungeon (Early Concept)</a><a class="nav sub" href="../locations/eye-dungeon.html">The Eye Dungeon</a><a class="nav sub" href="../locations/grand-library.html">The Grand Library</a><a class="nav sub" href="../locations/the-luminarium.html">The Luminarium</a><a class="nav sub" href="../locations/sodden-depths.html">The Sodden Depths</a><a class="nav sub" href="../locations/town-dragon-attacked.html">Town (Dragon-Attacked)</a><a class="nav sub" href="../locations/world-map-and-travel.html">World Map, Travel &amp; Settlement Geography</a></details><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></a><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Locations</a><span class="sep">/</span><span>Dungeon Authoring &amp; Design Canon</span></div>
+    <div class="page-head"><div class="eyebrow">🗺️ Locations</div><h1>Dungeon Authoring &amp; Design Canon</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>Dungeon Design Philosophy</i></div>
+      <div class="datemeta">First conceived <b>2023-02-02 (M00853, CrunchyConniptions)</b> · last in chat <b>2024-02-13 (M05329)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="dungeon-authoring-design-canon-canon" tabindex="-1"><a class="header-anchor" href="#dungeon-authoring-design-canon-canon">Dungeon Authoring &amp; Design Canon <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>How dungeons are built and what makes a good one — the shared rulebook every specific dungeon in the world is authored against.</p>
+</blockquote>
+<p><strong>Summary</strong> — Dungeons are the team’s flagship content, guarded jealously (“Leave the dungeons to me”). The design brief is exploration-first, atmosphere-heavy, completely dark, and varied — not just underground caves but mansions, forests, ruins, temples, and tombs. In the implemented proto, a dungeon is a <strong>navigable node graph</strong> (rooms, edges, encounters, treasure, camp, boss) rather than a spatial floor plan, with per-node darkness and ambush flags realizing the design notes (proto: src/core/campaign/content.ts, src/core/campaign/types.ts). Spatial layout is deferred to Unity.</p>
+<h2 id="design-goals" tabindex="-1"><a class="header-anchor" href="#design-goals">Design goals</a></h2>
+<ul>
+<li><strong>Exploration is peak dungeon design.</strong> Puzzle elements are welcome, but the priority is to “beef up the exploration”; each dungeon should incentivize different skills and characters (003 §Design Goals).</li>
+<li><strong>Quality over quantity.</strong> “I will only accept the best for our dungeons”; the team wants each dungeon excellent, citing Sen’s Fortress, Anor Londo’s elevator sequences, and finding the Onion Knight in <em>Dark Souls 3</em> as examples of excellence (003 §Examples of Excellence).</li>
+<li><strong>Inspiration:</strong> Golden Sun (renowned for its dungeons) and old Zelda dungeons (M05329–M05340, CrunchyConniptions, 2024-02-13); an RPGFan article “Dungeon Crawlers 1: What Makes a Great RPG Dungeon” was cited as reference.</li>
+<li><strong>Presentation and atmosphere are especially important</strong> to make a dungeon memorable and immersive, “so that other stuff like cool puzzles and narrative beats feel more impactful” (M05335–M05340, CrunchyConniptions, 2024-02-13).</li>
+<li><strong>Environmental storytelling</strong> (Skyrim reference): each location should have narrative purpose beyond combat (003 §Environmental Storytelling).</li>
+<li><strong>Trap design:</strong> dungeons with “annoying traps that you overcome (chef’s kiss)” (003 §Design Philosophy Notes).</li>
+<li><strong>Team division:</strong> “You like your dumb open-world game. you can take lead in designing the open world. Leave the dungeons to me” (003 §Examples of Excellence).</li>
+</ul>
+<h2 id="variety-not-just-caves" tabindex="-1"><a class="header-anchor" href="#variety-not-just-caves">Variety — not just caves</a></h2>
+<p>Dungeons aren’t just underground caves (M01641–M01648, FreshToast). Types include:
+spooky mansions, scary forests, terrifying mountain paths, ghoulish ruins, petrifying temples (“to anything not a liquid”), and skeleton tombs (“Dungeons and no skeletons? A travesty”). The team planned to use these as four of the actual in-game dungeons (003 §Types Include; §Dungeon Philosophy and Variety).</p>
+<p><strong>Dungeon count:</strong> <code><span class="badge b-debated">DEBATED</span></code> A debate between <strong>7 dungeons</strong> (with 1 puzzle per dungeon) versus “more than 7” was never settled (003 §Design Goals).</p>
+<h2 id="darkness-mechanic" tabindex="-1"><a class="header-anchor" href="#darkness-mechanic">Darkness mechanic</a></h2>
+<p>Dungeons “will be completely dark, with different dungeons having different levels of darkness” (003 §Design Goals). The proto implements this as a per-node <code>darkness</code> value <strong>0–3</strong> — flavor plus intended ambush weighting (proto: src/core/campaign/types.ts <code>darkness?: number</code>). See <a href="../locations/camps-and-wells.html">the Lantern</a> and stealth/light mechanics, owned by items and systems batches.</p>
+<h2 id="authoring-model-implemented-canon-proto" tabindex="-1"><a class="header-anchor" href="#authoring-model-implemented-canon-proto">Authoring model (implemented) <code><span class="badge b-canon">CANON — proto</span></code></a></h2>
+<p>The proto realizes the “dungeons as graphs” intent in code (proto: src/core/campaign/types.ts, content.ts):</p>
+<ul>
+<li>A dungeon is <strong>rooms (nodes) + edges + encounter slots + treasure + camp + boss</strong>.</li>
+<li>Node kinds: <code>start | fight | elite | treasure | camp | boss</code>.</li>
+<li><strong>Compass navigation, no minimaps:</strong> next-room choices are compass-style labels (“Press into the dark”, “Take the faster, darker way”); no minimap, matching the “REAL TABOO” navigation rule (proto: node <code>compass</code> field; src/web/screens.ts). See <a href="../locations/world-map-and-travel.html">World Map, Travel &amp; Settlement Geography</a>.</li>
+<li><strong>Ambush</strong> (<code>ambush: true</code>) scatters the party’s formation at the start of a fight (proto: src/core/campaign/run.ts). See Ambush mechanics below.</li>
+<li><strong>Camp/rest</strong> nodes occupy the dungeon; resting restores the degrading max-HP ceiling. See <a href="../locations/camps-and-wells.html">Camps &amp; the Wells (Bonfire Network)</a>.</li>
+<li><strong>Run resources tied to place:</strong> healing jets (start 2, cap 5), a <a href="../items/river-flask.html">river flask</a> (start 1), a per-fight degrading HP ceiling (degrades 3/fight, floored ~60% of base; only rest restores), and treasure rewards of kind <code>jet | heal | maxhp | relic | flask</code> (proto: src/core/campaign/run.ts, types.ts).</li>
+</ul>
+<h2 id="respawn-system" tabindex="-1"><a class="header-anchor" href="#respawn-system">Respawn system</a></h2>
+<ul>
+<li>Once you clear an area, enemies don’t just pop back up. Only after you completely leave a dungeon may they respawn (003 §Respawn System).</li>
+<li><strong>No boss resets</strong> — a cleared boss is replaced with powerful enemies instead.</li>
+<li><strong>Information system:</strong> information uncovered about a dungeon can be previewed later.</li>
+</ul>
+<h2 id="ambush-mechanics-location-specific" tabindex="-1"><a class="header-anchor" href="#ambush-mechanics-location-specific">Ambush mechanics (location-specific)</a></h2>
+<p>Some enemies attempt to ambush by making sound and rushing toward you; if caught, positioning scatters at the start of battle; the counter is to attack them just as they reach you (003 §Ambush Mechanics). Compared to the “gross sewer babies in Demon’s Souls (weird little scream and jump).” Locations are designed specifically for ambush, and telegraphed so it doesn’t feel cheap. Associated environments: <a href="../locations/biomes.html">foggy bogs, open fields, and dark areas</a>. See also the systems batch for the run-level implementation.</p>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> Dungeon count: exactly 7 (1 puzzle each) vs. “more than 7” (003 §Design Goals).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-02-02</strong> — first elemental-dungeon list logged, implying multiple distinct dungeons (M00853, CrunchyConniptions). See <a href="../locations/elemental-dungeons.html">Elemental &amp; Themed Dungeon Types</a>.</li>
+<li><strong>2023-02-17</strong> — lantern-and-camp resting model established: “resting here resets the dungeon dark souls style” (M02381, FreshToast).</li>
+<li><strong>2024-02-13</strong> — dungeon-research pass fixes the design north star: Golden Sun / old Zelda inspiration, presentation and atmosphere prioritized (M05329–M05340, CrunchyConniptions). <em>This is the current top-level design brief.</em></li>
+<li><strong>2026-06-16</strong> — proto cross-check confirms the graph-authoring model, darkness bands, ambush, and camp are actually coded (003 header note; proto: src/core/campaign/*).</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M00853 (2023-02-02); M01641–M01648, M02381; M05329–M05340 (2024-02-13)</li>
+<li><strong>Cleaned:</strong> 000 Part 1, Part 3, Part 8</li>
+<li><strong>Docs:</strong> 003 §Dungeon Authoring &amp; Exploration Mechanics; §Dungeon Philosophy and Variety; §Respawn System; §Design Philosophy Notes</li>
+<li><strong>Ledger:</strong> rows R05, R09, R28 in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../locations/elemental-dungeons.html">Elemental &amp; Themed Dungeon Types</a> <span class="blns">Locations</span></li><li><a href="../locations/biomes.html">Environmental Biomes</a> <span class="blns">Locations</span></li><li><a href="../locations/mountains.html">Mountains — Key Mountain, Sneak Peak &amp; Ashen Crags</a> <span class="blns">Locations</span></li><li><a href="../locations/hundred-floor-dungeon.html">The 100-Floor Dungeon (Early Concept)</a> <span class="blns">Locations</span></li><li><a href="../locations/eye-dungeon.html">The Eye Dungeon</a> <span class="blns">Locations</span></li><li><a href="../locations/world-map-and-travel.html">World Map, Travel &amp; Settlement Geography</a> <span class="blns">Locations</span></li></ul></div>
+    <footer class="foot">Source docs: 003 §Dungeon Authoring &amp; Exploration Mechanics · 003 §Dungeon Philosophy and Variety · 003 §Respawn System · 003 §Design Philosophy Notes · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

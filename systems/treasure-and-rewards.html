@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Treasure &amp; Rewards · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub active" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Treasure &amp; Rewards</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Treasure &amp; Rewards</h1>
+      <div class="facets"><span class="badge b-proposed">PROPOSED</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>treasure hunting</i>, <i>boss rewards</i>, <i>performance-based rewards</i>, <i>reward kinds</i></div>
+      <div class="datemeta">First conceived <b>2021-02-16 (M00005, CrunchyConniptions)</b> · last in chat <b>2023-10-22 (M04565, CrunchyConniptions)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="treasure-rewards-proposed" tabindex="-1"><a class="header-anchor" href="#treasure-rewards-proposed">Treasure &amp; Rewards <code><span class="badge b-proposed">PROPOSED</span></code></a></h1>
+<blockquote>
+<p>How the game pays the player out: exploration-driven treasure hunting where effort equals value, performance-based boss rewards keyed to how well you fought, and a compact set of implemented run-reward kinds.</p>
+</blockquote>
+<p><strong>Summary</strong> — Rewards span three threads. <strong>Treasure hunting</strong> is a stated core pillar (<em>“Treasure hunting is the best!”</em>) built on the principle that <strong>the more effort and resources you sink in, the better the reward</strong> — hidden treasures most players never find are made especially valuable to reward exploration. <strong>Boss rewards</strong> are <code><span class="badge b-proposed">PROPOSED</span></code> to be <strong>performance-based</strong>: players who do poorly get defensive items, those who do well get offensive items, the exceptional get cursed items — plus a <strong>boss-retry</strong> item to re-attempt for better loot. The playable proto ships a compact, fixed set of <strong>reward kinds</strong> at dungeon nodes. Finally, the <code><span class="badge b-canon">CANON</span></code> <strong>AoE-vs-multi-position bonus</strong> rewards hitting an enemy that fills multiple positions. Most higher-level reward logic is design intent; the reward <em>kinds</em> are implemented.</p>
+<h2 id="treasure-hunting" tabindex="-1"><a class="header-anchor" href="#treasure-hunting">Treasure hunting</a></h2>
+<p>A stated core design pillar — <em>“Treasure hunting is the best! Need game mechanics for this! Many!”</em> (M00090, CrunchyConniptions, 2021-03-20; 008 §12).</p>
+<p><strong>Core philosophy — effort equals value:</strong></p>
+<ul>
+<li><em>“The longer it takes you to find a treasure, the better it is”</em> (M00005, CrunchyConniptions, 2021-02-16), refined to <em>“the more effort and resources you need to put in”</em> (M00006, FreshToast, 2021-02-16).</li>
+<li>A system that <strong>finds treasures on a map that most people don’t find and makes those especially valuable</strong>, to incentivize players to seek them out (M00007, CrunchyConniptions, 2021-02-18).</li>
+</ul>
+<p><strong>Treasure mechanics (008 §12):</strong></p>
+<ul>
+<li>Hidden treasures require exploration; clues and hints scattered through the world; puzzle-solving elements.</li>
+<li>Environmental storytelling leads to treasures.</li>
+<li>Rare treasures from difficult-to-reach locations.</li>
+</ul>
+<p>This ethos feeds the <a href="../systems/dungeon-run-loop.html">dungeon-run loop</a>’s harder-run-better-reward principle and the <a href="../systems/dungeon-run-loop.html#riskreward-luck-bonus">risk/reward luck bonus</a> (M04565, CrunchyConniptions, 2023-10-22).</p>
+<h2 id="performance-based-boss-rewards-proposed" tabindex="-1"><a class="header-anchor" href="#performance-based-boss-rewards-proposed">Performance-based boss rewards <code><span class="badge b-proposed">PROPOSED</span></code></a></h2>
+<p>On the first boss fight, a system identifies player skill and rewards accordingly (008 §13):</p>
+<ul>
+<li><strong>Players who do poorly:</strong> rewarded with <strong>HP and armor</strong> (defensive help).</li>
+<li><strong>Players who do well:</strong> rewarded with <strong>damage-dealing items</strong> (offensive).</li>
+<li><strong>Players who are exceptional:</strong> can receive <strong>cursed items</strong>.</li>
+<li>Rationale: <em>“Balancing the game for both low skill players and high skill players”</em> (008 §13).</li>
+</ul>
+<h2 id="boss-retry-proposed" tabindex="-1"><a class="header-anchor" href="#boss-retry-proposed">Boss retry <code><span class="badge b-proposed">PROPOSED</span></code></a></h2>
+<p>For every boss there is a corresponding item, <strong>found through exploration</strong>, that lets players <strong>retry that boss to get better rewards by performing better</strong> (008 §13). Ties the treasure-hunting thread back to boss rewards — explore to find the retry item, then re-clear the boss more skillfully for the higher tier of loot.</p>
+<h2 id="aoe-vs-multi-position-bonus-canon" tabindex="-1"><a class="header-anchor" href="#aoe-vs-multi-position-bonus-canon">AoE vs multi-position bonus <code><span class="badge b-canon">CANON</span></code></a></h2>
+<p>An AoE that hits an enemy which <strong>occupies multiple positions</strong> deals <strong>bonus damage</strong> — <em>“as if hit twice but not double damage, maybe an extra 20%”</em> (M01842, FreshToast, 2023-02-13; 008 §8; 000 lines 3141-3142). This is <strong>load-bearing for the <a href="../bestiary/vaenngrym.html">Vaenngrym</a> climax</strong>, where he fills all four positions, making an AoE hit on him meaningfully more rewarding. It is a combat-side reward rule tied to the positioning system (see the <a href="../systems/position-system.html">2×3 grid</a> / rank line).</p>
+<h2 id="implemented-reward-kinds-canon-implemented" tabindex="-1"><a class="header-anchor" href="#implemented-reward-kinds-canon-implemented">Implemented reward kinds <code><span class="badge b-canon">CANON · implemented</span></code></a></h2>
+<p>The proto grants a fixed set of reward kinds at dungeon nodes (008 §13; proto: <code>src/core/campaign/types.ts</code> <code>RewardKind</code>, <code>run.ts</code> <code>applyReward</code>):</p>
+<ul>
+<li><strong><code>relic</code></strong> — a <strong>named, non-duplicating collectible</strong> (e.g. <em>“The Sunderer”</em>, <a href="../items/sunderer.html">Ajax’s first relic</a>).</li>
+<li><strong><code>maxhp</code></strong> — +4 base max HP to the whole party.</li>
+<li><strong><code>heal</code></strong> — a % of base max HP restored to all.</li>
+<li><strong><code>jet</code></strong> — +1 <a href="../items/shimmer-sails.html">healing jet</a>.</li>
+<li><strong><code>flask</code></strong> — +1 <a href="../items/river-flask.html">River Flask</a>.</li>
+</ul>
+<p>The proto grants these as <strong>fixed per-node rewards</strong> — it does <strong>not</strong> yet measure player skill or offer boss retries (008 §13, <code><span class="badge b-debated">DEBATED</span></code> design intent vs implemented).</p>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> The performance-based boss reward tiers, cursed-item tier, and boss-retry items are <strong>design intent</strong> — the proto grants fixed per-node rewards and does not measure player skill (008 §13).</li>
+<li><code><span class="badge b-proposed">PROPOSED</span></code> How “effort/resources put in” is actually measured to scale treasure value (M00006, FreshToast, 2021-02-16).</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2021-02-16</strong> — original effort→reward principle: <em>“the longer it takes… the better it is”</em> (M00005, CrunchyConniptions, 2021-02-16), immediately refined to <em>“the more effort and resources you need to put in”</em> (M00006, FreshToast, 2021-02-16).</li>
+<li><strong>2021-02-18</strong> — extended into a <strong>find-the-hidden-and-make-it-valuable</strong> system to incentivize exploration (M00007, CrunchyConniptions, 2021-02-18).</li>
+<li><strong>2021-03-20</strong> — reaffirmed as a core pillar: <em>“Treasure hunting is the best! Need game mechanics for this! Many!”</em> (M00090, CrunchyConniptions, 2021-03-20).</li>
+<li><strong>2023-02-13</strong> — the <strong>AoE-vs-multi-position bonus</strong> (~+20%) established, load-bearing for the Vaenngrym climax (M01842, FreshToast, 2023-02-13).</li>
+<li><strong>2023-10-22</strong> — the treasure/effort ethos folded into the harder-dungeon-better-reward chalice loop: <em>“you make the dungeon harder, your reward is better”</em> (M04564, M04565, CrunchyConniptions, 2023-10-22). <em>(See <a href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a>.)</em></li>
+<li><strong>2026-06-16</strong> — implemented-code pass: proto ships fixed per-node <strong>reward kinds</strong> (<code>relic</code>/<code>maxhp</code>/<code>heal</code>/<code>jet</code>/<code>flask</code>) and the AoE-multi-position bonus; the <strong>performance-based boss tiers and boss-retry</strong> remain unimplemented design intent (008 §13; proto: <code>src/core/campaign/*</code>) — <em>supersedes the performance-tier system as shipped behavior, though it remains the design target</em>.</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M00005, M00006, M00007 (treasure effort principle, CrunchyConniptions/FreshToast, 2021-02-16–18); M00090 (“Treasure hunting is the best!”, CrunchyConniptions, 2021-03-20); M01842 (AoE multi-position bonus, FreshToast, 2023-02-13); M04564, M04565 (harder-run-better-reward, CrunchyConniptions, 2023-10-22)</li>
+<li><strong>Cleaned:</strong> 000 lines 3141-3142 (AoE bonus); 000 Part 17 (chalice/reward loop)</li>
+<li><strong>Docs:</strong> 008 §12 Treasure Hunting Systems; 008 §13 Boss &amp; Reward Systems; 008 §13 Vertical-Slice Dungeon &amp; Reward Kinds; 008 §8 AoE vs multi-position bonus</li>
+<li><strong>Ledger:</strong> src_chunks R01 (treasure/effort seed + “Treasure hunting is the best”), R02 (performance-based boss reward tiers + boss-retry), R10 (AoE multi-position bonus) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a> <span class="blns">Systems</span></li><li><a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a> <span class="blns">Systems</span></li><li><a href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a> <span class="blns">Systems</span></li></ul></div>
+    <footer class="foot">Source docs: 008 §12 Treasure Hunting Systems · 008 §13 Boss &amp; Reward Systems · 008 §13 Vertical-Slice Dungeon &amp; Reward Kinds · 008 §8 AoE vs multi-position bonus · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>

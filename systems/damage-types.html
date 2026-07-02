@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Damage Types &amp; Mitigation · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">11</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">63</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">23</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">19</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">19</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub active" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">7</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Damage Types &amp; Mitigation</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Damage Types &amp; Mitigation</h1>
+      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>Damage types</i>, <i>Physical/Magical</i>, <i>Armor/Resistance</i>, <i>Damage mitigation</i></div>
+      <div class="datemeta">First conceived <b>2023-03-05 (M02889, FreshToast)</b> · last in chat <b>2024-08-20 (M05466)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="damage-types-mitigation-canon" tabindex="-1"><a class="header-anchor" href="#damage-types-mitigation-canon">Damage Types &amp; Mitigation <code><span class="badge b-canon">CANON</span></code></a></h1>
+<blockquote>
+<p>Two damage channels — physical and magical — each countered by its own mitigation stat, plus the player-side toolkit for reducing incoming harm.</p>
+</blockquote>
+<p><strong>Summary</strong> — Combat damage is <strong>physical</strong> or <strong>magical</strong>. Physical damage is mitigated by Damage Resistance (a derived stat under Toughness) and physical armour; magical damage by Damage Resistance and magical armour (008 §5 Damage Types). In the proto these resolve as flat per-character numbers: <code>def</code> mitigates physical, <code>res</code> mitigates magical, each point ≈ 0.5% reduction (008 §5 Damage Formula; proto <code>src/core/combat/resolution.ts</code>). Player-side mitigation splits into four tools — Healing, Redirection, Evasion, and Disruption (008 §5; M05438, FreshToast, 2024-08-20). A <code><span class="badge b-debated">DEBATED</span></code> Divinity-inspired <strong>armor/resistance layer</strong> was discussed but not settled.</p>
+<h2 id="damage-types-the-implemented-formula" tabindex="-1"><a class="header-anchor" href="#damage-types-the-implemented-formula">Damage types &amp; the implemented formula</a></h2>
+<p><strong>Damage channels</strong> (008 §5 Damage Types):</p>
+<ul>
+<li><strong>Physical Damage</strong> — mitigated by Damage Resistance (a derived stat under Toughness) and physical armor.</li>
+<li><strong>Magical Damage</strong> — mitigated by Damage Resistance and magical armor.</li>
+</ul>
+<p><code><span class="badge b-canon">CANON · implemented</span></code> <strong>Formula</strong> (no notes-era formula exists; these are the proto’s computed values — <code>resolution.ts</code>):</p>
+<ul>
+<li><strong>Accuracy:</strong> roll d100 vs <code>clamp(attacker.acc + status accDelta + enemyEdge×2, 5, 99)</code>. <strong>Blind = −40 accuracy.</strong> A miss deals 0.</li>
+<li><strong>Crit:</strong> roll d100 vs <code>clamp(attacker.crit + enemyEdge×2, 0, 95)</code>; a crit multiplies damage by <strong>×1.6</strong> and adds <strong>+1 <a href="../systems/escalation.html">Escalation Mechanic</a></strong>.</li>
+<li><strong>Magnitude:</strong> <code>power × (1 + offense/100) × outMult</code>, then <code>× (1 − mitigation/200)</code> (each mitigation point ≈ 0.5% reduction), then <code>× inMult</code>, then <strong>×1.25 if the defender is <a href="../systems/shields-and-wounded.html">Wounded</a></strong>, then <strong>×1.6 if crit</strong>, then variance <strong>±12%</strong>. <code>offense</code> = the attacker’s <code>str</code> (phys) or <code>mag</code> (mag); <code>mitigation</code> = the defender’s <code>def</code> (phys) or <code>res</code> (mag). <strong>Minimum 1 damage</strong> on any hit.</li>
+<li><strong>Protection buff</strong> halves the final damage of the next hit, then is consumed.</li>
+<li><strong>Healing:</strong> <code>power × (1 + caster.mag/200) × variance(90–112%)</code>, minimum 1.</li>
+</ul>
+<h2 id="player-side-mitigation-tools" tabindex="-1"><a class="header-anchor" href="#player-side-mitigation-tools">Player-side mitigation tools</a></h2>
+<p><code><span class="badge b-canon">CANON</span></code> Four tools (008 §5 Damage Mitigation Tools; M05438, M05456–M05466, FreshToast/spirit_noodle, 2024-08-20):</p>
+<ul>
+<li><strong>Healing</strong> — scarce and capped; “like white health in Darkest Dungeon” but actually a degrading-max-HP ceiling (see below).</li>
+<li><strong>Redirection</strong> — a tougher character takes damage aimed at another (e.g. Thane’s taunt).</li>
+<li><strong>Evasion</strong> — reducing the likelihood of a character being hit (avoid rate in FE3H, dodge in any RPG).</li>
+<li><strong>Disruption</strong> — impairing the enemy’s ability to attack successfully or optimally: forcing a different action OR reducing accuracy.</li>
+</ul>
+<p><strong>Evasion vs Disruption</strong> (008 §5): Evasion = the character becoming harder to hit; Disruption = forcing the enemy to take a different action OR reducing their accuracy (“equivalent of avoid rate in FE3H”).</p>
+<h2 id="healing-health-degrading-max-hp" tabindex="-1"><a class="header-anchor" href="#healing-health-degrading-max-hp">Healing &amp; Health (degrading max-HP)</a></h2>
+<p><code><span class="badge b-canon">CANON</span></code> Four healing sources, ascending: consumables (weakest, possibly removed), healing skills, the healing <strong>Jet</strong>, and the <strong>river heal</strong> (strongest, single-use) (008 §5 Healing &amp; Health, Part 18). See <a href="../items/machina.html">the Jet</a> and <a href="../items/river-flask.html">River Flask</a> (items batch).</p>
+<p><code><span class="badge b-canon">CANON · implemented</span></code> <strong>Degrading Maximum HP:</strong> the healable HP <strong>ceiling</strong> starts full and ratchets <em>down</em> as you take damage, until you rest — healing is a stop-gap, not full recovery (008 §5; proto <code>src/core/campaign/run.ts</code> <code>degradeCeilings</code>, <code>CEILING_DEGRADE_PER_FIGHT = 3</code>, floor 60% of base). See <a href="../systems/shields-and-wounded.html">Wounded</a> for the under-half-HP amplifier.</p>
+<h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
+<ul>
+<li><a href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a> — the Wounded flag adds ×1.25 to incoming damage; shields negate a lethal hit.</li>
+<li><a href="../systems/escalation.html">Escalation Mechanic</a> — feeds the enemy accuracy/crit <code>enemyEdge</code>.</li>
+<li>The 8×9 status bank modifies <code>outMult</code>/<code>inMult</code> and accuracy (Strength/Defense Up/Down, Blind, etc.) (008 §6).</li>
+</ul>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Armor / Resistance layer (Divinity-inspired), Part 11.</strong> A Divinity-style physical/magical armor layer was discussed: armor gives a bonus to percentage resistances and takes damage simultaneously with health. Worked example: 10% base bleed resist + 20 phys armor → 30% total; after 10 physical damage → 10 phys armor left, 20% bleed resist (008 §5; M02889–M02898, FreshToast, 2023-03-05). Variant naming floated as <strong>Physical/Mental</strong> rather than Physical/Magical. Not settled, not implemented.</li>
+</ul>
+<h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
+<ul>
+<li><strong>2023-03-05</strong> — original armor/resistance discussion: Divinity-style physical/magical armor giving a bonus to percentage resistances and taking damage alongside health; the bleed-resist worked example; possible Physical/Mental naming (M02889–M02898, FreshToast). <em>(Ledger R16.)</em> — <em>remains <code><span class="badge b-debated">DEBATED</span></code>, not adopted.</em></li>
+<li><strong>2023-10-30</strong> — healing reframed: the “white health like Darkest Dungeon” framing was superseded by the degrading-max-HP ceiling; healing bound as a stop-gap (M04814–M04829, CrunchyConniptions/FreshToast). <em>(Ledger R26.)</em></li>
+<li><strong>2024-08-20</strong> — the four player-side mitigation tools (Healing, Redirection, Evasion, Disruption) and the Evasion-vs-Disruption clarification were laid out (M05438, M05456–M05466, FreshToast/spirit_noodle). <em>(Ledger R29.)</em></li>
+<li><strong>Proto era</strong> — the two-channel physical/magical model was implemented as flat <code>def</code>/<code>res</code> mitigation in the damage formula (008 §5 Damage Formula, <code><span class="badge b-canon">CANON · implemented</span></code>). <em>(Current presentation above.)</em></li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M02889–M02898 (FreshToast, 2023-03-05); M04814–M04829 (2023-10-30); M05438, M05456–M05466 (FreshToast/spirit_noodle, 2024-08-20)</li>
+<li><strong>Cleaned:</strong> 000 Damage Mitigation Tools (lines 8906–8914); 000 armor/bleed worked example (lines 5112–5120)</li>
+<li><strong>Docs:</strong> 008 §5 Damage &amp; Mitigation Systems; 008 §5 Armor/Resistance Layer; 008 §5 Damage Formula</li>
+<li><strong>Ledger:</strong> rows R16 (M02889…), R26 (M04814…), R29 (M05438…) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a> <span class="blns">Systems</span></li></ul></div>
+    <footer class="foot">Source docs: 008 §5 Damage &amp; Mitigation Systems · 008 §5 Damage Formula · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>
