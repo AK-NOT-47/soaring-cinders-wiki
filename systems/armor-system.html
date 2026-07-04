@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Armor System · Soaring Cinders Wiki</title>
+<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="stylesheet" href="../assets/wiki-theme.css">
+</head><body class="">
+<div id="progress"></div>
+<header class="top">
+  <button class="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <div class="header-spacer"></div>
+  <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+</header>
+<div class="scrim"></div>
+<div class="layout">
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">10</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">59</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">22</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">17</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><details class="nsgroup" open><summary><span class="ic">🎲</span><span>Systems</span><span class="cnt">20</span></summary><a class="nav sub idxlink" href="../systems/index.html">All systems →</a><a class="nav sub" href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a><a class="nav sub" href="../systems/ap-economy.html">Action Points (AP) Economy</a><a class="nav sub" href="../systems/anti-meta-systems.html">Anti-Meta Systems</a><a class="nav sub active" href="../systems/armor-system.html">Armor System</a><a class="nav sub" href="../systems/position-system.html">Combat Position System</a><a class="nav sub" href="../systems/damage-types.html">Damage Types &amp; Mitigation</a><a class="nav sub" href="../systems/dungeon-run-loop.html">Dungeon-Run Loop</a><a class="nav sub" href="../systems/enemy-intent.html">Enemy Intent Indicator System</a><a class="nav sub" href="../systems/escalation.html">Escalation Mechanic</a><a class="nav sub" href="../systems/overview.html">Game Type &amp; Structure (Overview)</a><a class="nav sub" href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a><a class="nav sub" href="../systems/new-game-plus.html">New Game+ System</a><a class="nav sub" href="../systems/party-consultation.html">Party Consultation — Outcome Resolution</a><a class="nav sub" href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a><a class="nav sub" href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a><a class="nav sub" href="../systems/shopkeeper-system.html">Recurring Shopkeeper System</a><a class="nav sub" href="../systems/reserve-skills-system.html">Reserve Skills System (Locke's Borrow)</a><a class="nav sub" href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a><a class="nav sub" href="../systems/spirit-collection-system.html">Spirit Collection System</a><a class="nav sub" href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a></details><a class="nav nsrow" href="../development/index.html"><span class="ic">🛠️</span><span>Development</span><span class="cnt">9</span></a></aside>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Armor System</span></div>
+    <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Armor System</h1>
+      <div class="facets"><span class="badge b-debated">DEBATED</span><span class="facet f-iter">Skyward Cinders</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Physical/Magical Armor</i></div>
+      <div class="datemeta">First conceived <b>2023-02-11 (M01435, FreshToast)</b> · last in chat <b>2023-03-05 (M02897, FreshToast)</b></div>
+    </div>
+    <div class="rule"></div>
+    <article class="prose"><h1 id="armor-system-debated" tabindex="-1"><a class="header-anchor" href="#armor-system-debated">Armor System <code><span class="badge b-debated">DEBATED</span></code></a></h1>
+<blockquote>
+<p>Divinity-style Physical/Magical armour that provides percentage resistances and depletes alongside health — discussed but never settled or implemented.</p>
+</blockquote>
+<p><strong>Summary</strong> — Armour is modelled after <em>Divinity: Original Sin</em>’s two-track armour, but repurposed to grant <strong>percentage resistances</strong> rather than being a separate health pool. Armour takes damage <strong>simultaneously with health</strong>, and as it depletes the resistances it provides shrink. The two tracks are Physical and Magical (with “Physical and Mental” floated as an alternative framing). All of the <a href="../items/equipment-system.html">Tier / Quality / Rune</a> rules apply to armour as they do to weapons.</p>
+<blockquote>
+<p><strong>Status:</strong> this Divinity-style armour layer was <strong>discussed on 2023-03-05 but never settled or implemented</strong> — the same <code><span class="badge b-debated">DEBATED</span></code> idea appears (with the identical bleed-resist worked example) on <a href="../systems/damage-types.html">Damage Types &amp; Mitigation</a>, which is the canonical combat-mitigation page. The shipped proto instead mitigates damage with <strong>flat Physical/Magical stats</strong> (<code>def</code>/<code>res</code>), <em>not</em> a depleting percentage-resistance armour pool. This page records the concept and its equipment-model ties; see <a href="../systems/damage-types.html">Damage Types &amp; Mitigation</a> for the implemented model.</p>
+</blockquote>
+<h2 id="rules-effects-debated" tabindex="-1"><a class="header-anchor" href="#rules-effects-debated">Rules / Effects <code><span class="badge b-debated">DEBATED</span></code></a></h2>
+<ul>
+<li><strong>Two tracks</strong> — Physical and Magical armour, drawn from Divinity, but here they provide a <strong>bonus to percentage resistances</strong> and take damage simultaneously to health (M02897, FreshToast, 2023-03-05; 006 §Physical/Magical Armor). Alternative framing floated: <strong>Physical and Mental</strong> instead of Physical and Magical.</li>
+<li><strong>Depletes with health</strong> — armour takes damage <em>simultaneously</em> to health, not as a separate shield pool ahead of it (M02897, FreshToast, 2023-03-05).</li>
+<li><strong>All equipment systems apply to armour</strong> — Tier (material base stats), Quality (Bronze/Silver/Gold bandwidth), and Rune slots all apply to armour as well as weapons (006 §All systems apply to armour as well; M01435 “weapons and armour to have Rune slots” and M01438 “this should all apply to armour as well”, FreshToast, 2023-02-11).</li>
+</ul>
+<h3 id="resistance-mechanics-example" tabindex="-1"><a class="header-anchor" href="#resistance-mechanics-example">Resistance mechanics example</a></h3>
+<p>Worked example from the notes showing how armour and a base resistance combine, and how the resist erodes as armour is chipped away (M02889–M02895, FreshToast, 2023-03-05; 006 §Resistance Mechanics Examples):</p>
+<ul>
+<li>10% base bleed resist</li>
+<li>20 physical armour → 30% total bleed resist</li>
+<li>10 physical damage dealt → 10 physical armour left → 20% bleed resistance</li>
+<li>(with 20% bleed resist as the fixed floor)</li>
+</ul>
+<blockquote>
+<p>This worked example is transcribed from the notes’ shorthand; the exact formula relating armour points to resistance % is illustrative, not fully specified.</p>
+</blockquote>
+<h2 id="related" tabindex="-1"><a class="header-anchor" href="#related">Related</a></h2>
+<ul>
+<li><a href="../items/equipment-system.html">Equipment System (Tier · Quality · Rune)</a> — the Tier/Quality/Rune model armour shares with weapons.</li>
+<li><a href="../items/runes.html">Rune System</a> — armour carries rune slots.</li>
+<li>Physical vs. Magical armour interacts with the combat resistance and shield mechanics owned by the systems and magic batches.</li>
+</ul>
+<h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
+<ul>
+<li><code><span class="badge b-debated">DEBATED</span></code> Whether the two tracks are named “Physical / Magical” or “Physical / Mental” (006 §Physical/Magical Armor).</li>
+</ul>
+<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
+<ul>
+<li><strong>Raw:</strong> M01435 (rune slots on weapons &amp; armour), M01438 (FreshToast, 2023-02-11, “this should all apply to armour as well”); M02897 (Divinity Physical/Magical armour → percentage resistances, depletes with health) and M02889–M02895 (bleed-resist worked example) (FreshToast, 2023-03-05)</li>
+<li><strong>Cleaned:</strong> 000 Part 6 §Armor System</li>
+<li><strong>Docs:</strong> 006 §Armor System (Physical/Magical Armor · Resistance Mechanics Examples · All systems apply to armour as well)</li>
+<li><strong>Ledger:</strong> row R08 (M01432–M01443, full loot/equipment system); row R16 (M02889–M02897, bleed/armour worked example, 2023-03-05) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+</ul>
+</article>
+    <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/damage-types.html">Damage Types &amp; Mitigation</a> <span class="blns">Systems</span></li><li><a href="../items/runes.html">Rune System</a> <span class="blns">Items</span></li><li><a href="../items/weapons.html">Weapons (Tiers, Types &amp; Skills)</a> <span class="blns">Items</span></li></ul></div>
+    <footer class="foot">Source docs: 006 §Armor System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+  </main>
+</div>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>
