@@ -1,16 +1,5 @@
-// Soaring Cinders site — search, TOC scrollspy, mobile nav, progress bar
+// Soaring Cinders site — search, TOC scrollspy, mobile nav
 (function () {
-  // ---- reading progress ----
-  const bar = document.getElementById('progress');
-  if (bar) {
-    const onScroll = () => {
-      const h = document.documentElement;
-      const max = h.scrollHeight - h.clientHeight;
-      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-    };
-    document.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  }
-
   // ---- mobile sidebar ----
   const sidebar = document.querySelector('.sidebar');
   const menuBtn = document.querySelector('.menu-btn');
@@ -106,6 +95,246 @@
     });
   })();
 
+  // ---- local wiki editor ----
+  (function () {
+    const apiRoot = '/api/wiki';
+    const top = document.querySelector('.top');
+    if (!top || !window.fetch) return;
+
+    let meta = null;
+    let tagManagerDirty = false;
+
+    const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+    const pageRef = (() => {
+      const match = location.pathname.match(/\/([^/]+)\/([^/]+)\.html$/);
+      if (!match) return { namespace: '', slug: '', isArticle: false };
+      const namespace = decodeURIComponent(match[1]);
+      const slug = decodeURIComponent(match[2]);
+      return { namespace, slug, isArticle: slug !== 'index' };
+    })();
+    const titleFromPage = () => {
+      const h1 = document.querySelector('.page-head h1');
+      return h1 ? h1.textContent.trim().replace(/^[^\w#]+/, '').trim() : 'Article';
+    };
+    const api = async (path, options) => {
+      const res = await fetch(apiRoot + path, {
+        ...options,
+        headers: { 'content-type': 'application/json', ...(options && options.headers || {}) },
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'The wiki editor request failed.');
+      return data;
+    };
+    const categoryById = (id) => (meta.categories || []).find(cat => cat.id === id);
+    const defaultSubcategory = (namespace) => {
+      const cat = categoryById(namespace);
+      return cat && cat.subcategories && cat.subcategories[0] ? cat.subcategories[0].id : '';
+    };
+    const currentCategory = () => categoryById(pageRef.namespace) ? pageRef.namespace : 'world';
+    const showToast = (text) => {
+      let toast = document.querySelector('.wiki-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'wiki-toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = text;
+      toast.classList.add('show');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
+    };
+    const closeModal = (modal) => {
+      modal.remove();
+      document.body.classList.remove('wiki-modal-open');
+      if (tagManagerDirty) {
+        tagManagerDirty = false;
+        location.reload();
+      }
+    };
+    const modalShell = (title, body) => {
+      const modal = document.createElement('div');
+      modal.className = 'wiki-modal';
+      modal.innerHTML = `<div class="wiki-dialog" role="dialog" aria-modal="true" aria-label="${esc(title)}">
+        <div class="wiki-dialog-head"><h2>${esc(title)}</h2><button type="button" class="wiki-icon-btn" data-close aria-label="Close">x</button></div>
+        ${body}
+      </div>`;
+      modal.addEventListener('click', e => {
+        if (e.target === modal || e.target.closest('[data-close]')) closeModal(modal);
+      });
+      document.addEventListener('keydown', function onKey(e) {
+        if (!document.body.contains(modal)) return document.removeEventListener('keydown', onKey);
+        if (e.key === 'Escape') closeModal(modal);
+      });
+      document.body.appendChild(modal);
+      document.body.classList.add('wiki-modal-open');
+      return modal;
+    };
+    const setFormError = (form, message) => {
+      const err = form.querySelector('.wiki-form-error');
+      if (err) err.textContent = message || '';
+    };
+    const setBusy = (form, busy) => {
+      form.querySelectorAll('button,input,select,textarea').forEach(el => { el.disabled = busy; });
+      form.classList.toggle('is-busy', busy);
+    };
+    const field = (form, name) => form.querySelector(`[name="${name}"]`);
+    const categoryOptions = (selected) => (meta.categories || []).map(cat =>
+      `<option value="${esc(cat.id)}"${cat.id === selected ? ' selected' : ''}>${esc(cat.title)}</option>`
+    ).join('');
+    const subcategoryOptions = (namespace, selected) => {
+      const cat = categoryById(namespace);
+      const subs = cat && cat.subcategories ? cat.subcategories : [];
+      return subs.map(sub =>
+        `<option value="${esc(sub.id)}"${sub.id === selected ? ' selected' : ''}>${esc(sub.title)}</option>`
+      ).join('');
+    };
+    const refreshSubcategorySelect = (form, selected) => {
+      const ns = field(form, 'namespace').value;
+      const row = form.querySelector('[data-subcategory-row]');
+      const select = field(form, 'subcategory');
+      const cat = categoryById(ns);
+      const subs = cat && cat.subcategories ? cat.subcategories : [];
+      row.hidden = subs.length === 0;
+      select.innerHTML = subcategoryOptions(ns, selected || (subs[0] && subs[0].id) || '');
+    };
+    const openArticleEditor = async (mode) => {
+      const isEdit = mode === 'edit';
+      const page = isEdit
+        ? await api(`/page?namespace=${encodeURIComponent(pageRef.namespace)}&slug=${encodeURIComponent(pageRef.slug)}`)
+        : {
+          title: '',
+          slug: '',
+          ns: currentCategory(),
+          namespace: currentCategory(),
+          subcategory: defaultSubcategory(currentCategory()),
+          tags: [],
+          body: '',
+        };
+      const namespace = page.namespace || page.ns || currentCategory();
+      const modal = modalShell(isEdit ? 'Edit Article' : 'New Article', `<form class="wiki-edit-form">
+        <div class="wiki-form-grid">
+          <label>Title<input name="title" required value="${esc(page.title || '')}"></label>
+          <label>Slug<input name="slug" value="${esc(page.slug || '')}" placeholder="auto-from-title"></label>
+          <label>Category<select name="namespace">${categoryOptions(namespace)}</select></label>
+          <label data-subcategory-row>Subcategory<select name="subcategory">${subcategoryOptions(namespace, page.subcategory)}</select></label>
+          <label class="wiki-wide">Tags<input name="tags" value="${esc((page.tags || []).join(', '))}" placeholder="comma separated"></label>
+        </div>
+        <label class="wiki-body-label">Markdown<textarea name="body" spellcheck="true">${esc(page.body || '')}</textarea></label>
+        <div class="wiki-form-error" role="alert"></div>
+        <div class="wiki-dialog-actions"><button type="button" data-close>Cancel</button><button type="submit" class="primary">${isEdit ? 'Save' : 'Create'}</button></div>
+      </form>`);
+      const form = modal.querySelector('form');
+      refreshSubcategorySelect(form, page.subcategory);
+      field(form, 'namespace').addEventListener('change', () => refreshSubcategorySelect(form, ''));
+      if (!isEdit) {
+        field(form, 'title').addEventListener('input', () => {
+          if (!field(form, 'slug').dataset.touched) field(form, 'slug').value = field(form, 'title').value.toLowerCase().trim().replace(/['"]/g, '').replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
+        });
+        field(form, 'slug').addEventListener('input', () => { field(form, 'slug').dataset.touched = '1'; });
+      }
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        setFormError(form, '');
+        setBusy(form, true);
+        try {
+          const payload = {
+            title: field(form, 'title').value,
+            slug: field(form, 'slug').value,
+            namespace: field(form, 'namespace').value,
+            subcategory: field(form, 'subcategory').value,
+            tags: field(form, 'tags').value.split(','),
+            body: field(form, 'body').value,
+          };
+          if (isEdit) payload.original = { namespace: pageRef.namespace, slug: pageRef.slug };
+          const saved = await api('/page', { method: 'POST', body: JSON.stringify(payload) });
+          location.href = saved.url + '?edited=1';
+        } catch (error) {
+          setFormError(form, error.message);
+          setBusy(form, false);
+        }
+      });
+      field(form, 'title').focus();
+    };
+    const deleteArticle = async () => {
+      if (!pageRef.isArticle) return;
+      const title = titleFromPage();
+      if (!confirm(`Delete "${title}"?`)) return;
+      try {
+        const deleted = await api('/delete', {
+          method: 'POST',
+          body: JSON.stringify({ namespace: pageRef.namespace, slug: pageRef.slug }),
+        });
+        location.href = deleted.url + '?edited=1';
+      } catch (error) {
+        showToast(error.message);
+      }
+    };
+    const renderTagManager = (modal) => {
+      const list = modal.querySelector('[data-tag-list]');
+      const tags = meta.tags || [];
+      list.innerHTML = tags.length ? tags.map(tag => `<div class="wiki-tag-row" data-tag="${esc(tag.name)}">
+        <input value="${esc(tag.name)}" aria-label="Tag name">
+        <span>${tag.count}</span>
+        <button type="button" data-rename>Rename</button>
+        <button type="button" data-delete>Delete</button>
+      </div>`).join('') : '<div class="wiki-empty">No tags yet.</div>';
+    };
+    const openTagManager = async () => {
+      meta = await api('/meta');
+      const modal = modalShell('Tags', `<div class="wiki-tag-list" data-tag-list></div>
+        <div class="wiki-form-error" role="alert"></div>
+        <div class="wiki-dialog-actions"><button type="button" data-close>Done</button></div>`);
+      renderTagManager(modal);
+      modal.addEventListener('click', async e => {
+        const row = e.target.closest('.wiki-tag-row');
+        if (!row) return;
+        const formErr = modal.querySelector('.wiki-form-error');
+        formErr.textContent = '';
+        const from = row.dataset.tag;
+        try {
+          if (e.target.matches('[data-rename]')) {
+            const to = row.querySelector('input').value;
+            await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'rename', from, to }) });
+          } else if (e.target.matches('[data-delete]')) {
+            if (!confirm(`Delete tag "${from}" from all articles?`)) return;
+            await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'delete', tag: from }) });
+          } else {
+            return;
+          }
+          tagManagerDirty = true;
+          meta = await api('/meta');
+          renderTagManager(modal);
+        } catch (error) {
+          formErr.textContent = error.message;
+        }
+      });
+    };
+    const installToolbar = () => {
+      const toolbar = document.createElement('div');
+      toolbar.className = 'wiki-editor-actions';
+      toolbar.innerHTML = `${pageRef.isArticle ? '<button type="button" data-editor-edit>Edit</button><button type="button" data-editor-delete>Delete</button>' : ''}
+        <button type="button" data-editor-new>New</button><button type="button" data-editor-tags>Tags</button>`;
+      const toggle = top.querySelector('.theme-toggle');
+      top.insertBefore(toolbar, toggle || null);
+      toolbar.addEventListener('click', e => {
+        const button = e.target.closest('button');
+        if (!button) return;
+        if (button.matches('[data-editor-edit]')) openArticleEditor('edit').catch(err => showToast(err.message));
+        if (button.matches('[data-editor-new]')) openArticleEditor('new').catch(err => showToast(err.message));
+        if (button.matches('[data-editor-delete]')) deleteArticle();
+        if (button.matches('[data-editor-tags]')) openTagManager().catch(err => showToast(err.message));
+      });
+    };
+
+    api('/meta').then(data => {
+      meta = data;
+      installToolbar();
+      if (new URLSearchParams(location.search).has('edited')) showToast('Wiki updated.');
+    }).catch(() => {});
+  })();
+
   // ---- ember weather (site-wide) ----
   (function () {
     const layer = document.querySelector('.ember-weather');
@@ -117,7 +346,7 @@
       const delay = Math.random() * d, dx = Math.random() * 46 - 23, o = 0.4 + Math.random() * 0.5;
       const cool = Math.random() < 0.16;
       e.style.cssText = `left:${x.toFixed(2)}%;width:${s.toFixed(1)}px;height:${s.toFixed(1)}px;`
-        + `background:radial-gradient(circle at 40% 35%,${cool ? 'var(--teal)' : 'var(--ember)'},transparent 72%);`
+        + `background:radial-gradient(circle at 40% 35%,${cool ? 'var(--cinderParticleCool)' : 'var(--cinderParticle)'},transparent 72%);`
         + `animation:floatup ${d.toFixed(2)}s linear infinite;animation-delay:-${delay.toFixed(2)}s;`
         + `--dx:${dx.toFixed(0)}px;opacity:${o.toFixed(2)}`;
       frag.appendChild(e);

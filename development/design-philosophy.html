@@ -4,10 +4,9 @@
 <meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=e10ccfdaa9">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
-<div id="progress"></div>
 <div class="ember-weather" aria-hidden="true"></div>
 <div id="sc-hovercard" role="tooltip"></div>
 <div class="page-wrap">
@@ -16,19 +15,19 @@
   <a class="brand" href="../index.html"><span class="wm-flame"><svg width="24" height="26" viewBox="0 0 24 26" aria-hidden="true" style="overflow:visible"><defs><linearGradient id="flameBody" x1="12" y1="25" x2="12" y2="1" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5a1604"/><stop offset="30%" stop-color="var(--ember2)"/><stop offset="66%" stop-color="var(--ember)"/><stop offset="100%" stop-color="var(--gold)"/></linearGradient><radialGradient id="flameCore" cx="50%" cy="72%" r="60%"><stop offset="0%" stop-color="#fff6e0"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--ember)" stop-opacity="0"/></radialGradient></defs><g class="sc-mark"><path d="M12 1.2c1.7 3.5-.4 5.6.6 7.9 .7 1.6 2.2 1.9 2.9 4 .4 1.2 .3 2-.2 3.1 1.5-.6 2.2-2.3 2.2-4 2.4 2.6 3 6.2 1 9.1-2.7 3.9-8.9 4.2-12.1 1.1C4 22 3.6 21.4 3.2 20.5 1.7 17.2 2.6 13 5.4 9.9 5.1 11.4 5.5 12.7 6.6 13.4 5.7 10.6 6.9 8 9 6.2 11.4 4.1 12.4 2 12 1.2Z" fill="url(#flameBody)" stroke="var(--gold)" stroke-width=".7" stroke-linejoin="round"/><path class="sc-core" d="M12 12.4c1 2 .1 3.2 .6 4.6 .4 1.1 1.5 1.4 1.6 2.9 .1 1.8-1.5 3.2-3.3 3-1.5-.2-2.6-1.6-2.5-3.3 .1-1.6 1.2-2.1 1.4-3.7 .2-1.5-.4-2.6 .3-3.6 .6-.9 1.5-1.3 1.9-.9-.1 .3-.9 .3-1.5 .5 .5 .1 1 .1 1.5 0Z" fill="url(#flameCore)"/></g><circle class="sc-spark-a" cx="16" cy="9" r="1.1" fill="var(--gold)"/><circle class="sc-spark-b" cx="15" cy="6" r=".9" fill="var(--ember)"/><circle class="sc-spark-c" cx="17" cy="12" r=".8" fill="var(--gold)"/></svg></span><span class="wm-type"><span class="sc-soaring">Soaring</span> <b class="sc-cinders">Cinders</b></span><span class="wikitag">WIKI</span></a>
   <div class="header-spacer"></div>
   <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
-  <div class="theme-toggle" role="group" aria-label="Day or night theme"><button type="button" data-theme-set="day" title="Day — bright hearth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.4M12 19v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.4M19 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></svg><span>Day</span></button><button type="button" data-theme-set="night" title="Night — ember dark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg><span>Night</span></button></div>
+  <div class="theme-toggle" role="group" aria-label="Fire or smoke theme"><button type="button" data-theme-set="day" title="Fire — bright hearth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.4M12 19v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.4M19 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></svg><span>Fire</span></button><button type="button" data-theme-set="night" title="Smoke — ember dark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg><span>Smoke</span></button></div>
 </header>
 <div class="scrim"></div>
 <div class="layout">
-  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Namespaces</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">10</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">59</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">22</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">17</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">20</span></a><details class="nsgroup" open><summary><span class="ic">🛠️</span><span>Development</span><span class="cnt">9</span></summary><a class="nav sub idxlink" href="../development/index.html">All development →</a><a class="nav sub" href="../development/art-direction.html">Art &amp; Animation Direction</a><a class="nav sub" href="../development/caelian-odyssey.html">Caelian Odyssey (Iteration)</a><a class="nav sub" href="../development/considered-and-dropped.html">Considered &amp; Dropped (Name Brainstorms and Alternates)</a><a class="nav sub active" href="../development/design-philosophy.html">Design Philosophy</a><a class="nav sub" href="../development/development-timeline.html">Development Timeline</a><a class="nav sub" href="../development/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../development/monetization-and-business.html">Monetization &amp; Business</a><a class="nav sub" href="../development/references-and-inspirations.html">References and Inspirations</a><a class="nav sub" href="../development/team-attribution.html">Team Attribution</a></details></aside>
+  <aside class="sidebar"><a class="nav" href="../index.html"><span class="ic">🏠</span><span>Home</span></a><div class="grp">Categories</div><a class="nav nsrow" href="../world/index.html"><span class="ic">📖</span><span>World</span><span class="cnt">10</span></a><a class="nav nsrow" href="../characters/index.html"><span class="ic">🧙</span><span>Characters</span><span class="cnt">59</span></a><a class="nav nsrow" href="../locations/index.html"><span class="ic">🗺️</span><span>Locations</span><span class="cnt">22</span></a><a class="nav nsrow" href="../story/index.html"><span class="ic">📜</span><span>Story</span><span class="cnt">16</span></a><a class="nav nsrow" href="../bestiary/index.html"><span class="ic">🐉</span><span>Bestiary</span><span class="cnt">22</span></a><a class="nav nsrow" href="../items/index.html"><span class="ic">⚔️</span><span>Items</span><span class="cnt">17</span></a><a class="nav nsrow" href="../magic/index.html"><span class="ic">✨</span><span>Magic</span><span class="cnt">7</span></a><a class="nav nsrow" href="../systems/index.html"><span class="ic">🎲</span><span>Systems</span><span class="cnt">20</span></a><details class="nsgroup" open><summary><span class="ic">🛠️</span><span>Development</span><span class="cnt">9</span></summary><a class="nav sub idxlink" href="../development/index.html">All development →</a><a class="nav sub" href="../development/art-direction.html">Art &amp; Animation Direction</a><a class="nav sub" href="../development/caelian-odyssey.html">Caelian Odyssey (Iteration)</a><a class="nav sub" href="../development/considered-and-dropped.html">Considered &amp; Dropped (Name Brainstorms and Alternates)</a><a class="nav sub active" href="../development/design-philosophy.html">Design Philosophy</a><a class="nav sub" href="../development/development-timeline.html">Development Timeline</a><a class="nav sub" href="../development/enemy-design-philosophy.html">Enemy Design Philosophy</a><a class="nav sub" href="../development/monetization-and-business.html">Monetization &amp; Business</a><a class="nav sub" href="../development/references-and-inspirations.html">References and Inspirations</a><a class="nav sub" href="../development/team-attribution.html">Team Attribution</a></details></aside>
   <main>
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Development</a><span class="sep">/</span><span>Design Philosophy</span></div>
     <div class="page-head"><div class="eyebrow">🛠️ Development</div><h1>Design Philosophy</h1>
-      <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Game Design Rules</i>, <i>Design Principles</i></div>
-      <div class="datemeta">First conceived <b>2021-05-13</b> · last updated <b>2024-02-13</b></div>
+      <div class="facets"><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Game Design Rules</i>, <i>Design Principles</i></div>
+      <div class="datemeta">First conceived <b>2021-05-13</b></div>
     </div>
     <div class="rule"></div>
-    <article class="prose"><h1 id="design-philosophy-canon" tabindex="-1"><a class="header-anchor" href="#design-philosophy-canon">Design Philosophy <code><span class="badge b-canon">CANON</span></code></a></h1>
+    <article class="prose"><h1 id="design-philosophy" tabindex="-1"><a class="header-anchor" href="#design-philosophy">Design Philosophy</a></h1>
 <blockquote>
 <p>The design commandments the team returned to across three years of chat: no time
 limits, distrust of maps, mechanics that interact elegantly, and a homey, cozy game
@@ -42,13 +41,13 @@ cluster of preferences: a game should feel <em>homey</em> and cozy; its mechanic
 meaningful choices”; and puzzles should be “few, short and good only.” Most of these
 are aspirations rather than finalized mechanics.</p>
 <h2 id="the-rules" tabindex="-1"><a class="header-anchor" href="#the-rules">The rules</a></h2>
-<h3 id="time-limits-are-taboo-canon" tabindex="-1"><a class="header-anchor" href="#time-limits-are-taboo-canon">Time limits are taboo <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="time-limits-are-taboo" tabindex="-1"><a class="header-anchor" href="#time-limits-are-taboo">Time limits are taboo</a></h3>
 <p>The first stated design rule. “Time limits are frustrating and annoying”; “Time limits
 are not a fun mechanic. use other fun mechanics”; “Time is used for measuring. its very
 good for measuring. measuring is not fun.” The rule closes with a small manifesto: “Let
 there be chaos. let there be freedom. let there be comfort” (2021-05-13; 008 §Rule 1). This is the design reason the <a href="../systems/dungeon-run-loop.html">dungeon runs</a>
 measure progress by fights/rooms rather than a clock.</p>
-<h3 id="maps-are-taboo-debated" tabindex="-1"><a class="header-anchor" href="#maps-are-taboo-debated">Maps are taboo <code><span class="badge b-debated">DEBATED</span></code></a></h3>
+<h3 id="maps-are-taboo" tabindex="-1"><a class="header-anchor" href="#maps-are-taboo">Maps are taboo</a></h3>
 <p>The second rule, and the one that drew immediate pushback. “Maps are boring. Maps are
 tedious. Maps are effective and productive. Maps are not fun. Maps are for boring nerds”
 (2021-05-13). FreshToast disagreed in the same minute — “I
@@ -60,9 +59,9 @@ later clarified as the case where the world is too hard to traverse yourself so 
 lean on a minimap; the dislike is “more about minimaps specifically” (000 §Rule 2). The
 preferred alternative is a compass over a map, Skyrim-style, with a very simple actual map
 (000 §Navigation Systems). Because it was never fully resolved, this rule is tagged
-<code><span class="badge b-debated">DEBATED</span></code>.</p>
+.</p>
 <h2 id="preferences-and-taste" tabindex="-1"><a class="header-anchor" href="#preferences-and-taste">Preferences and taste</a></h2>
-<h3 id="make-the-game-homey-cozy-canon" tabindex="-1"><a class="header-anchor" href="#make-the-game-homey-cozy-canon">Make the game homey / cozy <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="make-the-game-homey-cozy" tabindex="-1"><a class="header-anchor" href="#make-the-game-homey-cozy">Make the game homey / cozy</a></h3>
 <p>A recurring north star. “Make the game homey” — cozy, easy to pick up, “not a hassle to
 pick up” (2023-09-26).
 The touchstone is Dark Souls 1’s Firelink Shrine: “In dark souls 1, first bonfire gives
@@ -70,14 +69,14 @@ you more estus flasks. I am now realizing I want that feeling. The homey feeling
 shrine” (2023-10-13). The feeling is later summarized as “its
 familiar and homey” (2024-02-13). The team also wants the home
 village to feel endearing so the player longs to return (009 §Part 19 Critical Reminders).</p>
-<h3 id="mechanics-should-interact-elegantly-canon" tabindex="-1"><a class="header-anchor" href="#mechanics-should-interact-elegantly-canon">Mechanics should interact elegantly <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="mechanics-should-interact-elegantly" tabindex="-1"><a class="header-anchor" href="#mechanics-should-interact-elegantly">Mechanics should interact elegantly</a></h3>
 <p>Stated flatly by spirit_noodle: “Mechanics should interact elegantly” (2023-03-05). The related deterministic-design
 principle — “Movement is both simple and perfectly deterministic (never random)” — comes out
 of the <a href="../systems/position-system.html">Combat Position System</a> discussion: strategy should be easy to follow, always knowing where
 a character will go, “No guessing” (009 §Part 20). Chaos is welcome, but only “as result of
 unintended or exciting new interaction. Instead of confusion” (009 §Part 20). And no single
 mechanic should take over all strategy (009 §Part 22 Critical Reminders).</p>
-<h3 id="a-game-is-a-series-of-meaningful-choices-canon" tabindex="-1"><a class="header-anchor" href="#a-game-is-a-series-of-meaningful-choices-canon">A game is a series of meaningful choices <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="a-game-is-a-series-of-meaningful-choices" tabindex="-1"><a class="header-anchor" href="#a-game-is-a-series-of-meaningful-choices">A game is a series of meaningful choices</a></h3>
 <p>Stated as “A game is a series of meaningful choices” (2021-07-03) — Crunchy’s rendering of the well-known Sid-Meier maxim — and endorsed by
 FreshToast, who noted the more famous version uses “interesting” but he preferred Crunchy’s
 word: “I’d replace ‘interesting’ with ‘meaningful’ but otherwise yes this is important”
@@ -85,7 +84,7 @@ word: “I’d replace ‘interesting’ with ‘meaningful’ but otherwise yes
 the goal” (2021-06-13); “At essence of all
 games are like puzzles to solve to proceed”; “Video games should be full of ellipsis” (009
 §Design Philosophy Quotes).</p>
-<h3 id="challenge-matters-git-gud-canon" tabindex="-1"><a class="header-anchor" href="#challenge-matters-git-gud-canon">Challenge matters (“git gud”) <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="challenge-matters-git-gud" tabindex="-1"><a class="header-anchor" href="#challenge-matters-git-gud">Challenge matters (“git gud”)</a></h3>
 <p>On whether the developer should scaffold low-skill players, the team leaned toward Miyazaki:
 “I don’t think it’s the responsibility of the developer to foster skill in the player.
 Otherwise, you’re playing the game for them”; “maybe Miyazaki is right. just bully your
@@ -95,7 +94,7 @@ challenge matters then yes, if not then let them overlevel like in a jrpg or wha
 System Debates). Skill-based rewards were floated but judged “incredibly exploitable” and
 dropped in favor of just making rewards more numerous or higher quality (009 §Progression
 System Debates).</p>
-<h3 id="puzzle-philosophy-proposed" tabindex="-1"><a class="header-anchor" href="#puzzle-philosophy-proposed">Puzzle philosophy <code><span class="badge b-proposed">PROPOSED</span></code></a></h3>
+<h3 id="puzzle-philosophy" tabindex="-1"><a class="header-anchor" href="#puzzle-philosophy">Puzzle philosophy</a></h3>
 <p>Puzzles should be “few, short and good only”; “fuck riddles.” A good puzzle works like a boss
 fight — introduce a mechanic, complicate it, then introduce something new or force the player
 to reinterpret it. The intent is light puzzling to set mood and break pacing: simple,
@@ -103,14 +102,14 @@ unobtrusive, “make em think just a little”.
 Suggested placement structures: big exploration with a good puzzle at the end; a puzzle in the
 middle with a climactic fight; or an ongoing puzzle interacted with in brief chunks — roughly
 one puzzle per dungeon across ~7 dungeons.</p>
-<h3 id="repeated-dialogue-breaks-immersion-proposed" tabindex="-1"><a class="header-anchor" href="#repeated-dialogue-breaks-immersion-proposed">Repeated dialogue breaks immersion <code><span class="badge b-proposed">PROPOSED</span></code></a></h3>
+<h3 id="repeated-dialogue-breaks-immersion" tabindex="-1"><a class="header-anchor" href="#repeated-dialogue-breaks-immersion">Repeated dialogue breaks immersion</a></h3>
 <p>The aspiration to a game “where dialogue never repeats,” acknowledged as hard for talking
 shopkeepers. Dragon’s Dogma’s “They’re masterworks all” is cited as the good case; Bethesda /
 Starfield repetition as the painful one (“Bethesda doesn’t count. They put their voice talent
 through the meat grinder”). Compare the later
 immersion-through-familiarity principle: references that “you just <strong>get it</strong>. No explanation.
 No lore dump” (009 §Part 24 Design Philosophy).</p>
-<h3 id="death-should-be-punishing-but-fair-canon" tabindex="-1"><a class="header-anchor" href="#death-should-be-punishing-but-fair-canon">Death should be punishing but fair <code><span class="badge b-canon">CANON</span></code></a></h3>
+<h3 id="death-should-be-punishing-but-fair" tabindex="-1"><a class="header-anchor" href="#death-should-be-punishing-but-fair">Death should be punishing but fair</a></h3>
 <p>Death “has to be punishing, but not too punishing” — don’t lose everything, but give a chance
 to right a dumb mistake; don’t force the player to return or punish them for exploring; make
 them long for home in sentiment and return naturally during the story. The team wants players
@@ -120,7 +119,7 @@ Design Philosophy).</p>
 <p>When the team enumerated what the game <em>is</em>, they named four pillars — Narrative, Battle,
 Party Management, Exploration — alongside four “key aspects”: Narrative, Gameplay, Art
 direction, Sound design (&amp; Music) (2023-02-11; 009 §Four Pillars, Part 8).</p>
-<h2 id="ux-polish-appendix-aspirations-proposed" tabindex="-1"><a class="header-anchor" href="#ux-polish-appendix-aspirations-proposed">UX-polish appendix (aspirations) <code><span class="badge b-proposed">PROPOSED</span></code></a></h2>
+<h2 id="ux-polish-appendix-aspirations" tabindex="-1"><a class="header-anchor" href="#ux-polish-appendix-aspirations">UX-polish appendix (aspirations)</a></h2>
 <p>Consolidated low-severity polish intents from across the notes (009 Appendix — Design Principles
 &amp; UX Polish). Each is descriptive design intent, not a finalized mechanic:</p>
 <ul>
@@ -138,10 +137,10 @@ the “feels bad” moment of falling off a platform edge (009 §Part 2 Coyote T
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-debated">DEBATED</span></code> Whether maps are truly taboo or just minimaps; the compromise (“guide people to the
+<li>Whether maps are truly taboo or just minimaps; the compromise (“guide people to the
 fun”) was reached but never formalized (2021-05-13).</li>
-<li><code><span class="badge b-debated">DEBATED</span></code> How exactly to handle maps vs navigation (009 §Part 1 Unresolved Questions).</li>
-<li><code><span class="badge b-proposed">PROPOSED</span></code> The puzzle-per-dungeon count (~7) and placement structures are suggestions, not
+<li>How exactly to handle maps vs navigation (009 §Part 1 Unresolved Questions).</li>
+<li>The puzzle-per-dungeon count (~7) and placement structures are suggestions, not
 decided (009 Appendix).</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
@@ -166,4 +165,4 @@ restatement of the game’s felt goal</em>.</li>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>
+<script src="../assets/preview-index.js?v=e10ccfdaa9"></script><script src="../assets/search-index.js?v=e10ccfdaa9"></script><script src="../assets/app.js?v=e10ccfdaa9"></script></body></html>
