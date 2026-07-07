@@ -86,16 +86,84 @@
     });
   }
 
-  // ---- embers on home ----
-  const embers = document.querySelector('.embers');
-  if (embers) {
-    for (let i = 0; i < 26; i++) {
-      const s = document.createElement('i');
-      s.style.left = Math.random() * 100 + '%';
-      s.style.animationDuration = (5 + Math.random() * 7) + 's';
-      s.style.animationDelay = (Math.random() * 8) + 's';
-      const sz = 2 + Math.random() * 4; s.style.width = s.style.height = sz + 'px';
-      embers.appendChild(s);
+  // ---- day / night theme ----
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.querySelector('.theme-toggle');
+    function apply(t) {
+      root.dataset.theme = t;
+      try { localStorage.setItem('sc-wiki-theme', t); } catch (e) {}
+      if (toggle) toggle.querySelectorAll('button').forEach(b => {
+        const on = b.getAttribute('data-theme-set') === t;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
     }
-  }
+    apply(root.dataset.theme === 'day' ? 'day' : 'night'); // sync buttons to the head-set theme
+    if (toggle) toggle.addEventListener('click', e => {
+      const b = e.target.closest('button[data-theme-set]');
+      if (b) apply(b.getAttribute('data-theme-set'));
+    });
+  })();
+
+  // ---- ember weather (site-wide) ----
+  (function () {
+    const layer = document.querySelector('.ember-weather');
+    if (!layer) return;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 38; i++) {
+      const e = document.createElement('i');
+      const x = 4 + Math.random() * 92, s = 3 + Math.random() * 6, d = 7 + Math.random() * 10;
+      const delay = Math.random() * d, dx = Math.random() * 46 - 23, o = 0.4 + Math.random() * 0.5;
+      const cool = Math.random() < 0.16;
+      e.style.cssText = `left:${x.toFixed(2)}%;width:${s.toFixed(1)}px;height:${s.toFixed(1)}px;`
+        + `background:radial-gradient(circle at 40% 35%,${cool ? 'var(--teal)' : 'var(--ember)'},transparent 72%);`
+        + `animation:floatup ${d.toFixed(2)}s linear infinite;animation-delay:-${delay.toFixed(2)}s;`
+        + `--dx:${dx.toFixed(0)}px;opacity:${o.toFixed(2)}`;
+      frag.appendChild(e);
+    }
+    layer.appendChild(frag);
+  })();
+
+  // ---- Wikipedia-style hover previews ----
+  (function () {
+    const card = document.getElementById('sc-hovercard');
+    const data = window.PREVIEW_INDEX;
+    if (!card || !data) return;
+    let showT = null, hideT = null, current = null;
+    const slugFromHref = (href) => {
+      if (!href || href.charAt(0) === '#') return null;
+      const last = href.split('#')[0].split('?')[0].split('/').pop();
+      if (!last || last.indexOf('.html') < 0) return null;
+      return last.replace(/\.html$/, '');
+    };
+    const fill = (d) => {
+      card.innerHTML = '<div class="hc-bar"></div><div class="hc-body">'
+        + '<div class="hc-head"><span class="hc-glyph">' + d.glyph + '</span><span class="hc-kind">' + d.ns + '</span></div>'
+        + '<div class="hc-blurb">' + d.blurb + '</div>'
+        + '<div class="hc-read">READ ARTICLE →</div></div>';
+    };
+    const place = (a) => {
+      const r = a.getBoundingClientRect(), cw = card.offsetWidth || 308, ch = card.offsetHeight || 130;
+      const vw = window.innerWidth, vh = window.innerHeight, gap = 10;
+      let left = r.left; if (left + cw > vw - 12) left = vw - 12 - cw; if (left < 12) left = 12;
+      let top = r.bottom + gap; if (top + ch > vh - 12) top = r.top - gap - ch; if (top < 12) top = 12;
+      card.style.left = Math.round(left) + 'px'; card.style.top = Math.round(top) + 'px';
+    };
+    const show = (a, d) => { clearTimeout(hideT); current = a; fill(d); place(a); requestAnimationFrame(() => card.classList.add('show')); };
+    const hide = () => { card.classList.remove('show'); current = null; };
+    document.addEventListener('mouseover', e => {
+      const a = e.target.closest && e.target.closest('a'); if (!a || card.contains(a)) return;
+      const slug = slugFromHref(a.getAttribute('href')); if (!slug) return;
+      const d = data[slug]; if (!d) return;
+      clearTimeout(showT); clearTimeout(hideT);
+      if (current === a) return;
+      showT = setTimeout(() => show(a, d), 320);
+    });
+    document.addEventListener('mouseout', e => {
+      const a = e.target.closest && e.target.closest('a'); if (!a) return;
+      clearTimeout(showT); hideT = setTimeout(hide, 130);
+    });
+    window.addEventListener('scroll', () => { if (current) place(current); }, true);
+  })();
 })();

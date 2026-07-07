@@ -2,14 +2,21 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Caelia · Soaring Cinders Wiki</title>
 <meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/wiki-theme.css">
+<script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
+<div class="ember-weather" aria-hidden="true"></div>
+<div id="sc-hovercard" role="tooltip"></div>
+<div class="page-wrap">
 <header class="top">
   <button class="menu-btn" aria-label="Menu">☰</button>
-  <a class="brand" href="../index.html"><span class="mark">🔥</span><span class="full">Soaring <b>Cinders</b> <span class="wikitag">WIKI</span></span></a>
+  <a class="brand" href="../index.html"><span class="wm-flame"><svg width="24" height="26" viewBox="0 0 24 26" aria-hidden="true" style="overflow:visible"><defs><linearGradient id="flameBody" x1="12" y1="25" x2="12" y2="1" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5a1604"/><stop offset="30%" stop-color="var(--ember2)"/><stop offset="66%" stop-color="var(--ember)"/><stop offset="100%" stop-color="var(--gold)"/></linearGradient><radialGradient id="flameCore" cx="50%" cy="72%" r="60%"><stop offset="0%" stop-color="#fff6e0"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--ember)" stop-opacity="0"/></radialGradient></defs><g class="sc-mark"><path d="M12 1.2c1.7 3.5-.4 5.6.6 7.9 .7 1.6 2.2 1.9 2.9 4 .4 1.2 .3 2-.2 3.1 1.5-.6 2.2-2.3 2.2-4 2.4 2.6 3 6.2 1 9.1-2.7 3.9-8.9 4.2-12.1 1.1C4 22 3.6 21.4 3.2 20.5 1.7 17.2 2.6 13 5.4 9.9 5.1 11.4 5.5 12.7 6.6 13.4 5.7 10.6 6.9 8 9 6.2 11.4 4.1 12.4 2 12 1.2Z" fill="url(#flameBody)" stroke="var(--gold)" stroke-width=".7" stroke-linejoin="round"/><path class="sc-core" d="M12 12.4c1 2 .1 3.2 .6 4.6 .4 1.1 1.5 1.4 1.6 2.9 .1 1.8-1.5 3.2-3.3 3-1.5-.2-2.6-1.6-2.5-3.3 .1-1.6 1.2-2.1 1.4-3.7 .2-1.5-.4-2.6 .3-3.6 .6-.9 1.5-1.3 1.9-.9-.1 .3-.9 .3-1.5 .5 .5 .1 1 .1 1.5 0Z" fill="url(#flameCore)"/></g><circle class="sc-spark-a" cx="16" cy="9" r="1.1" fill="var(--gold)"/><circle class="sc-spark-b" cx="15" cy="6" r=".9" fill="var(--ember)"/><circle class="sc-spark-c" cx="17" cy="12" r=".8" fill="var(--gold)"/></svg></span><span class="wm-type"><span class="sc-soaring">Soaring</span> <b class="sc-cinders">Cinders</b></span><span class="wikitag">WIKI</span></a>
   <div class="header-spacer"></div>
   <div class="search-wrap"><span class="icon">⌕</span><input id="search" type="search" placeholder="Search the lore…" autocomplete="off" spellcheck="false"><kbd>/</kbd><div id="results"></div></div>
+  <div class="theme-toggle" role="group" aria-label="Day or night theme"><button type="button" data-theme-set="day" title="Day — bright hearth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.4M12 19v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.4M19 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></svg><span>Day</span></button><button type="button" data-theme-set="night" title="Night — ember dark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg><span>Night</span></button></div>
 </header>
 <div class="scrim"></div>
 <div class="layout">
@@ -106,4 +113,5 @@ the isle/region interpretation alive — <em>the classification remains DEBATED<
     <footer class="foot">Source docs: 003 §Alternate Names/Variants Discussed · 003 §Marketplace (Caelia) · 003 §Gacha Fountain Details · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
   </main>
 </div>
-<script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>
+</div>
+<script src="../assets/preview-index.js"></script><script src="../assets/search-index.js"></script><script src="../assets/app.js"></script></body></html>
