@@ -4,7 +4,7 @@
 <meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=e10ccfdaa9">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=fa1838fd3e">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div class="ember-weather" aria-hidden="true"></div>
@@ -27,8 +27,7 @@
       <div class="datemeta">First conceived <b>2023-02-09</b></div>
     </div>
     <div class="rule"></div>
-    <article class="prose"><h1 id="brigands-bandits" tabindex="-1"><a class="header-anchor" href="#brigands-bandits">Brigands &amp; Bandits</a></h1>
-<blockquote>
+    <article class="prose"><blockquote>
 <p>The game’s basic human enemy — outlaws and cutthroats, used as the early-game yardstick the rest of the bestiary scales up from.</p>
 </blockquote>
 <p><strong>Summary</strong> — Brigands (a.k.a. bandits) are a basic human enemy type and one of the four baseline test enemies (2023-02-16). They are the low anchor of the game’s anti-HP-bloat design: you “go from fighting bandits to dragon,” <em>not</em> “bandits to bandits with quadruple HP” (<a href="../development/enemy-design-philosophy.html">Enemy Design Philosophy</a>). Narratively they connect to characters who fell into banditry, and to rumors of areas harboring near-supernaturally stealthy bandits. The proto realizes them as the <strong>River Brigand</strong>.</p>
@@ -57,5 +56,6 @@
     <footer class="foot">Source docs: 005 §Brigands/Bandits · 005 §Common Enemies · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
+<script type="application/json" id="wiki-page-data">{"title":"Brigands & Bandits","slug":"brigands","namespace":"bestiary","subcategory":"","tags":[],"body":"> The game's basic human enemy — outlaws and cutthroats, used as the early-game yardstick the rest of the bestiary scales up from.\r\n\r\n**Summary** — Brigands (a.k.a. bandits) are a basic human enemy type and one of the four baseline test enemies (2023-02-16). They are the low anchor of the game's anti-HP-bloat design: you \"go from fighting bandits to dragon,\" *not* \"bandits to bandits with quadruple HP\" ([[enemy-design-philosophy]]). Narratively they connect to characters who fell into banditry, and to rumors of areas harboring near-supernaturally stealthy bandits. The proto realizes them as the **River Brigand**.\r\n\r\n## Description & role\r\n- Basic **human** enemy type; used as the early-game comparison point for progression (005 §Characteristics).\r\n- The canonical example of \"tactical complexity, not HP bloat\": bandits → dragon, not bandits with quadruple HP (2023-02-16).\r\n- Listed in the test character setup alongside Goblins, [[slimes|Slimes]], [[golems|Golems]] (2023-02-16).\r\n\r\n## Narrative context\r\n- The character **Cervantes** \"had dreams of rebellion and social reform but ended up in a life [of] banditry as an outlaw backed by cutthroat killers\" (2023-02-09).\r\n- Rumors surround at least one mountain for \"harbouring bandits with near-supernatural stealth\" (2023-02-14) — a hook tying bandits to the game's stealth/ambush texture ([[encounters-and-ambushes]]).\r\n\r\n## Proto realization: River Brigand `[IMPLEMENTED]`\r\nThe vertical slice ships the **River Brigand** (`brigand`, 🗡️), a 24-HP **cutthroat** using **Slash** and **Cutpurse** (which applies Bleed); full stats in [[proto-enemy-roster]] (proto: src/core/combat/content.ts — `ENEMY_DEFS`). \"River\" ties it to the Mediterranean/Caribbean river throughline (005 §Common / elite enemies (proto), Notes). It fights in the \"Ambush in the Narrows\" elite encounter (proto: src/core/campaign/content.ts node `n2b`).\r\n\r\n## Design history\r\n- **2023-02-09** — Cervantes' fall into \"a life of banditry… backed by cutthroat killers\" establishes bandits in the fiction.\r\n- **2023-02-14** — rumor of bandits with \"near-supernatural stealth\".\r\n- **2023-02-16** — brigands added to the baseline test-enemy roster; the \"bandits → dragon, not quadruple-HP bandits\" scaling framing. *This remains the current lore.*\r\n- **(proto, undated)** — realized as the **River Brigand** cutthroat. [IMPLEMENTED]\r\n\r\n"}</script>
 </div>
-<script src="../assets/preview-index.js?v=e10ccfdaa9"></script><script src="../assets/search-index.js?v=e10ccfdaa9"></script><script src="../assets/app.js?v=e10ccfdaa9"></script></body></html>
+<script src="../assets/preview-index.js?v=fa1838fd3e"></script><script src="../assets/search-index.js?v=fa1838fd3e"></script><script src="../assets/app.js?v=fa1838fd3e"></script></body></html>

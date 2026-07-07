@@ -10,6 +10,17 @@
   });
   scrim && scrim.addEventListener('click', closeNav);
 
+  // ---- button press feedback ----
+  document.addEventListener('pointerdown', e => {
+    const button = e.target.closest && e.target.closest('.wiki-editor-actions button,.wiki-dialog-actions button,.wiki-tag-row button,.wiki-icon-btn');
+    if (!button || button.disabled) return;
+    button.classList.remove('wiki-pressing');
+    // Restart the animation when a button is clicked repeatedly.
+    void button.offsetWidth;
+    button.classList.add('wiki-pressing');
+    window.setTimeout(() => button.classList.remove('wiki-pressing'), 180);
+  });
+
   // ---- TOC scrollspy ----
   const tocLinks = Array.from(document.querySelectorAll('.toc a'));
   if (tocLinks.length) {
@@ -102,11 +113,46 @@
     if (!top || !window.fetch) return;
 
     let meta = null;
+    let apiOnline = false;
     let tagManagerDirty = false;
+    const storageKey = 'sc-wiki-local-edits-v1';
+    const staticCategories = [
+      { id: 'world', title: 'World', subcategories: ['Culture', 'History', 'Other', 'Religion'] },
+      { id: 'characters', title: 'Characters', subcategories: ['Primary', 'Secondary', 'Tertiary'] },
+      { id: 'locations', title: 'Locations', subcategories: ['Nation', 'Other', 'Region', 'Town'] },
+      { id: 'story', title: 'Story', subcategories: [] },
+      { id: 'bestiary', title: 'Bestiary', subcategories: [] },
+      { id: 'items', title: 'Items', subcategories: [] },
+      { id: 'magic', title: 'Magic', subcategories: [] },
+      { id: 'systems', title: 'Systems', subcategories: [] },
+      { id: 'development', title: 'Development', subcategories: [] },
+    ].map(cat => ({
+      ...cat,
+      subcategories: cat.subcategories.map(title => ({ id: slugify(title), title })),
+    }));
 
     const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[c]));
+    function slugify(value) {
+      return String(value || '').trim().toLowerCase()
+        .replace(/['"]/g, '')
+        .replace(/[^\w]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+    const readLocalEdits = () => {
+      try { return JSON.parse(localStorage.getItem(storageKey) || '{}') || {}; } catch (e) { return {}; }
+    };
+    const writeLocalEdits = (edits) => {
+      localStorage.setItem(storageKey, JSON.stringify(edits));
+    };
+    const pageKey = (namespace, slug) => `${namespace}/${slug}`;
+    const pageBasePath = () => {
+      const parts = location.pathname.split('/').filter(Boolean);
+      const idx = parts.findIndex(part => staticCategories.some(cat => cat.id === part));
+      return idx > 0 ? '/' + parts.slice(0, idx).join('/') : '';
+    };
+    const articleUrl = (namespace, slug) => `${pageBasePath()}/${namespace}/${slug}.html`;
     const pageRef = (() => {
       const match = location.pathname.match(/\/([^/]+)\/([^/]+)\.html$/);
       if (!match) return { namespace: '', slug: '', isArticle: false };
@@ -126,6 +172,120 @@
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'The wiki editor request failed.');
       return data;
+    };
+    const staticMeta = () => {
+      const edits = readLocalEdits();
+      const localPages = Object.values(edits).filter(page => !page.deleted);
+      const indexedPages = (window.SEARCH_INDEX || [])
+        .filter(item => item.url && /\/[^/]+\.html$/.test(item.url) && !item.url.endsWith('/index.html'))
+        .map(item => {
+          const bits = item.url.split('/');
+          const namespace = bits[0];
+          const slug = bits[1].replace(/\.html$/, '');
+          return { namespace, slug, title: item.title, subcategory: '', tags: [] };
+        });
+      const pagesByKey = new Map(indexedPages.map(page => [pageKey(page.namespace, page.slug), page]));
+      for (const page of localPages) pagesByKey.set(pageKey(page.namespace, page.slug), page);
+      const tagCounts = new Map();
+      for (const page of pagesByKey.values()) {
+        for (const tag of page.tags || []) tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+      }
+      return {
+        categories: staticCategories,
+        pages: [...pagesByKey.values()].sort((a, b) => a.title.localeCompare(b.title)),
+        tags: [...tagCounts.entries()].map(([name, count]) => ({ name, count })).sort((a, b) => a.name.localeCompare(b.name)),
+      };
+    };
+    const currentLocalPage = () => readLocalEdits()[pageKey(pageRef.namespace, pageRef.slug)];
+    const currentBuiltPage = () => {
+      if (window.WIKI_PAGE) return window.WIKI_PAGE;
+      const script = document.getElementById('wiki-page-data');
+      if (!script) return null;
+      try { return JSON.parse(script.textContent || 'null'); } catch (e) { return null; }
+    };
+    const pageForEdit = () => {
+      const local = currentLocalPage();
+      if (local && !local.deleted) return local;
+      const built = currentBuiltPage();
+      if (built) return built;
+      return {
+        title: titleFromPage(),
+        slug: pageRef.slug,
+        namespace: pageRef.namespace,
+        subcategory: defaultSubcategory(pageRef.namespace),
+        tags: [],
+        body: '# ' + titleFromPage(),
+      };
+    };
+    const inlineMd = (text) => esc(text)
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '$2')
+      .replace(/\[\[([^\]]+)\]\]/g, '$1');
+    const renderMarkdown = (markdown) => {
+      const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+      let html = '';
+      let inList = false;
+      const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+      for (const line of lines) {
+        if (!line.trim()) { closeList(); continue; }
+        const heading = line.match(/^(#{1,4})\s+(.+)$/);
+        if (heading) {
+          closeList();
+          const level = heading[1].length;
+          const id = slugify(heading[2]);
+          html += `<h${level} id="${id}"><a class="header-anchor" href="#${id}">${inlineMd(heading[2])}</a></h${level}>`;
+          continue;
+        }
+        const quote = line.match(/^>\s*(.+)$/);
+        if (quote) { closeList(); html += `<blockquote><p>${inlineMd(quote[1])}</p></blockquote>`; continue; }
+        const bullet = line.match(/^[-*]\s+(.+)$/);
+        if (bullet) {
+          if (!inList) { html += '<ul>'; inList = true; }
+          html += `<li>${inlineMd(bullet[1])}</li>`;
+          continue;
+        }
+        closeList();
+        html += `<p>${inlineMd(line)}</p>`;
+      }
+      closeList();
+      return html;
+    };
+    const paintArticle = (page) => {
+      if (!page || page.deleted || !pageRef.isArticle) return;
+      const h1 = document.querySelector('.page-head h1');
+      const crumb = document.querySelector('.breadcrumb span:last-child');
+      const eyebrow = document.querySelector('.page-head .eyebrow');
+      const facets = document.querySelector('.page-head .facets');
+      const article = document.querySelector('article.prose');
+      if (h1) h1.textContent = page.title;
+      if (crumb) crumb.textContent = page.title;
+      const cat = categoryById(page.namespace);
+      const sub = cat && cat.subcategories ? cat.subcategories.find(s => s.id === page.subcategory) : null;
+      if (eyebrow && cat) eyebrow.textContent = `${cat.title}${sub ? ' / ' + sub.title : ''}`;
+      if (facets) facets.innerHTML = (page.tags || []).map(tag => `<span class="facet f-tag">#${esc(tag)}</span>`).join('');
+      if (article) article.innerHTML = renderMarkdown(String(page.body || '').replace(/^#\s+.*(?:\n|$)/, ''));
+      document.title = `${page.title} · Soaring Cinders Wiki`;
+    };
+    const saveLocalArticle = (payload) => {
+      const title = String(payload.title || '').trim();
+      if (!title) throw new Error('Title is required.');
+      const namespace = slugify(payload.namespace);
+      const slug = slugify(payload.slug || title);
+      if (!categoryById(namespace)) throw new Error('Unknown category.');
+      const cat = categoryById(namespace);
+      const subcategory = cat.subcategories.length
+        ? (cat.subcategories.find(sub => sub.id === slugify(payload.subcategory))?.id || cat.subcategories[0].id)
+        : '';
+      const tags = [...new Set((payload.tags || []).map(tag => String(tag).trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+      const body = String(payload.body || '').replace(/^\s+/, '').trimEnd() + '\n';
+      const edits = readLocalEdits();
+      if (payload.original) delete edits[pageKey(payload.original.namespace, payload.original.slug)];
+      edits[pageKey(namespace, slug)] = { title, slug, namespace, subcategory, tags, body: body || `# ${title}\n`, localOnly: true };
+      writeLocalEdits(edits);
+      meta = staticMeta();
+      return { url: articleUrl(namespace, slug), namespace, slug, localOnly: true };
     };
     const categoryById = (id) => (meta.categories || []).find(cat => cat.id === id);
     const defaultSubcategory = (namespace) => {
@@ -202,7 +362,9 @@
     const openArticleEditor = async (mode) => {
       const isEdit = mode === 'edit';
       const page = isEdit
-        ? await api(`/page?namespace=${encodeURIComponent(pageRef.namespace)}&slug=${encodeURIComponent(pageRef.slug)}`)
+        ? (apiOnline
+          ? await api(`/page?namespace=${encodeURIComponent(pageRef.namespace)}&slug=${encodeURIComponent(pageRef.slug)}`)
+          : pageForEdit())
         : {
           title: '',
           slug: '',
@@ -248,8 +410,16 @@
             body: field(form, 'body').value,
           };
           if (isEdit) payload.original = { namespace: pageRef.namespace, slug: pageRef.slug };
-          const saved = await api('/page', { method: 'POST', body: JSON.stringify(payload) });
-          location.href = saved.url + '?edited=1';
+          const saved = apiOnline
+            ? await api('/page', { method: 'POST', body: JSON.stringify(payload) })
+            : saveLocalArticle(payload);
+          if (!apiOnline && saved.namespace === pageRef.namespace && saved.slug === pageRef.slug) {
+            closeModal(modal);
+            paintArticle(currentLocalPage());
+            showToast('Saved in this browser.');
+          } else {
+            location.href = saved.url + '?edited=1';
+          }
         } catch (error) {
           setFormError(form, error.message);
           setBusy(form, false);
@@ -262,11 +432,18 @@
       const title = titleFromPage();
       if (!confirm(`Delete "${title}"?`)) return;
       try {
-        const deleted = await api('/delete', {
-          method: 'POST',
-          body: JSON.stringify({ namespace: pageRef.namespace, slug: pageRef.slug }),
-        });
-        location.href = deleted.url + '?edited=1';
+        if (apiOnline) {
+          const deleted = await api('/delete', {
+            method: 'POST',
+            body: JSON.stringify({ namespace: pageRef.namespace, slug: pageRef.slug }),
+          });
+          location.href = deleted.url + '?edited=1';
+        } else {
+          const edits = readLocalEdits();
+          edits[pageKey(pageRef.namespace, pageRef.slug)] = { ...(pageForEdit() || {}), deleted: true };
+          writeLocalEdits(edits);
+          location.href = articleUrl(pageRef.namespace, 'index').replace(/\/index\.html$/, '/index.html') + '?edited=1';
+        }
       } catch (error) {
         showToast(error.message);
       }
@@ -296,15 +473,25 @@
         try {
           if (e.target.matches('[data-rename]')) {
             const to = row.querySelector('input').value;
-            await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'rename', from, to }) });
+            if (apiOnline) await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'rename', from, to }) });
+            else {
+              const edits = readLocalEdits();
+              for (const page of Object.values(edits)) page.tags = (page.tags || []).map(tag => tag.toLowerCase() === from.toLowerCase() ? to : tag);
+              writeLocalEdits(edits);
+            }
           } else if (e.target.matches('[data-delete]')) {
             if (!confirm(`Delete tag "${from}" from all articles?`)) return;
-            await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'delete', tag: from }) });
+            if (apiOnline) await api('/tags', { method: 'POST', body: JSON.stringify({ action: 'delete', tag: from }) });
+            else {
+              const edits = readLocalEdits();
+              for (const page of Object.values(edits)) page.tags = (page.tags || []).filter(tag => tag.toLowerCase() !== from.toLowerCase());
+              writeLocalEdits(edits);
+            }
           } else {
             return;
           }
           tagManagerDirty = true;
-          meta = await api('/meta');
+          meta = apiOnline ? await api('/meta') : staticMeta();
           renderTagManager(modal);
         } catch (error) {
           formErr.textContent = error.message;
@@ -329,10 +516,17 @@
     };
 
     api('/meta').then(data => {
+      apiOnline = true;
       meta = data;
       installToolbar();
       if (new URLSearchParams(location.search).has('edited')) showToast('Wiki updated.');
-    }).catch(() => {});
+    }).catch(() => {
+      apiOnline = false;
+      meta = staticMeta();
+      installToolbar();
+      if (pageRef.isArticle) paintArticle(currentLocalPage());
+      if (new URLSearchParams(location.search).has('edited')) showToast('Saved in this browser.');
+    });
   })();
 
   // ---- ember weather (site-wide) ----
