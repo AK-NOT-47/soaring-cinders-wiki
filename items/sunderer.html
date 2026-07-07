@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Sunderer · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,7 +25,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Items</a><span class="sep">/</span><span>The Sunderer</span></div>
     <div class="page-head"><div class="eyebrow">⚔️ Items</div><h1>The Sunderer</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Skyward Cinders</span><span class="facet f-real">Proto-Implemented</span></div>
-      <div class="datemeta">First conceived <b>2023-09-10 (M03670, FreshToast)</b> · last in chat <b>2024-08-24 (M05564, FreshToast)</b></div>
+      <div class="datemeta">First conceived <b>2023-09-10</b> · last updated <b>2024-08-24</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="the-sunderer-canon-implemented" tabindex="-1"><a class="header-anchor" href="#the-sunderer-canon-implemented">The Sunderer <code><span class="badge b-canon">CANON · IMPLEMENTED</span></code></a></h1>
@@ -36,14 +36,14 @@
 <h2 id="description" tabindex="-1"><a class="header-anchor" href="#description">Description</a></h2>
 <ul>
 <li>A <strong>rusty spear with a GLIMMER</strong> — the glimmer marks it as more than scrap (006 §Specific Weapons).</li>
-<li>The <strong>first of “Ajax’s seven thingies”</strong> (relics), acquired in the trial Locke passes in the tutorial (M03670, FreshToast, 2023-09-10). See Ajax’s Relics / <a href="../locations/ajaxs-tomb.html">Ajax’s Tomb</a> (locations batch) — the trial’s end is the secret entrance to the tomb, which Lysander and Eris mistake for a dead end.</li>
+<li>The <strong>first of “Ajax’s seven thingies”</strong> (relics), acquired in the trial Locke passes in the tutorial (2023-09-10). See Ajax’s Relics / <a href="../locations/ajaxs-tomb.html">Ajax’s Tomb</a> (locations batch) — the trial’s end is the secret entrance to the tomb, which Lysander and Eris mistake for a dead end.</li>
 <li>Locke <strong>stumbles into and acquires</strong> the Sunderer during her separation from Lysander and Eris in the tutorial, then arms herself with it and reunites with them for the next battle (006 §Specific Weapons).</li>
 </ul>
 <h2 id="story-role-symbolism" tabindex="-1"><a class="header-anchor" href="#story-role-symbolism">Story role &amp; symbolism</a></h2>
 <ul>
-<li><strong>Explicit symbol of Locke’s status as heir to the role of Ajax</strong> (M05558, FreshToast, 2024-08-24).</li>
-<li><strong>Independence from Lysander</strong> — the sword Lysander gave Locke SHATTERS against the golem’s stone body (“the power he gave her breaks”); the Sunderer is power she <strong>sought for herself and developed</strong>, which is why the spear represents her independence (006 §Specific Weapons; M05564, FreshToast, 2024-08-24). Locke chooses to do her own thing, though the notes concede the spear doesn’t strictly <em>enable</em> that — “a little murky, if convenient” (M05564, FreshToast).</li>
-<li><strong>Lysander notices it</strong> — a “somewhat important” beat where Lysander comments on the spear or tries and fails to pick it up (mjolnir/excalibur style), dismissing it as worthless/a waste of time while it turns out to be Locke’s best find (M05526–M05544, FreshToast/CrunchyConniptions, 2024-08-24). Meant to read as a footnote that becomes the real prize.</li>
+<li><strong>Explicit symbol of Locke’s status as heir to the role of Ajax</strong> (2024-08-24).</li>
+<li><strong>Independence from Lysander</strong> — the sword Lysander gave Locke SHATTERS against the golem’s stone body (“the power he gave her breaks”); the Sunderer is power she <strong>sought for herself and developed</strong>, which is why the spear represents her independence (2024-08-24; 006 §Specific Weapons). Locke chooses to do her own thing, though the notes concede the spear doesn’t strictly <em>enable</em> that — “a little murky, if convenient”.</li>
+<li><strong>Lysander notices it</strong> — a “somewhat important” beat where Lysander comments on the spear or tries and fails to pick it up (mjolnir/excalibur style), dismissing it as worthless/a waste of time while it turns out to be Locke’s best find (2024-08-24). Meant to read as a footnote that becomes the real prize.</li>
 </ul>
 <h2 id="implementation-proto-implemented" tabindex="-1"><a class="header-anchor" href="#implementation-proto-implemented">Implementation (proto) <code>[IMPLEMENTED]</code></a></h2>
 <p>The Sunderer ships in the proto prologue dungeon as a <code>relic</code>-kind treasure reward at the “Glimmer in the Rubble” node — <em>“Ajax’s spear — the first relic. You are armed in earnest now.”</em> It is found <strong>after</strong> the borrowed sword shatters on the slime’s stone-cored body, so the two-weapon thesis is coded into the dungeon graph itself. Locke’s in-combat spear kit (Pierce / Sunder / Phalanx / Emberlance) is the Pierce family; <strong>Sunder</strong> applies <em>Defense Down</em> on hit, matching the spear’s guard-breaking flavour (proto: <code>src/core/campaign/content.ts</code> node <code>n2a</code>; <code>run.ts</code> <code>applyReward</code> case <code>'relic'</code>; <code>src/core/combat/content.ts</code> HERO_SKILLS — per 006 §Specific Weapons).</p>
@@ -58,21 +58,14 @@
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-09-10</strong> — introduced: Sunderer is the first of Ajax’s seven relics, acquired in Locke’s tutorial trial; the trial’s end is the secret entrance to Ajax’s tomb (M03670, FreshToast).</li>
-<li><strong>2024-08-24</strong> — deepened into a symbol: heir-to-Ajax status and independence-from-Lysander meaning locked in; the “Lysander notices / can’t lift it / calls it a waste” beat added (M05526–M05564, FreshToast/CrunchyConniptions).</li>
+<li><strong>2023-09-10</strong> — introduced: Sunderer is the first of Ajax’s seven relics, acquired in Locke’s tutorial trial; the trial’s end is the secret entrance to Ajax’s tomb.</li>
+<li><strong>2024-08-24</strong> — deepened into a symbol: heir-to-Ajax status and independence-from-Lysander meaning locked in; the “Lysander notices / can’t lift it / calls it a waste” beat added.</li>
 <li><strong>Proto</strong> — implemented as the <code>n2a</code> relic reward, gated behind the sword-shatter beat (006 §Specific Weapons [IMPLEMENTED]).</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M03670 (FreshToast, 2023-09-10); M05522, M05526–M05544, M05558–M05564 (FreshToast/CrunchyConniptions/spirit_noodle, 2024-08-24)</li>
-<li><strong>Cleaned:</strong> 000 Part 15 §Ajax’s Tomb + Sunderer; §Lysander Noticing Sunderer</li>
-<li><strong>Docs:</strong> 006 §Specific Weapons (Sunderer, <span class="badge b-canon">CANON · IMPLEMENTED</span>) / §Lysander’s Backup Sword; 004 §Lysander Noticing Sunderer; 003 §Ajax’s Tomb / Hidden Connection; 002 (heir symbolism)</li>
-<li><strong>Ledger:</strong> rows R20 (M03670), R30 (M05522–M05564), R18 (Flynt &amp; Steele cross-ref) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../characters/ajax.html">Ajax</a> <span class="blns">Characters</span></li><li><a href="../locations/ajaxs-tomb.html">Ajax's Tomb &amp; the Prologue Dungeon</a> <span class="blns">Locations</span></li><li><a href="../items/chaos-emeralds.html">Chaos Emeralds (Ajax's Seven Relics)</a> <span class="blns">Items</span></li><li><a href="../characters/locke.html">Locke Evertide</a> <span class="blns">Characters</span></li><li><a href="../characters/lysander.html">Lysander</a> <span class="blns">Characters</span></li><li><a href="../story/lysander-final-boss.html">Lysander's Villain Turn &amp; Two-Phase Final Boss</a> <span class="blns">Story</span></li><li><a href="../story/main-story-outline.html">Main Story Outline</a> <span class="blns">Story</span></li><li><a href="../items/mythic-weapons.html">Mythic Weapons</a> <span class="blns">Items</span></li><li><a href="../story/prologue-tutorial.html">Prologue &amp; Tutorial — The Descent into Ajax's Tomb</a> <span class="blns">Story</span></li><li><a href="../story/chaos-emeralds-quest.html">The Chaos Emeralds Quest (Ajax's Relics)</a> <span class="blns">Story</span></li><li><a href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a> <span class="blns">Systems</span></li><li><a href="../items/warpath.html">Warpath</a> <span class="blns">Items</span></li><li><a href="../items/weapons.html">Weapons (Tiers, Types &amp; Skills)</a> <span class="blns">Items</span></li></ul></div>
-    <footer class="foot">Source docs: 006 §Specific Weapons (Sunderer) · 004 §Lysander Noticing Sunderer · 003 §Ajax's Tomb · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 006 §Specific Weapons (Sunderer) · 004 §Lysander Noticing Sunderer · 003 §Ajax's Tomb · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

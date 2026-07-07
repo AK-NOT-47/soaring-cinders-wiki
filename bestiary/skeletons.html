@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Skeletons · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,41 +25,34 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Skeletons</span></div>
     <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Skeletons</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>Skeleton Archer</i></div>
-      <div class="datemeta">First conceived <b>2024-03-12 (M05365, CrunchyConniptions)</b> · last in chat <b>2024-03-12 (M05376, FreshToast)</b></div>
+      <div class="datemeta">First conceived <b>2024-03-12</b> · last updated <b>2024-03-12</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="skeletons-canon" tabindex="-1"><a class="header-anchor" href="#skeletons-canon">Skeletons <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>The mandatory dungeon-crawler skeletons — because “Dungeons and no skeletons? A travesty.”</p>
 </blockquote>
-<p><strong>Summary</strong> — Skeletons are a deliberately classic dungeon-crawler enemy, treated as <strong>mandatory for dungeons</strong> (005 §Status). The team’s affection for the trope is on the record: “I’d be surprised if there were no skeletons. Like come on” and “Dungeons and no skeletons? A travesty” (M05373–M05376, FreshToast, 2024-03-12). They anchor a desired <strong>skeleton tomb</strong> area, and appear in the proto as ranged <strong>Skeleton Archers</strong>.</p>
+<p><strong>Summary</strong> — Skeletons are a deliberately classic dungeon-crawler enemy, treated as <strong>mandatory for dungeons</strong> (005 §Status). The team’s affection for the trope is on the record: “I’d be surprised if there were no skeletons. Like come on” and “Dungeons and no skeletons? A travesty” (2024-03-12). They anchor a desired <strong>skeleton tomb</strong> area, and appear in the proto as ranged <strong>Skeleton Archers</strong>.</p>
 <h2 id="description-role" tabindex="-1"><a class="header-anchor" href="#description-role">Description &amp; role</a></h2>
 <ul>
-<li>Classic dungeon-crawler trope, embraced wholesale: “Maybe we need [a] funny skeleton” (M05365, CrunchyConniptions, 2024-03-12); “Do I like skeletons. Yes i do” (M05371, CrunchyConniptions, 2024-03-12).</li>
+<li>Classic dungeon-crawler trope, embraced wholesale: “Maybe we need [a] funny skeleton” (2024-03-12); “Do I like skeletons. Yes i do” (2024-03-12).</li>
 <li><strong>Mandatory for dungeons</strong> — recorded as a finalized decision (005 §Status; §Design Decisions Finalized).</li>
 </ul>
 <h2 id="location" tabindex="-1"><a class="header-anchor" href="#location">Location</a></h2>
 <ul>
-<li>Tied to a desired <strong>skeleton tomb</strong> area: “we need skeleton tomb… I dunno” (M05368, CrunchyConniptions, 2024-03-12). Whether to include a dedicated skeleton-tomb area is listed as unresolved, “though skeletons are now mandatory” (005 §Unresolved Questions). See <a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> for enemy-type-by-area.</li>
+<li>Tied to a desired <strong>skeleton tomb</strong> area: “we need skeleton tomb… I dunno” (2024-03-12). Whether to include a dedicated skeleton-tomb area is listed as unresolved, “though skeletons are now mandatory” (005 §Unresolved Questions). See <a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> for enemy-type-by-area.</li>
 </ul>
 <h2 id="proto-realization-skeleton-archer-implemented" tabindex="-1"><a class="header-anchor" href="#proto-realization-skeleton-archer-implemented">Proto realization: Skeleton Archer <code>[IMPLEMENTED]</code></a></h2>
 <p>The vertical slice ships skeletons as <strong>Skeleton Archers</strong> (<code>skeleton_archer</code>, 💀) — a ranged <strong>marksman</strong> with <strong>Arrow</strong> and <strong>Bone Shot</strong> (any-rank shots); full stats in <a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> (proto: src/core/combat/content.ts — <code>ENEMY_DEFS</code>). This is consistent with the “mandatory for dungeons” decision; they fight in the <strong>Bone Gallery</strong> and the ambush narrows (proto: src/core/campaign/content.ts nodes <code>n2b</code>, <code>n4</code>) (005 §Common / elite enemies (proto), Notes).</p>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2024-03-12</strong> — the whole decision in one exchange: CrunchyConniptions floats a “funny skeleton” and a “skeleton tomb” (M05365–M05368, M05371); FreshToast declares dungeons without skeletons “A travesty” (M05373–M05376). Recorded thereafter as mandatory-for-dungeons. <em>Current lore.</em></li>
+<li><strong>2024-03-12</strong> — the whole decision in one exchange: CrunchyConniptions floats a “funny skeleton” and a “skeleton tomb”; FreshToast declares dungeons without skeletons “A travesty”. Recorded thereafter as mandatory-for-dungeons. <em>Current lore.</em></li>
 <li><strong>(proto, undated)</strong> — realized as ranged <strong>Skeleton Archers</strong> in the Bone Gallery and ambush encounters. [IMPLEMENTED]</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M05365, M05368, M05371 (CrunchyConniptions, 2024-03-12); M05373–M05376 (FreshToast, 2024-03-12)</li>
-<li><strong>Cleaned:</strong> 000 (Skeletons)</li>
-<li><strong>Docs:</strong> 005 §Skeletons, §Common Enemies, §Common / elite enemies (proto), §Design Decisions Finalized, §Unresolved Questions</li>
-<li><strong>Ledger:</strong> creature/dungeon rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> <span class="blns">Bestiary</span></li></ul></div>
-    <footer class="foot">Source docs: 005 §Skeletons · 005 §Common Enemies · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 005 §Skeletons · 005 §Common Enemies · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

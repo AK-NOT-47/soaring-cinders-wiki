@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rank-Targeting / Combat-Readability UI · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,50 +25,43 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Rank-Targeting / Combat-Readability UI</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Rank-Targeting / Combat-Readability UI</h1>
       <div class="facets"><span class="badge b-proposed">PROPOSED</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Notes / Design</span></div><div class="aliases">Also known as: <i>Rank indicators</i>, <i>targeting UI</i>, <i>combat readability UI</i></div>
-      <div class="datemeta">First conceived <b>2023-02-06 (M01030, FreshToast)</b> · last in chat <b>2023-02-06 (M01047)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-06</b> · last updated <b>2023-02-06</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="rank-targeting-combat-readability-ui-proposed" tabindex="-1"><a class="header-anchor" href="#rank-targeting-combat-readability-ui-proposed">Rank-Targeting / Combat-Readability UI <code><span class="badge b-proposed">PROPOSED</span></code></a></h1>
 <blockquote>
 <p>Player-side visual feedback for how a skill’s rank/target range works and what the player has selected — distinct from the enemy-side intent telegraphs.</p>
 </blockquote>
-<p><strong>Summary</strong> — <code><span class="badge b-proposed">PROPOSED</span></code> A player-facing readability layer for the <a href="../systems/position-system.html">rank/position system</a>: colored indicators show which rank a skill can be <strong>used from</strong> (yellow) and which it can <strong>target</strong> (blue), potential targets are highlighted (with an AoE link), selection is made obvious via glow/halo, and enemy health that would be deleted is previewed Darkest-Dungeon-style (008 §7 Rank-Targeting UI; M01030–M01047, FreshToast/CrunchyConniptions, 2023-02-06). This is player-side targeting feedback — <strong>distinct</strong> from and complementary to the <a href="../systems/enemy-intent.html">Enemy Intent Indicators</a>; the two should not be duplicated. All conceived in a single 2023-02-06 readability thread; not implemented.</p>
+<p><strong>Summary</strong> — <code><span class="badge b-proposed">PROPOSED</span></code> A player-facing readability layer for the <a href="../systems/position-system.html">rank/position system</a>: colored indicators show which rank a skill can be <strong>used from</strong> (yellow) and which it can <strong>target</strong> (blue), potential targets are highlighted (with an AoE link), selection is made obvious via glow/halo, and enemy health that would be deleted is previewed Darkest-Dungeon-style (2023-02-06; 008 §7 Rank-Targeting UI). This is player-side targeting feedback — <strong>distinct</strong> from and complementary to the <a href="../systems/enemy-intent.html">Enemy Intent Indicators</a>; the two should not be duplicated. All conceived in a single 2023-02-06 readability thread; not implemented.</p>
 <h2 id="description-proposed" tabindex="-1"><a class="header-anchor" href="#description-proposed">Description <code><span class="badge b-proposed">PROPOSED</span></code></a></h2>
-<p>(008 §7 Rank-Targeting / Combat-Readability UI; all from the M01030–M01047 thread, FreshToast/CrunchyConniptions, 2023-02-06)</p>
+<p>(2023-02-06; 008 §7 Rank-Targeting / Combat-Readability UI)</p>
 <ul>
-<li><strong>Rank indicators on a skill:</strong> a <strong>yellow</strong> indicator shows which rank a skill can be <strong>used from</strong>; a <strong>blue</strong> indicator shows which rank it can <strong>target</strong>. Left arrow = left rank (back for party, front for enemy); right is the opposite. Framed as more immediately intuitive than text like “Skill only usable from back rank” (M01030, M01031, M01032, M01035, FreshToast).</li>
-<li><strong>Iteration / simplification:</strong> the blue symbol could be dropped so only the yellow appears (M01034, FreshToast).</li>
-<li><strong>Target highlighting:</strong> instead of a target symbol, <strong>highlight the enemies that are potential targets</strong>, with a visual <strong>link between them for AoE effects</strong>. Visual reminders sit underneath enemies; Darkest Dungeon does something similar with its “4 dots” (M01033, M01036, M01037, FreshToast).</li>
+<li><strong>Rank indicators on a skill:</strong> a <strong>yellow</strong> indicator shows which rank a skill can be <strong>used from</strong>; a <strong>blue</strong> indicator shows which rank it can <strong>target</strong>. Left arrow = left rank (back for party, front for enemy); right is the opposite. Framed as more immediately intuitive than text like “Skill only usable from back rank”.</li>
+<li><strong>Iteration / simplification:</strong> the blue symbol could be dropped so only the yellow appears.</li>
+<li><strong>Target highlighting:</strong> instead of a target symbol, <strong>highlight the enemies that are potential targets</strong>, with a visual <strong>link between them for AoE effects</strong>. Visual reminders sit underneath enemies; Darkest Dungeon does something similar with its “4 dots”.</li>
 <li><strong>Selection feedback:</strong> when a character is selected it should be more obvious — a <strong>drop-shadow glow</strong> under the character, a <strong>halo</strong>, or a low-effort eye-catching arrow; the health bar could change color or glow (from the same thread).</li>
-<li><strong>Enemy health preview (Darkest-Dungeon style):</strong> <strong>highlight the portion of an enemy’s health bar that would be deleted</strong> by the selected action (“the enemy themselves are highlighted and the portion of their [health] that would be deleted is highlighted” — noted as harder to implement). Otherwise show enemy health as numbers in the lower UI (M01042, M01043, M01044, M01047, FreshToast/CrunchyConniptions).</li>
+<li><strong>Enemy health preview (Darkest-Dungeon style):</strong> <strong>highlight the portion of an enemy’s health bar that would be deleted</strong> by the selected action (“the enemy themselves are highlighted and the portion of their [health] that would be deleted is highlighted” — noted as harder to implement). Otherwise show enemy health as numbers in the lower UI.</li>
 </ul>
 <h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
 <ul>
 <li>Reads directly off the <a href="../systems/position-system.html">rank/position system</a> — the yellow/blue arrows visualize a skill’s <code>fromRanks</code>/<code>targetRanks</code>.</li>
 <li><strong>Distinct from</strong> <a href="../systems/enemy-intent.html">Enemy Intent Indicator System</a>: that telegraphs what the <em>enemy</em> is about to do; this shows the <em>player’s own</em> skill range and selection. Complementary, not duplicative (008 §7 note).</li>
-<li>Color note: the same 000 UI thread uses <strong>blue for a character’s position, orange for an enemy’s position</strong> on the combat map (000 line 1852) — separate from the yellow/blue <em>skill-range</em> indicators here.</li>
+<li>Color note: the same 000 UI thread uses <strong>blue for a character’s position, orange for an enemy’s position</strong> on the combat map — separate from the yellow/blue <em>skill-range</em> indicators here.</li>
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-proposed">PROPOSED</span></code> Whether to keep both the yellow (used-from) and blue (target) indicators, or drop the blue so only yellow appears (M01034, FreshToast, 2023-02-06).</li>
-<li><code><span class="badge b-proposed">PROPOSED</span></code> The DD-style <strong>health-deletion preview</strong> is the preferred option but noted as “more difficult to implement” (M01042, CrunchyConniptions, 2023-02-06).</li>
+<li><code><span class="badge b-proposed">PROPOSED</span></code> Whether to keep both the yellow (used-from) and blue (target) indicators, or drop the blue so only yellow appears (2023-02-06).</li>
+<li><code><span class="badge b-proposed">PROPOSED</span></code> The DD-style <strong>health-deletion preview</strong> is the preferred option but noted as “more difficult to implement” (2023-02-06).</li>
 <li>Whole system is <code><span class="badge b-proposed">PROPOSED</span></code> / notes-design — not implemented in the proto.</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-06</strong> — the entire proposal was worked out in a single combat-readability thread: yellow = used-from-rank / blue = target-rank arrows, the option to drop blue, potential-target highlighting with AoE links, selection glow/halo feedback, and the DD-style enemy-health-deletion preview with numbers in the lower UI (M01030–M01047, FreshToast/CrunchyConniptions). <em>(Ledger R06.)</em> — no later revision recorded; remains <code><span class="badge b-proposed">PROPOSED</span></code>.</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M01030–M01047 (FreshToast/CrunchyConniptions, 2023-02-06)</li>
-<li><strong>Cleaned:</strong> 000 lines 1853–1871 (Battle Positioning / UI Indicators)</li>
-<li><strong>Docs:</strong> 008 §7 Rank-Targeting / Combat-Readability UI (lines 476, 478, 480)</li>
-<li><strong>Ledger:</strong> row R06 (M01030…M01047) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+<li><strong>2023-02-06</strong> — the entire proposal was worked out in a single combat-readability thread: yellow = used-from-rank / blue = target-rank arrows, the option to drop blue, potential-target highlighting with AoE links, selection glow/halo feedback, and the DD-style enemy-health-deletion preview with numbers in the lower UI. — no later revision recorded; remains <code><span class="badge b-proposed">PROPOSED</span></code>.</li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a> <span class="blns">Systems</span></li><li><a href="../systems/position-system.html">Combat Position System</a> <span class="blns">Systems</span></li><li><a href="../systems/enemy-intent.html">Enemy Intent Indicator System</a> <span class="blns">Systems</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §7 Rank-Targeting / Combat-Readability UI · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §7 Rank-Targeting / Combat-Readability UI · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

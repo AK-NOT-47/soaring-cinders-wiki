@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Escalation Mechanic · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,14 +25,14 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Escalation Mechanic</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Escalation Mechanic</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Escalation</i></div>
-      <div class="datemeta">First conceived <b>2023-02-17 (M02383, FreshToast)</b> · last in chat <b>2023-02-20 (M02624)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-17</b> · last updated <b>2023-02-20</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="escalation-mechanic-canon" tabindex="-1"><a class="header-anchor" href="#escalation-mechanic-canon">Escalation Mechanic <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>A per-fight counter that makes battles deadlier the longer they run, pushing them toward a rapid close.</p>
 </blockquote>
-<p><strong>Summary</strong> — Escalation starts at <strong>0</strong> and rises <strong>+1 per new round, +1 per critical hit (either side), +1 per character defeat</strong> (008 §2 Escalation Mechanic; proto <code>src/core/combat/state.ts</code>). As it climbs, <strong>enemy</strong> attackers gain an accuracy/crit edge; when it first reaches <strong>20</strong>, every living hero gets a one-time <strong>+2 AP</strong> surge (see <a href="../systems/ap-economy.html">Action Points (AP) Economy</a>). It is one of the twin “end fast” pressures alongside the <a href="../systems/shields-and-wounded.html">Wounded</a> mechanic. First conceived 2023-02-17 as a mechanic that “causes fights to become deadlier as they go on” (M02383, FreshToast, 2023-02-17).</p>
+<p><strong>Summary</strong> — Escalation starts at <strong>0</strong> and rises <strong>+1 per new round, +1 per critical hit (either side), +1 per character defeat</strong> (008 §2 Escalation Mechanic; proto <code>src/core/combat/state.ts</code>). As it climbs, <strong>enemy</strong> attackers gain an accuracy/crit edge; when it first reaches <strong>20</strong>, every living hero gets a one-time <strong>+2 AP</strong> surge (see <a href="../systems/ap-economy.html">Action Points (AP) Economy</a>). It is one of the twin “end fast” pressures alongside the <a href="../systems/shields-and-wounded.html">Wounded</a> mechanic. First conceived 2023-02-17 as a mechanic that “causes fights to become deadlier as they go on” (2023-02-17).</p>
 <h2 id="rules-implemented-proto" tabindex="-1"><a class="header-anchor" href="#rules-implemented-proto">Rules — implemented (proto)</a></h2>
 <p><code><span class="badge b-canon">CANON · implemented</span></code> (008 §2 Escalation Mechanic; proto <code>src/core/combat/state.ts</code>, <code>resolution.ts</code>)</p>
 <ul>
@@ -44,32 +44,25 @@
 <h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
 <ul>
 <li><strong>AP:</strong> the escalation-20 surge is the proto’s only escalation→AP interaction. See <a href="../systems/ap-economy.html">Action Points (AP) Economy</a>.</li>
-<li><strong>Remnants (design intent, not coded):</strong> consuming OR letting a Remnant fade was meant to raise escalation, and character defeats both raise escalation AND leave a Remnant (M02507, M02618, FreshToast, 2023-02-19/20). The proto ships <strong>no Remnants</strong> — on defeat a character simply dies and the line compacts forward (008 §2 Remnant System; see <a href="../systems/position-system.html">Combat Position System</a>).</li>
+<li><strong>Remnants (design intent, not coded):</strong> consuming OR letting a Remnant fade was meant to raise escalation, and character defeats both raise escalation AND leave a Remnant (2023-02-19/20). The proto ships <strong>no Remnants</strong> — on defeat a character simply dies and the line compacts forward (008 §2 Remnant System; see <a href="../systems/position-system.html">Combat Position System</a>).</li>
 <li>Twin “end fast” pressure with the <a href="../systems/shields-and-wounded.html">Wounded</a> mechanic (008 §2 Combat Duration).</li>
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Escalation curve.</strong> The notes specify a graded curve — +2% acc/point up to 10; then +1% acc &amp; crit/point up to 20 — with <strong>two</strong> break points (10 → +1 AP each; 20 → ongoing extra AP each turn) (M02620–M02624, FreshToast, 2023-02-20). The proto compresses this to a single <code>floor(escalation/4)</code> enemy-only acc+crit edge plus a one-time +2-AP surge at 20. The graded curve and the escalation-10 break point are unimplemented design intent (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Escalation curve.</strong> The notes specify a graded curve — +2% acc/point up to 10; then +1% acc &amp; crit/point up to 20 — with <strong>two</strong> break points (10 → +1 AP each; 20 → ongoing extra AP each turn) (2023-02-20). The proto compresses this to a single <code>floor(escalation/4)</code> enemy-only acc+crit edge plus a one-time +2-AP surge at 20. The graded curve and the escalation-10 break point are unimplemented design intent (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</li>
 <li><code><span class="badge b-debated">DEBATED</span></code> <strong>Renaming “Escalation”</strong> was raised (“a bit of a mouthful and could be renamed”) but no replacement was chosen (Part 11). The proto keeps “Escalation” (008 §2).</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-17</strong> — original concept: “Escalation is a mechanic which causes fights to become deadlier as they go on, bringing them to a more rapid close.” Begins at 0; increases per round, per certain skills, and by 1 on crits or a character dying; increases accuracy/crit/chance-effects by <strong>2% per level</strong>; some characters have escalation-scaling skills (M02383, FreshToast).</li>
-<li><strong>2023-02-19/20</strong> — tied to the Remnant (“Shadow”) system: character defeats raise escalation AND leave a shadow; consuming or letting a shadow fade also raises escalation (M02507, M02618, FreshToast) — <em>the Remnant coupling is unimplemented</em>.</li>
-<li><strong>2023-02-20</strong> — the graded two-break-point curve was written out: for each point up to 10, +2% accuracy; for each point up to 20, +1% accuracy and crit; <strong>first break point → every character instantly +1 AP</strong>; <strong>second break point → all characters get an extra AP each turn</strong> (M02619–M02624, FreshToast).</li>
+<li><strong>2023-02-17</strong> — original concept: “Escalation is a mechanic which causes fights to become deadlier as they go on, bringing them to a more rapid close.” Begins at 0; increases per round, per certain skills, and by 1 on crits or a character dying; increases accuracy/crit/chance-effects by <strong>2% per level</strong>; some characters have escalation-scaling skills.</li>
+<li><strong>2023-02-19/20</strong> — tied to the Remnant (“Shadow”) system: character defeats raise escalation AND leave a shadow; consuming or letting a shadow fade also raises escalation — <em>the Remnant coupling is unimplemented</em>.</li>
+<li><strong>2023-02-20</strong> — the graded two-break-point curve was written out: for each point up to 10, +2% accuracy; for each point up to 20, +1% accuracy and crit; <strong>first break point → every character instantly +1 AP</strong>; <strong>second break point → all characters get an extra AP each turn</strong>.</li>
 <li><strong>Later (proto era)</strong> — the graded curve was <strong>replaced</strong> by a single enemy-only <code>floor(escalation/4)</code> acc+crit edge, and the two break points collapsed to a <strong>single +2 AP surge at 20</strong>; +1 per round / +1 per crit / +1 per defeat survive (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>). <em>(This is the current presentation above; supersedes the graded curve.)</em></li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M02383 (FreshToast, 2023-02-17); M02502, M02507, M02572 (2023-02-19/20); M02618–M02624 (FreshToast, 2023-02-20)</li>
-<li><strong>Cleaned:</strong> 000 Part 8/9 §Escalation Mechanic</li>
-<li><strong>Docs:</strong> 008 §2 Escalation Mechanic (Part 8 / Part 9); 008 §2 Combat Duration / “End Fast”</li>
-<li><strong>Ledger:</strong> provenance rows under mechanics (M02383 and the M02618–M02624 escalation thread) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/ap-economy.html">Action Points (AP) Economy</a> <span class="blns">Systems</span></li><li><a href="../magic/character-skills.html">Character Skills (Per-Character Rosters)</a> <span class="blns">Magic</span></li><li><a href="../systems/position-system.html">Combat Position System</a> <span class="blns">Systems</span></li><li><a href="../systems/damage-types.html">Damage Types &amp; Mitigation</a> <span class="blns">Systems</span></li><li><a href="../development/enemy-design-philosophy.html">Enemy Design Philosophy</a> <span class="blns">Development</span></li><li><a href="../bestiary/fear-effect.html">Fear Effect</a> <span class="blns">Bestiary</span></li><li><a href="../characters/locke.html">Locke Evertide</a> <span class="blns">Characters</span></li><li><a href="../characters/lysander.html">Lysander</a> <span class="blns">Characters</span></li><li><a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> <span class="blns">Bestiary</span></li><li><a href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a> <span class="blns">Systems</span></li><li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> <span class="blns">Bestiary</span></li><li><a href="../characters/sable.html">Sable</a> <span class="blns">Characters</span></li><li><a href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a> <span class="blns">Systems</span></li><li><a href="../magic/skill-system.html">Skill System (Slots, Modular Skills, Costs)</a> <span class="blns">Magic</span></li><li><a href="../bestiary/vaenngrym.html">Vaenngrym</a> <span class="blns">Bestiary</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §2 Escalation Mechanic · 008 §2 AP System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §2 Escalation Mechanic · 008 §2 AP System · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

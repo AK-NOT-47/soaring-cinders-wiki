@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Progression &amp; Difficulty · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,14 +25,14 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Progression &amp; Difficulty</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Progression &amp; Difficulty</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>Difficulty System</i>, <i>Difficulty Scaling</i>, <i>Character Progression</i>, <i>Adjust Difficulty On The Go</i></div>
-      <div class="datemeta">First conceived <b>2021-05-25 (M00128, CrunchyConniptions)</b> · last in chat <b>2024-05-19 (M05422-M05428, CrunchyConniptions)</b></div>
+      <div class="datemeta">First conceived <b>2021-05-25</b> · last updated <b>2024-05-19</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="progression-difficulty-canon" tabindex="-1"><a class="header-anchor" href="#progression-difficulty-canon">Progression &amp; Difficulty <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>How the player grows over a run and how the game’s challenge is tuned — the settled position being that difficulty is <strong>adjusted on the go through in-game means</strong>, never chosen from a menu at the start.</p>
 </blockquote>
-<p><strong>Summary</strong> — Progression is deliberately <strong>bare-bones and level-gated, with no skill trees and no enemy scaling</strong>; the point of leveling is “the illusion of progress” because “the skill is what matters” (008 §9). Difficulty is <strong>built in as an inherent challenge</strong>, with in-game (not menu) tools letting the player nudge it up or down: the strong, settled design position is that a player should <strong>never pick a difficulty at the start of the game</strong> but instead choose challenge later, intuitively, as part of play (M05422-M05426, CrunchyConniptions, 2024-05-19; 008 §16).</p>
+<p><strong>Summary</strong> — Progression is deliberately <strong>bare-bones and level-gated, with no skill trees and no enemy scaling</strong>; the point of leveling is “the illusion of progress” because “the skill is what matters” (008 §9). Difficulty is <strong>built in as an inherent challenge</strong>, with in-game (not menu) tools letting the player nudge it up or down: the strong, settled design position is that a player should <strong>never pick a difficulty at the start of the game</strong> but instead choose challenge later, intuitively, as part of play (2024-05-19; 008 §16).</p>
 <h2 id="character-progression-design-intent" tabindex="-1"><a class="header-anchor" href="#character-progression-design-intent">Character progression (design intent)</a></h2>
 <p>Progression uses a level-gated unlock cadence — <strong>no skill trees, no enemy scaling</strong> — where leveling delivers skills and traits rather than raw power. Leveling is “the illusion of progress”; “the skill is what matters” (008 §9 <code><span class="badge b-canon">CANON</span></code>).</p>
 <p><strong>Final structure (20 levels)</strong> (008 §9):</p>
@@ -44,33 +44,33 @@
 </ul>
 <p><code><span class="badge b-debated">DEBATED</span></code> <strong>Alternative structure (10 levels):</strong> 3 starter skills; levels 2-10 alternate trait/skill. The 20-level structure is the leading/final-favored version, with the 10-level variant as the alternative; exact HP numbers were never nailed down (008 §9).</p>
 <blockquote>
-<p><code><span class="badge b-scrapped">SCRAPPED</span></code> <strong>Skill trees are an explicit anti-feature</strong> — listed twice in the Part 3 “Fuck-this list” (“Fuck skill trees”) (M00864, spirit_noodle, 2023-02-02; 008 §9). Any earlier XP-based / Skyrim-skill-tree / skill-points-per-level framing revived a source-rejected feature.</p>
+<p><code><span class="badge b-scrapped">SCRAPPED</span></code> <strong>Skill trees are an explicit anti-feature</strong> — listed twice in the Part 3 “Fuck-this list” (“Fuck skill trees”) (2023-02-02; 008 §9). Any earlier XP-based / Skyrim-skill-tree / skill-points-per-level framing revived a source-rejected feature.</p>
 </blockquote>
 <blockquote>
 <p><code><span class="badge b-debated">DEBATED</span></code> design intent vs implemented: the <strong>proto implements no leveling at all</strong> — no XP, no level, no per-level unlock, no enemy scaling. Heroes ship with a fixed 4-skill kit and fixed stats (008 §9; proto <code>src/core/combat/content.ts</code>; <code>GAME_DESIGN.md §14</code> “No leveling. Progression is equipment + skills only.”). The “no skill trees / no enemy scaling / linear scaling” <em>intent</em> is honoured; the level-gated cadence itself is unimplemented design intent.</p>
 </blockquote>
 <p>Equipment progression (the Tier + Quality + Rune model) is a separate design and is not implemented in the proto (008 §9 Equipment Progression <code><span class="badge b-debated">DEBATED</span></code>). Run-level progression that IS implemented — degrading max-HP, healing jets, relics — lives in <a href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a> and <a href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a>.</p>
 <h2 id="difficulty-philosophy-current-position" tabindex="-1"><a class="header-anchor" href="#difficulty-philosophy-current-position">Difficulty philosophy (current position)</a></h2>
-<p>The settled position, stated in full in 2024 (M05422-M05426, CrunchyConniptions, 2024-05-19; 008 §16):</p>
+<p>The settled position, stated in full in 2024 (2024-05-19; 008 §16):</p>
 <ul>
-<li><strong>“Difficulty is weird. I think I have decided how to make that work.”</strong> (M05422, M05423)</li>
-<li><strong>Challenge the player and encourage them to overcome the challenge</strong> — “so we make the game inherently challenging” (M05424, M05425).</li>
-<li><strong>But</strong> there are ways for the player to adjust that difficulty <strong>lower or higher through in-game stuff</strong> (M05425).</li>
-<li><strong>“I completely reject the idea of having the player select a difficulty in the beginning of the game. It makes no sense if you think about it. The player does not know what that choice means. Instead give them that choice later as part of the game in an intuitive manner that nudges them to take on challenges.”</strong> (M05425, CrunchyConniptions, 2024-05-19)</li>
-<li><strong>TL;DR: “ALLOW PLAYER TO ADJUST DIFFICULTY ON THE GO.”</strong> (M05426, CrunchyConniptions, 2024-05-19)</li>
-<li>A YouTube video on difficulty in games was shared as “probably the best video I’ve seen that discusses difficulty” (M05427, M05428, 2024-05-19; link not preserved in the doc).</li>
+<li><strong>“Difficulty is weird. I think I have decided how to make that work.”</strong></li>
+<li><strong>Challenge the player and encourage them to overcome the challenge</strong> — “so we make the game inherently challenging”.</li>
+<li><strong>But</strong> there are ways for the player to adjust that difficulty <strong>lower or higher through in-game stuff</strong>.</li>
+<li><strong>“I completely reject the idea of having the player select a difficulty in the beginning of the game. It makes no sense if you think about it. The player does not know what that choice means. Instead give them that choice later as part of the game in an intuitive manner that nudges them to take on challenges.”</strong> (2024-05-19)</li>
+<li><strong>TL;DR: “ALLOW PLAYER TO ADJUST DIFFICULTY ON THE GO.”</strong> (2024-05-19)</li>
+<li>A YouTube video on difficulty in games was shared as “probably the best video I’ve seen that discusses difficulty” (2024-05-19).</li>
 </ul>
 <h3 id="difficulty-scaling-early-framing" tabindex="-1"><a class="header-anchor" href="#difficulty-scaling-early-framing">Difficulty scaling (early framing)</a></h3>
 <p><code><span class="badge b-evolved">EVOLVED</span></code> The early scaling picture: early floors so easy people can solo them, growing more complex as you progress until reliance on co-op becomes central (Ghost of Tsushima nightmare-raids reference) (008 §13 Difficulty Scaling). This co-op-centric endpoint is superseded — the first game is single-player (Parts 9-24; see <a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a>).</p>
 <h3 id="in-game-difficulty-levers-design-intent" tabindex="-1"><a class="header-anchor" href="#in-game-difficulty-levers-design-intent">In-game difficulty levers (design intent)</a></h3>
 <p>The “adjust on the go” philosophy is meant to be delivered through in-game systems rather than a menu:</p>
 <ul>
-<li><strong>Dynamic-difficulty challenges:</strong> areas/dungeons accessible early but challenging for that progression point — early = a reward for playing smartly, later = a return trip for a boost to tackle a greater challenge (M01819, M01820, FreshToast, 2023-02-12; 008 §Difficulty Scaling reference).</li>
-<li><code><span class="badge b-proposed">PROPOSED</span></code> <strong>Player-controlled dungeon challenge:</strong> a chalice-dungeon-style loop where “you make the dungeon harder, your reward is better,” the challenge level set by the player via a risk mechanic (M04547-M04569, CrunchyConniptions/FreshToast, 2023-10-22; 008 §13 <code><span class="badge b-proposed">PROPOSED</span></code> Chalice-Dungeon loop). Related to the <code><span class="badge b-debated">DEBATED</span></code> Risk/Reward Luck Bonus (008 §8).</li>
+<li><strong>Dynamic-difficulty challenges:</strong> areas/dungeons accessible early but challenging for that progression point — early = a reward for playing smartly, later = a return trip for a boost to tackle a greater challenge (2023-02-12; 008 §Difficulty Scaling reference).</li>
+<li><code><span class="badge b-proposed">PROPOSED</span></code> <strong>Player-controlled dungeon challenge:</strong> a chalice-dungeon-style loop where “you make the dungeon harder, your reward is better,” the challenge level set by the player via a risk mechanic (2023-10-22; 008 §13 <code><span class="badge b-proposed">PROPOSED</span></code> Chalice-Dungeon loop). Related to the <code><span class="badge b-debated">DEBATED</span></code> Risk/Reward Luck Bonus (008 §8).</li>
 <li><strong>Escalation</strong> — the per-fight <a href="../systems/escalation.html">Escalation Mechanic</a> counter is part of the “end fast” combat philosophy, making individual fights deadlier the longer they run.</li>
 </ul>
 <h2 id="music-progression-motif" tabindex="-1"><a class="header-anchor" href="#music-progression-motif">Music / progression motif</a></h2>
-<p>A thematic progression layer: “as you unlock more of the game… gather more of the great souls,” more instruments are unlocked, “eventually unlocking the voice at the end” — “all you need is one good track” (M00245, CrunchyConniptions, 2021-07-01; 008 §9 Music/Progression System).</p>
+<p>A thematic progression layer: “as you unlock more of the game… gather more of the great souls,” more instruments are unlocked, “eventually unlocking the voice at the end” — “all you need is one good track” (2021-07-01; 008 §9 Music/Progression System).</p>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
 <li><code><span class="badge b-debated">DEBATED</span></code> 20-level vs 10-level cadence, and exact HP numbers (008 §9).</li>
@@ -78,24 +78,17 @@
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2021-05-25</strong> — Difficulty scaling first framed for the co-op vision: early floors solo-able, later floors require co-op (Ghost of Tsushima nightmare raids) (M00128, CrunchyConniptions, 2021-05-25; 008 §13).</li>
-<li><strong>2021-07-01</strong> — Music-as-progression motif: unlock instruments/great souls, “eventually unlocking the voice at the end” (M00245, CrunchyConniptions, 2021-07-01).</li>
-<li><strong>2023-02-02</strong> — Skill trees explicitly rejected on the “Fuck-this list” (M00864, spirit_noodle, 2023-02-02) — <em>forecloses any XP/skill-tree progression.</em></li>
+<li><strong>2021-05-25</strong> — Difficulty scaling first framed for the co-op vision: early floors solo-able, later floors require co-op (Ghost of Tsushima nightmare raids) (2021-05-25; 008 §13).</li>
+<li><strong>2021-07-01</strong> — Music-as-progression motif: unlock instruments/great souls, “eventually unlocking the voice at the end” (2021-07-01).</li>
+<li><strong>2023-02-02</strong> — Skill trees explicitly rejected on the “Fuck-this list” (2023-02-02) — <em>forecloses any XP/skill-tree progression.</em></li>
 <li><strong>2023-02-11</strong> — A no-level “we don’t level up / no leveling as our identity” stance is floated, then left “pin on this / debate ongoing” (Part 6; 008 §9 <code><span class="badge b-evolved">EVOLVED</span></code>).</li>
 <li><strong>2023 (Part 8)</strong> — <em>supersedes the no-level stance.</em> The team re-adopts a <strong>bare-bones level system</strong> to deliver skills/traits (the 20-level or 10-level cadence), keeping the no-grind, no-enemy-scaling intent (008 §9 <code><span class="badge b-canon">CANON</span></code>, <code><span class="badge b-evolved">EVOLVED</span></code>).</li>
-<li><strong>2024-05-19</strong> — <em>current difficulty position.</em> “Difficulty is weird… allow player to adjust difficulty on the go”; menu-select difficulty explicitly rejected (M05422-M05426, CrunchyConniptions, 2024-05-19; 008 §16).</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M00128 (CrunchyConniptions, 2021-05-25); M00245 (CrunchyConniptions, 2021-07-01); M00864 (spirit_noodle, 2023-02-02); M01819-M01820 (FreshToast, 2023-02-12); M05422-M05428 (CrunchyConniptions, 2024-05-19)</li>
-<li><strong>Cleaned:</strong> 000 Part 8 §Progression; 000 §Difficulty (lines ~6752-6758)</li>
-<li><strong>Docs:</strong> 008 §9 Progression Systems; 008 §13 Difficulty Scaling; 008 §16 Difficulty System</li>
-<li><strong>Ledger:</strong> rows for “No skill trees”, “Progression-system design direction”, “Introduce challenges/dungeons/areas accessible early”, <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
+<li><strong>2024-05-19</strong> — <em>current difficulty position.</em> “Difficulty is weird… allow player to adjust difficulty on the go”; menu-select difficulty explicitly rejected (2024-05-19; 008 §16).</li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a> <span class="blns">Systems</span></li><li><a href="../systems/new-game-plus.html">New Game+ System</a> <span class="blns">Systems</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §9 Progression Systems · 008 §13 Difficulty Scaling · 008 §16 Difficulty System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §9 Progression Systems · 008 §13 Difficulty Scaling · 008 §16 Difficulty System · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

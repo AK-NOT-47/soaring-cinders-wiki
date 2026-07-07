@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shields &amp; Wounded State · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,59 +25,52 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Shields &amp; Wounded State</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Shields &amp; Wounded State</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Shield System</i>, <i>Wounded Mechanic</i>, <i>one-shot protection</i></div>
-      <div class="datemeta">First conceived <b>2023-02-19 (M02483, FreshToast)</b> · last in chat <b>2023-10-30 (M04845)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-19</b> · last updated <b>2023-10-30</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="shields-wounded-state-canon" tabindex="-1"><a class="header-anchor" href="#shields-wounded-state-canon">Shields &amp; Wounded State <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>Two survivability mechanics: a one-shot shield that saves you from a killing blow, and the Wounded flag that makes low-HP combatants more fragile.</p>
 </blockquote>
-<p><strong>Summary</strong> — <strong>Shields</strong> are a one-shot “extra life”: every character starts a fight with exactly <strong>1 shield</strong>, and a blow that would be lethal instead drops them to <strong>1 HP</strong> and shatters the shield; shields reset every encounter (008 §2 Shield System; proto <code>src/core/combat/state.ts</code>). <strong>Wounded</strong> = under half HP (strictly <strong>&lt; 50% of current max</strong>); a Wounded defender takes <strong>+25% damage</strong> from every hit (008 §5 Wounded Mechanic; proto <code>resolution.ts</code>, <code>WOUNDED_TAKEN = 1.25</code>). Both serve the “end fast” battle philosophy — shields let players take risks, Wounded lets either side pick off weakened combatants. The shield began as a <strong>2-shield</strong> system (M02484, FreshToast, 2023-02-19) and was revised to 1 because “death on 2nd shield break is unintuitive” (M02495, M02496, FreshToast, 2023-02-19).</p>
+<p><strong>Summary</strong> — <strong>Shields</strong> are a one-shot “extra life”: every character starts a fight with exactly <strong>1 shield</strong>, and a blow that would be lethal instead drops them to <strong>1 HP</strong> and shatters the shield; shields reset every encounter (008 §2 Shield System; proto <code>src/core/combat/state.ts</code>). <strong>Wounded</strong> = under half HP (strictly <strong>&lt; 50% of current max</strong>); a Wounded defender takes <strong>+25% damage</strong> from every hit (008 §5 Wounded Mechanic; proto <code>resolution.ts</code>, <code>WOUNDED_TAKEN = 1.25</code>). Both serve the “end fast” battle philosophy — shields let players take risks, Wounded lets either side pick off weakened combatants. The shield began as a <strong>2-shield</strong> system (2023-02-19) and was revised to 1 because “death on 2nd shield break is unintuitive” (2023-02-19).</p>
 <h2 id="shield-system-implemented-proto" tabindex="-1"><a class="header-anchor" href="#shield-system-implemented-proto">Shield System — implemented (proto)</a></h2>
 <p><code><span class="badge b-canon">CANON · implemented</span></code> One-shot protection (“extra life”) (008 §2; proto <code>state.ts</code>)</p>
 <ul>
 <li><strong>Every</strong> character starts a fight with exactly <strong>1 shield</strong>. When a blow would be lethal and the shield is intact, the character is instead dropped to <strong>1 HP</strong> and the shield is consumed (“shield shatters — saved from a killing blow”). Shields <strong>reset to intact every encounter</strong> (<code>makeCharacter</code>/<code>createCombat</code> set <code>shield: true</code>; the lethal-blow check in <code>applyEffect</code>).</li>
 <li>It <strong>stacks with the Protection buff</strong>, a separate once-per-fight effect that halves the next incoming hit before the shield ever triggers (<code>status.ts</code> <code>protection</code>).</li>
-<li>Player-side mechanic; maybe a few bosses or Lysander’s party can break shields early — e.g. a 2nd-phase <a href="../characters/lysander.html">Lysander</a> opening that immediately removes a shield (M02494, M02585, FreshToast, 2023-02-19/20).</li>
-<li><strong>Purpose:</strong> gives leeway for big-damage attacks, makes death less imminent, lets players take risks / pick fights when estus is out (“the thing I like most about a shield is they let you take more risks,” M02553, FreshToast, 2023-02-20).</li>
+<li>Player-side mechanic; maybe a few bosses or Lysander’s party can break shields early — e.g. a 2nd-phase <a href="../characters/lysander.html">Lysander</a> opening that immediately removes a shield (2023-02-19/20).</li>
+<li><strong>Purpose:</strong> gives leeway for big-damage attacks, makes death less imminent, lets players take risks / pick fights when estus is out (2023-02-20).</li>
 </ul>
 <h2 id="wounded-mechanic-implemented-proto" tabindex="-1"><a class="header-anchor" href="#wounded-mechanic-implemented-proto">Wounded Mechanic — implemented (proto)</a></h2>
 <p><code><span class="badge b-canon">CANON · implemented</span></code> (008 §5 Wounded Mechanic; proto <code>resolution.ts</code> <code>isWounded</code>, <code>WOUNDED_TAKEN = 1.25</code>)</p>
 <ul>
 <li><strong>“Wounded” = strictly &lt; 50% of current max HP.</strong> A Wounded defender takes <strong>+25% damage</strong> from every hit.</li>
-<li>Applies to <strong>both sides</strong>: the player picks off weakened enemies; enemies threaten weakened party members. Reinforces the “end fast” philosophy (final solution, M04834–M04845, FreshToast/CrunchyConniptions, 2023-10-30).</li>
+<li>Applies to <strong>both sides</strong>: the player picks off weakened enemies; enemies threaten weakened party members. Reinforces the “end fast” philosophy (2023-10-30).</li>
 </ul>
 <h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
 <ul>
 <li>Both mechanics push the “end fast” combat philosophy alongside <a href="../systems/escalation.html">Escalation Mechanic</a> and finisher gating (008 §2 Combat Duration). See <a href="../systems/ap-economy.html">Action Points (AP) Economy</a>.</li>
 <li>Wounded is the surviving piece of the <a href="../systems/damage-types.html">Healing &amp; Health overhaul</a> — the degrading-max-HP ceiling and Wounded were adopted together (Part 18).</li>
-<li>Shields replaced the scrapped corpse/<a href="../systems/position-system.html">Remnant</a> system as the frontline-defense answer (M02514, CrunchyConniptions, 2023-02-20).</li>
+<li>Shields replaced the scrapped corpse/<a href="../systems/position-system.html">Remnant</a> system as the frontline-defense answer (2023-02-20).</li>
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Thane’s 2 shields not coded.</strong> The notes single out <a href="../characters/thane.html">Thane</a> as special with <strong>2 shields</strong> (“Thane probably gets a 3rd shield eventually,” M02491, FreshToast, 2023-02-19); the proto gives <strong>all</strong> characters exactly 1 with no per-character override (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</li>
-<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Weight-of-death concern.</strong> CrunchyConniptions repeatedly flagged that a “second chance” mechanic reduces the impact of death and slows momentum, suggesting it might work best as a boss-only mechanic (M02512, M02581, CrunchyConniptions, 2023-02-20). FreshToast’s counter: it won’t make the game much easier “since we just account for it in the numbers” (M02588, FreshToast, 2023-02-20).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Thane’s 2 shields not coded.</strong> The notes single out <a href="../characters/thane.html">Thane</a> as special with <strong>2 shields</strong> (2023-02-19); the proto gives <strong>all</strong> characters exactly 1 with no per-character override (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Weight-of-death concern.</strong> CrunchyConniptions repeatedly flagged that a “second chance” mechanic reduces the impact of death and slows momentum, suggesting it might work best as a boss-only mechanic (2023-02-20). FreshToast’s counter: it won’t make the game much easier “since we just account for it in the numbers” (2023-02-20).</li>
 <li><code><span class="badge b-debated">DEBATED</span></code> Per-skill <strong>wounded interactions</strong> and a <strong>well-rested bonus</strong> are mentioned in the notes but the proto implements only the flat +25%-damage-taken amplifier (008 §5, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>).</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-19</strong> — original <strong>2-shield</strong> concept: a character begins each fight with <strong>2 shields</strong> and cannot recover them except through extraordinary means; a hit dropping HP to 0 loses a shield; losing both = defeated. Some characters might get passive boosts on shield loss; Thane probably gets a 3rd shield; really scary bosses (2nd-phase Lysander) can break shields early (M02483–M02494, FreshToast).</li>
-<li><strong>2023-02-19</strong> — revised to <strong>1 shield</strong>: “I’m realising now that death on 2nd shield break is unintuitive” → “Instead have 1 shield which puts you to 1 instead of 0 once” (M02495, M02496, FreshToast) — <em>supersedes the 2-shield version; the proto matches this</em>.</li>
-<li><strong>2023-02-20</strong> — shields settled as <strong>player-side only</strong> (“shadows for everybody, shields for player characters and maybe a few bosses or perhaps just Lysander’s party,” M02511) and confirmed to <strong>reset every fight</strong> (M02604, FreshToast). CrunchyConniptions proposed doubling down to fully replace the shadow/corpse system, mostly giving frontliners shields (M02514, M02515).</li>
-<li><strong>2023-10-30</strong> — the <strong>Wounded mechanic (final solution)</strong> was decided: under-half-HP characters become Wounded and more vulnerable; same for enemies; a well-rested counterpart floated; reinforces “end fast” (M04834–M04845, FreshToast/CrunchyConniptions). <em>(Ledger R26.)</em></li>
+<li><strong>2023-02-19</strong> — original <strong>2-shield</strong> concept: a character begins each fight with <strong>2 shields</strong> and cannot recover them except through extraordinary means; a hit dropping HP to 0 loses a shield; losing both = defeated. Some characters might get passive boosts on shield loss; Thane probably gets a 3rd shield; really scary bosses (2nd-phase Lysander) can break shields early.</li>
+<li><strong>2023-02-19</strong> — revised to <strong>1 shield</strong>: “I’m realising now that death on 2nd shield break is unintuitive” → “Instead have 1 shield which puts you to 1 instead of 0 once” — <em>supersedes the 2-shield version; the proto matches this</em>.</li>
+<li><strong>2023-02-20</strong> — shields settled as <strong>player-side only</strong> and confirmed to <strong>reset every fight</strong>. CrunchyConniptions proposed doubling down to fully replace the shadow/corpse system, mostly giving frontliners shields.</li>
+<li><strong>2023-10-30</strong> — the <strong>Wounded mechanic (final solution)</strong> was decided: under-half-HP characters become Wounded and more vulnerable; same for enemies; a well-rested counterpart floated; reinforces “end fast”.</li>
 <li><strong>Later (proto era)</strong> — Wounded implemented as a flat <strong>+25% damage taken</strong> below <strong>&lt; 50%</strong> of current max HP; shield implemented as the 1-shield drop-to-1 version resetting each encounter (008 §2/§5, <code><span class="badge b-canon">CANON · implemented</span></code>). <em>(Current presentation above.)</em></li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M02483–M02515 (FreshToast/CrunchyConniptions, 2023-02-19/20); M02531, M02553, M02585–M02604 (2023-02-20); M04834–M04845 (FreshToast/CrunchyConniptions, 2023-10-30)</li>
-<li><strong>Cleaned:</strong> 000 Part 9 §Shield System; 000 Game Mechanics §Wounded Mechanic Final Solution (lines 7723–7735)</li>
-<li><strong>Docs:</strong> 008 §2 Shield System (Part 9; confirmed Part 17); 008 §5 Wounded Mechanic (Part 18 / Part 14)</li>
-<li><strong>Ledger:</strong> row R26 (Wounded, M04834…) and the M02483–M02515 shield thread in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/damage-types.html">Damage Types &amp; Mitigation</a> <span class="blns">Systems</span></li><li><a href="../systems/escalation.html">Escalation Mechanic</a> <span class="blns">Systems</span></li><li><a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a> <span class="blns">Systems</span></li><li><a href="../characters/lysander.html">Lysander</a> <span class="blns">Characters</span></li><li><a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> <span class="blns">Bestiary</span></li><li><a href="../systems/progression-and-difficulty.html">Progression &amp; Difficulty</a> <span class="blns">Systems</span></li><li><a href="../characters/thane.html">Thane Farrow</a> <span class="blns">Characters</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §2 Shield System · 008 §5 Wounded Mechanic · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §2 Shield System · 008 §5 Wounded Mechanic · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Camps &amp; the Wells (Bonfire Network) · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,27 +25,27 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Locations</a><span class="sep">/</span><span>Camps &amp; the Wells (Bonfire Network)</span></div>
     <div class="page-head"><div class="eyebrow">🗺️ Locations</div><h1>Camps &amp; the Wells (Bonfire Network)</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Bonfire Network</i>, <i>Wells</i>, <i>Rest Points</i>, <i>Camp System</i></div>
-      <div class="datemeta">First conceived <b>2023-02-17 (M02381, FreshToast)</b> · last in chat <b>2023-10-13 (M03959)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-17</b> · last updated <b>2023-10-13</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="camps-the-wells-bonfire-network-canon" tabindex="-1"><a class="header-anchor" href="#camps-the-wells-bonfire-network-canon">Camps &amp; the Wells (Bonfire Network) <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>The rest-and-resupply network — dungeon camps at the threshold and world-spanning wells that act like Dark Souls bonfires.</p>
 </blockquote>
-<p><strong>Summary</strong> — Rest points come in two forms. Inside a dungeon, the <strong>main camp</strong> occupies the beginning of the dungeon; resting there restores resources and (in the proto) the degrading max-HP ceiling, and originally “resets the dungeon dark souls style” (M02381, FreshToast, 2023-02-17). Across the overworld, <strong>wells</strong> are “our bonfires” — some man-made, some natural — where you refill the healing <a href="../items/river-flask.html">flask</a>; any fresh-water source will do, but river water is especially good (M03953, M03959, CrunchyConniptions/FreshToast, 2023-10-13). Both are tied to the <a href="../items/river-flask.html">River Healing</a> resupply scheme.</p>
+<p><strong>Summary</strong> — Rest points come in two forms. Inside a dungeon, the <strong>main camp</strong> occupies the beginning of the dungeon; resting there restores resources and (in the proto) the degrading max-HP ceiling, and originally “resets the dungeon dark souls style” (2023-02-17). Across the overworld, <strong>wells</strong> are “our bonfires” — some man-made, some natural — where you refill the healing <a href="../items/river-flask.html">flask</a>; any fresh-water source will do, but river water is especially good (2023-10-13). Both are tied to the <a href="../items/river-flask.html">River Healing</a> resupply scheme.</p>
 <h2 id="camp-system-inside-dungeons" tabindex="-1"><a class="header-anchor" href="#camp-system-inside-dungeons">Camp system (inside dungeons)</a></h2>
 <ul>
 <li><strong>Location:</strong> while in a dungeon, the main camp occupies the beginning of the dungeon (003 §Camp System).</li>
 <li><strong>Purpose:</strong> resting and resource management within dungeon exploration.</li>
-<li><strong>Original rule:</strong> “resting here resets the dungeon dark souls style” (M02381, FreshToast, 2023-02-17).</li>
+<li><strong>Original rule:</strong> “resting here resets the dungeon dark souls style” (2023-02-17).</li>
 <li><strong>Implemented:</strong> <code><span class="badge b-canon">CANON — proto</span></code> camp/rest nodes occupy the dungeon (node kind <code>camp</code>); resting restores the per-fight degrading max-HP ceiling (which degrades 3/fight, floored ~60% of base, and only rest restores it) (proto: src/core/campaign/run.ts). In <a href="../locations/ajaxs-tomb.html">the prologue dungeon</a>, the camp is “A Breath by the Underground River,” realizing River Healing underground (“Rivers are for everyone — even down here”).</li>
 </ul>
 <h2 id="wells-rest-points-the-bonfire-network" tabindex="-1"><a class="header-anchor" href="#wells-rest-points-the-bonfire-network">Wells / rest points (the bonfire network)</a></h2>
 <ul>
-<li><strong>Description:</strong> wells exist around the world — “our bonfires” — some man-made, some naturally occurring (M03953, CrunchyConniptions, 2023-10-13; 003 §Wells / Rest Points).</li>
-<li><strong>Refill rule:</strong> any fresh-water source will do to refill the healing flask, but one from the river is especially good (M03959, FreshToast, 2023-10-13).</li>
+<li><strong>Description:</strong> wells exist around the world — “our bonfires” — some man-made, some naturally occurring (2023-10-13; 003 §Wells / Rest Points).</li>
+<li><strong>Refill rule:</strong> any fresh-water source will do to refill the healing flask, but one from the river is especially good (2023-10-13).</li>
 </ul>
-<p><strong>Design lineage:</strong> the whole idea derives from Dark Souls’ “bonfire and estus system” (M00140, CrunchyConniptions, 2021-05-25). The team deliberately rejected DS1-style bonfire <em>variance</em> (some bonfires giving more flasks than others), following the later Souls games that did away with it (M04109, FreshToast, 2023-10-13).</p>
+<p><strong>Design lineage:</strong> the whole idea derives from Dark Souls’ “bonfire and estus system” (2021-05-25). The team deliberately rejected DS1-style bonfire <em>variance</em> (some bonfires giving more flasks than others), following the later Souls games that did away with it (2023-10-13).</p>
 <h2 id="cross-reference" tabindex="-1"><a class="header-anchor" href="#cross-reference">Cross-reference</a></h2>
 <p>Tied to the <a href="../items/river-flask.html">River Healing / river flask</a> mechanic (items batch). The river-dependent resupply scheme was itself extensively debated and largely walked back as too limiting (see the Estus/healing debate in the item/mechanics docs). The wells being “any fresh-water source” is part of that walk-back — you are not chained to the river itself.</p>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
@@ -54,22 +54,15 @@
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2021-05-25</strong> — origin: adopt Dark Souls’ “bonfire and estus system” (M00140, CrunchyConniptions).</li>
-<li><strong>2023-02-17</strong> — dungeon camp defined at the start of the dungeon; resting “resets the dungeon dark souls style” (M02381, FreshToast).</li>
-<li><strong>2023-10-13</strong> — wells established as the world’s bonfire network (“The wells are our bonfires”), refillable from any fresh-water source though river water is best; bonfire variance rejected (M03953, M03959, M04109, CrunchyConniptions/FreshToast). <em>Current presentation.</em></li>
+<li><strong>2021-05-25</strong> — origin: adopt Dark Souls’ “bonfire and estus system”.</li>
+<li><strong>2023-02-17</strong> — dungeon camp defined at the start of the dungeon; resting “resets the dungeon dark souls style”.</li>
+<li><strong>2023-10-13</strong> — wells established as the world’s bonfire network (“The wells are our bonfires”), refillable from any fresh-water source though river water is best; bonfire variance rejected. <em>Current presentation.</em></li>
 <li><strong>2026-06-16</strong> — proto confirms camp nodes and the degrading-HP-ceiling restore-on-rest model (003 §Camp; proto: run.ts).</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M00140 (2021-05-25); M02381 (2023-02-17); M03953, M03959, M04109 (2023-10-13)</li>
-<li><strong>Cleaned:</strong> 000 Part 8; Part 15</li>
-<li><strong>Docs:</strong> 003 §Camp System; §Wells / Rest Points (Bonfire Network); 006 §Lantern</li>
-<li><strong>Ledger:</strong> rows R01, R13, R21 in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../locations/ajaxs-tomb.html">Ajax's Tomb &amp; the Prologue Dungeon</a> <span class="blns">Locations</span></li><li><a href="../locations/dungeon-authoring.html">Dungeon Authoring &amp; Design Canon</a> <span class="blns">Locations</span></li><li><a href="../locations/eye-dungeon.html">The Eye Dungeon</a> <span class="blns">Locations</span></li><li><a href="../locations/world-map-and-travel.html">World Map, Travel &amp; Settlement Geography</a> <span class="blns">Locations</span></li></ul></div>
-    <footer class="foot">Source docs: 003 §Camp System · 003 §Wells / Rest Points (Bonfire Network) · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 003 §Camp System · 003 §Wells / Rest Points (Bonfire Network) · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Skill System (Slots, Modular Skills, Costs) · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,35 +25,35 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Magic</a><span class="sep">/</span><span>Skill System (Slots, Modular Skills, Costs)</span></div>
     <div class="page-head"><div class="eyebrow">✨ Magic</div><h1>Skill System (Slots, Modular Skills, Costs)</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Skyward Cinders</span><span class="facet f-real">Mixed</span></div>
-      <div class="datemeta">First conceived <b>2023-02-13 (M01870, FreshToast)</b> · last in chat <b>2023-02-16 (M02172, CrunchyConniptions)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-13</b> · last updated <b>2023-02-16</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="skill-system-slots-modular-skills-costs-canon" tabindex="-1"><a class="header-anchor" href="#skill-system-slots-modular-skills-costs-canon">Skill System (Slots, Modular Skills, Costs) <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>How characters acquire, slot, and pay for skills: a level-gated unlock cadence with no skill trees, position-dependent “modular” skills, and AP costs that scale with power. The proto ships a fixed 4-skills-per-hero list.</p>
 </blockquote>
-<p><strong>Summary</strong> — Skills are gained on a <strong>level-gated cadence</strong> (no skill trees — <code><span class="badge b-scrapped">SCRAPPED</span></code> anti-feature, “F**k skill trees”, 000 Part 3) with a small number of <strong>skill slots</strong> per character. Many skills are <strong>modular</strong>: one skill with two behaviors that switch on whether the caster is in the <strong>front</strong> or <strong>back</strong> rank. Every skill costs <a href="../systems/ap-economy.html">AP</a>, with strength scaling roughly exponentially against AP cost. The vertical slice ships a concrete version: <strong>4 skills per hero</strong> (two basics, one utility, one 4-AP finisher) as TypeScript constants (007 §Implemented Skill Roster).</p>
+<p><strong>Summary</strong> — Skills are gained on a <strong>level-gated cadence</strong> with a small number of <strong>skill slots</strong> per character. Many skills are <strong>modular</strong>: one skill with two behaviors that switch on whether the caster is in the <strong>front</strong> or <strong>back</strong> rank. Every skill costs <a href="../systems/ap-economy.html">AP</a>, with strength scaling roughly exponentially against AP cost. The vertical slice ships a concrete version: <strong>4 skills per hero</strong> (two basics, one utility, one 4-AP finisher) as TypeScript constants (007 §Implemented Skill Roster).</p>
 <p>For AP generation/spending rules see <a href="../systems/ap-economy.html">Action Points (AP) Economy</a> (systems). Named skills live on <a href="../magic/weapon-skills.html">Weapon Skills (Designed Roster)</a>, <a href="../magic/character-skills.html">Character Skills (Per-Character Rosters)</a>, and <a href="../magic/judgment-cut.html">Judgment Cut</a>. Position mechanics are on the <a href="../systems/position-system.html">Combat Position System</a> page (systems).</p>
 <h2 id="skill-acquisition-slots-design-intent" tabindex="-1"><a class="header-anchor" href="#skill-acquisition-slots-design-intent">Skill acquisition &amp; slots (design intent)</a></h2>
 <p>Progression is a refined, level-gated unlock cadence with <strong>NO skill trees</strong> and <strong>NO enemy scaling</strong> (007 §Level Structure Options).</p>
 <ul>
 <li><strong>20-level structure <code><span class="badge b-canon">CANON, leading</span></code>:</strong> start at Level 1 with <strong>2 skills</strong> and base attributes; Levels 2–20 alternate attribute/skill/trait gains. <strong>Odd levels give character skills, even levels give passive traits.</strong> End state: <strong>4 character-skill slots</strong>, ~<strong>8 skills</strong> total (start with 2), ~<strong>5 passive traits</strong> (007 §Level Structure Options).</li>
 <li><strong>10-level structure <code><span class="badge b-debated">DEBATED, alternative</span></code>:</strong> start with <strong>3 starter skills</strong>; Levels 2–10 alternate trait and skill each level (007 §Level Structure Options).</li>
-<li>The earlier “no leveling at all” stance (000 Part 6) <code><span class="badge b-evolved">EVOLVED</span></code> into this refined cadence; the no-grind intent (tiny scaling, no treadmill) survives.</li>
+<li>The earlier “no leveling at all” stance <code><span class="badge b-evolved">EVOLVED</span></code> into this refined cadence; the no-grind intent (tiny scaling, no treadmill) survives.</li>
 </ul>
 <h2 id="modular-skills" tabindex="-1"><a class="header-anchor" href="#modular-skills">Modular skills</a></h2>
 <ul>
-<li><strong>Definition:</strong> a skill with <strong>2 uses that change depending on whether the character is in the front or the back rank</strong> (M01870, FreshToast, 2023-02-13). “Pretty common — most characters have them” (M01870).</li>
-<li><strong>Nearly every weapon gets a modular skill</strong> with a secondary effect that has <strong>movement attached</strong> (M01873, FreshToast, 2023-02-13).</li>
+<li><strong>Definition:</strong> a skill with <strong>2 uses that change depending on whether the character is in the front or the back rank</strong> (2023-02-13). “Pretty common — most characters have them”.</li>
+<li><strong>Nearly every weapon gets a modular skill</strong> with a secondary effect that has <strong>movement attached</strong> (2023-02-13).</li>
 <li><strong>Reverse modular:</strong> abilities that can target anybody but have <strong>different effects on either rank</strong> (007 §Modular Skill System).</li>
-<li><strong>Worked examples (Thane’s Spear):</strong> Leaping Strike “(Front → Back)” and Balanced Slash “(Front → Back)” with crit scaling on target resistance (M02171–M02172, CrunchyConniptions, 2023-02-16) — see <a href="../magic/weapon-skills.html">Weapon Skills (Designed Roster)</a>. The Staff’s Modular AoE (both front or both back) is another (M02159, FreshToast, 2023-02-16).</li>
+<li><strong>Worked examples (Thane’s Spear):</strong> Leaping Strike “(Front → Back)” and Balanced Slash “(Front → Back)” with crit scaling on target resistance (2023-02-16) — see <a href="../magic/weapon-skills.html">Weapon Skills (Designed Roster)</a>. The Staff’s Modular AoE (both front or both back) is another (2023-02-16).</li>
 <li><strong>Purpose:</strong> tactical depth, position-based gameplay, more strategic options (007 §Modular Skill System).</li>
 </ul>
 <h2 id="skill-costs-ap" tabindex="-1"><a class="header-anchor" href="#skill-costs-ap">Skill costs (AP)</a></h2>
 <ul>
-<li>Every skill costs <a href="../systems/ap-economy.html">AP</a>; <strong>skill strength should increase exponentially per AP cost</strong> (000 Part 3).</li>
-<li><strong>“Maybe nearly all character skills use AP”</strong> (000 Part 3).</li>
-<li>If most fights end around turn 4, <strong>4+ AP skills are finishers</strong> (000 Part 3). See <a href="../systems/ap-economy.html">Action Points (AP) Economy</a> for the generate-vs-refill economy debate.</li>
+<li>Every skill costs <a href="../systems/ap-economy.html">AP</a>; <strong>skill strength should increase exponentially per AP cost</strong>.</li>
+<li><strong>“Maybe nearly all character skills use AP”</strong>.</li>
+<li>If most fights end around turn 4, <strong>4+ AP skills are finishers</strong>. See <a href="../systems/ap-economy.html">Action Points (AP) Economy</a> for the generate-vs-refill economy debate.</li>
 </ul>
 <h2 id="implemented-roster-proto-vertical-slice" tabindex="-1"><a class="header-anchor" href="#implemented-roster-proto-vertical-slice">Implemented roster (proto vertical slice)</a></h2>
 <p><code><span class="badge b-canon">CANON</span></code> The proto ships a <strong>fixed skill list as TypeScript constants</strong>; each hero carries <strong>4 skills — two basics, one utility, one finisher at 4 AP</strong> (007 §Implemented Skill Roster; proto <code>src/core/combat/content.ts</code>).</p>
@@ -66,26 +66,19 @@
 <ul>
 <li><code><span class="badge b-debated">DEBATED</span></code> <strong>10-level vs 20-level</strong> structure and exact HP scaling left open (007 §Level Structure Options / §Unresolved Questions).</li>
 <li><code><span class="badge b-debated">DEBATED</span></code> <strong>Modular effect-switching not implemented</strong> — the proto has rank constraints but no per-rank effect deltas (007 §Implemented Skill Roster).</li>
-<li><code><span class="badge b-canon">CANON, dropped</span></code> <strong>No skill trees</strong> — rejected outright (000 Part 3).</li>
+<li><code><span class="badge b-canon">CANON, dropped</span></code> <strong>No skill trees</strong> — rejected outright.</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-13</strong> — modular skill system defined: a 2-use skill that changes front/back; most characters have them; nearly every weapon gets a modular skill with movement attached (M01870, M01873, FreshToast).</li>
-<li><strong>2023-02-16</strong> — Thane’s Spear skills (Leaping Strike, Balanced Slash) and the Staff’s Modular AoE give concrete modular examples (M02159, M02171–M02172).</li>
+<li><strong>2023-02-13</strong> — modular skill system defined: a 2-use skill that changes front/back; most characters have them; nearly every weapon gets a modular skill with movement attached.</li>
+<li><strong>2023-02-16</strong> — Thane’s Spear skills (Leaping Strike, Balanced Slash) and the Staff’s Modular AoE give concrete modular examples.</li>
 <li><strong>(later doc-era)</strong> — level-structure cadence formalized (20-level leading, 10-level alternative), skill trees scrapped; the “no leveling” stance evolved into the level-gated cadence (007 §Level Structure Options).</li>
 <li><strong>2026-06-16 (proto reconciliation)</strong> — vertical slice ships fixed 4-skills-per-hero constants with rank constraints only; modular effect-switching recorded as unimplemented intent (007 §Implemented Skill Roster).</li>
 </ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M01870, M01873 (FreshToast, 2023-02-13); M02159 (FreshToast, 2023-02-16); M02171–M02172 (CrunchyConniptions, 2023-02-16)</li>
-<li><strong>Cleaned:</strong> 000 Part 7 §Modular Skill System; 000 Part 8 §Level Structure</li>
-<li><strong>Docs:</strong> 007 §Modular Skill System, §Level Structure Options, §Implemented Skill Roster</li>
-<li><strong>Ledger:</strong> rows 491, 492 in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
-</ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../magic/character-skills.html">Character Skills (Per-Character Rosters)</a> <span class="blns">Magic</span></li><li><a href="../magic/weapon-skills.html">Weapon Skills (Designed Roster)</a> <span class="blns">Magic</span></li></ul></div>
-    <footer class="foot">Source docs: 007 §Modular Skill System · 007 §Level Structure Options · 007 §Implemented Skill Roster · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 007 §Modular Skill System · 007 §Level Structure Options · 007 §Implemented Skill Roster · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

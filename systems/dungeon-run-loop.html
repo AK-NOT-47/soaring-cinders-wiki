@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dungeon-Run Loop · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,21 +25,21 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Dungeon-Run Loop</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Dungeon-Run Loop</h1>
       <div class="facets"><span class="badge b-proposed">PROPOSED</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>chalice dungeons</i>, <i>dungeoning</i>, <i>death-run</i>, <i>provisioning loop</i></div>
-      <div class="datemeta">First conceived <b>2023-10-22 (M04502, FreshToast)</b> · last in chat <b>2023-10-22 (M04575, CrunchyConniptions)</b></div>
+      <div class="datemeta">First conceived <b>2023-10-22</b> · last updated <b>2023-10-22</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="dungeon-run-loop-proposed" tabindex="-1"><a class="header-anchor" href="#dungeon-run-loop-proposed">Dungeon-Run Loop <code><span class="badge b-proposed">PROPOSED</span></code></a></h1>
 <blockquote>
 <p>The out-of-combat world loop: you enter a dungeon, push deeper through a chain of nodes and fights spending finite run resources, camp to reset your worn-down health, and either clear the boss or wipe — with harder self-selected runs paying out better rewards.</p>
 </blockquote>
-<p><strong>Summary</strong> — The dungeon run is the game’s repeatable core loop, framed by the team as <em>“re-creating the chalice dungeons”</em> of Bloodborne — repeatable dungeons you go through (the “act of dungeoning”) to grind materials for your weapon and better rewards (M04547, M04549, CrunchyConniptions, 2023-10-22). Players are meant to have <strong>control over a dungeon’s challenge level via a risk mechanic</strong> — make it harder, get better loot (M04566, M04569, 2023-10-22). Within a run you traverse a <a href="../systems/navigation-compass.html">compass</a>-navigated node graph, fight through encounters (some of which <a href="#ambush">ambush</a> you), spend limited run resources (<a href="../items/shimmer-sails.html">Jets</a>, the <a href="../items/river-flask.html">River Flask</a>), watch your maximum HP ratchet <em>down</em> until you <a href="#camp-rest">camp and rest</a>, and — on defeat — get sent back to re-provision. Most of this is design intent; the vertical-slice proto ships a compressed, playable version.</p>
+<p><strong>Summary</strong> — The dungeon run is the game’s repeatable core loop, framed by the team as <em>“re-creating the chalice dungeons”</em> of Bloodborne — repeatable dungeons you go through (the “act of dungeoning”) to grind materials for your weapon and better rewards (2023-10-22). Players are meant to have <strong>control over a dungeon’s challenge level via a risk mechanic</strong> — make it harder, get better loot (2023-10-22). Within a run you traverse a <a href="../systems/navigation-compass.html">compass</a>-navigated node graph, fight through encounters (some of which <a href="#ambush">ambush</a> you), spend limited run resources (<a href="../items/shimmer-sails.html">Jets</a>, the <a href="../items/river-flask.html">River Flask</a>), watch your maximum HP ratchet <em>down</em> until you <a href="#camp-rest">camp and rest</a>, and — on defeat — get sent back to re-provision. Most of this is design intent; the vertical-slice proto ships a compressed, playable version.</p>
 <h2 id="the-chalice-dungeon-framing-proposed" tabindex="-1"><a class="header-anchor" href="#the-chalice-dungeon-framing-proposed">The chalice-dungeon framing <code><span class="badge b-proposed">PROPOSED</span></code></a></h2>
 <p>The loop was crystallized on 2023-10-22 as a Bloodborne chalice-dungeon analogue — <em>“similar, not the same”</em>:</p>
 <ul>
-<li><strong>Repeatable dungeons</strong> you go through to <strong>grind materials to put into your weapon</strong> — though <em>“grind is the wrong word,”</em> it is the act of <strong>“dungeoning”</strong> (M04547–M04556, CrunchyConniptions, 2023-10-22).</li>
-<li>You are <strong>incentivized to do harder versions of the dungeons for better rewards</strong> — <em>“you make the dungeon harder, your reward is better”</em> (M04551, M04564, M04565, CrunchyConniptions, 2023-10-22).</li>
-<li>The player has <strong>control over the dungeon’s challenge level</strong>, replicable <em>“through some kind of <strong>risk mechanic</strong>”</em> (M04566, FreshToast; M04569, FreshToast, 2023-10-22). Serves the same purpose as chalice dungeons without being identical.</li>
-<li><code><span class="badge b-debated">DEBATED</span></code> Distinguished from Borderlands’ Mayhem mode, which is <em>“just pumping numbers up which you eventually scale to match… not much of a difficulty slider”</em> (008 §13; 000 lines 7349-7352).</li>
+<li><strong>Repeatable dungeons</strong> you go through to <strong>grind materials to put into your weapon</strong> — though <em>“grind is the wrong word,”</em> it is the act of <strong>“dungeoning”</strong> (2023-10-22).</li>
+<li>You are <strong>incentivized to do harder versions of the dungeons for better rewards</strong> — <em>“you make the dungeon harder, your reward is better”</em> (2023-10-22).</li>
+<li>The player has <strong>control over the dungeon’s challenge level</strong>, replicable <em>“through some kind of <strong>risk mechanic</strong>”</em> (2023-10-22). Serves the same purpose as chalice dungeons without being identical.</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> Distinguished from Borderlands’ Mayhem mode, which is <em>“just pumping numbers up which you eventually scale to match… not much of a difficulty slider”</em> (008 §13).</li>
 </ul>
 <p>This ties directly to the <a href="#riskreward-luck-bonus">risk/reward luck bonus</a> below, which is the leading candidate for the “risk mechanic.”</p>
 <h2 id="the-run-loop-structure" tabindex="-1"><a class="header-anchor" href="#the-run-loop-structure">The run loop (structure)</a></h2>
@@ -80,7 +80,7 @@
 </ul>
 <p>The vertical slice’s branch offers a <strong>treasure path vs. an ambush-elite path</strong> — the reward-vs-risk choice in miniature (008 §13).</p>
 <h2 id="defeat-death-run-provisioning-debated-design-intent-vs-implemented" tabindex="-1"><a class="header-anchor" href="#defeat-death-run-provisioning-debated-design-intent-vs-implemented">Defeat: death-run &amp; provisioning <code><span class="badge b-debated">DEBATED design intent vs implemented</span></code></a></h2>
-<p>The notes’ full <strong>death-run</strong> (Part 17, 2023-10-22): on defeat you are <strong>sent to the nearest rest point and must provision again</strong> (M04502, FreshToast, 2023-10-22). <em>“Like other corpse-run mechanics, it is grounded in another system: provisioning”</em> (M04503, FreshToast, 2023-10-22). Provisions and glint (gold) earned while exploring are <strong>left behind but can be reclaimed by defeating the enemy that beat you</strong> (slightly stronger the second time); defeated again before reclaiming, they’re lost. Compared to <em>Lords of the Fallen</em> (008 §8).</p>
+<p>The notes’ full <strong>death-run</strong> (Part 17, 2023-10-22): on defeat you are <strong>sent to the nearest rest point and must provision again</strong> (2023-10-22). <em>“Like other corpse-run mechanics, it is grounded in another system: provisioning”</em> (2023-10-22). Provisions and glint (gold) earned while exploring are <strong>left behind but can be reclaimed by defeating the enemy that beat you</strong> (slightly stronger the second time); defeated again before reclaiming, they’re lost. Compared to <em>Lords of the Fallen</em> (008 §8).</p>
 <ul>
 <li><code><span class="badge b-debated">DEBATED</span></code> <strong>Loadout rule:</strong> weapons can be swapped to exploit enemy weaknesses, but <strong>sorceries/skills are fixed once slotted</strong> — a deliberate constraint to keep character-building meaningful; rapid Dark Souls-style gear-swapping was rejected as game-breaking (008 §8).</li>
 </ul>
@@ -88,38 +88,31 @@
 <h2 id="risk-reward-luck-bonus-debated" tabindex="-1"><a class="header-anchor" href="#risk-reward-luck-bonus-debated">Risk/Reward luck bonus <code><span class="badge b-debated">DEBATED</span></code></a></h2>
 <p>The leading candidate for the chalice-dungeon “risk mechanic.” A proposed <strong>luck bonus that grows the longer a player goes in a dungeon without resting</strong> (better loot/rewards/multipliers), encouraging players to push their luck — modeled loosely on <em>Lords of the Fallen</em>’s multiplier and <em>Darkest Dungeon</em>’s light system (008 §8, Part 17).</p>
 <ul>
-<li>Origin: <em>“I think it’d be cool if the player was rewarded with some kinda luck bonus the longer they spent in a dungeon without resting”</em> (M04506, FreshToast, 2023-10-22). <em>“I kinda want players to push their luck as much as possible”</em> (M04516, FreshToast, 2023-10-22).</li>
-<li>Could be <em>“some kind of scale, stat or whatever that is a number you can interact with”</em> — via <strong>consumable items that give it a straight-up boost</strong>, or a passive (e.g. <em>“Sable is naturally lucky and causes it to scale faster”</em>) (M04543, FreshToast, 2023-10-22).</li>
+<li>Origin: <em>“I think it’d be cool if the player was rewarded with some kinda luck bonus the longer they spent in a dungeon without resting”</em> (2023-10-22). <em>“I kinda want players to push their luck as much as possible”</em> (2023-10-22).</li>
+<li>Could be <em>“some kind of scale, stat or whatever that is a number you can interact with”</em> — via <strong>consumable items that give it a straight-up boost</strong>, or a passive (e.g. <em>“Sable is naturally lucky and causes it to scale faster”</em>) (2023-10-22).</li>
 <li><strong>Measuring “time” is the open problem:</strong> counting fights won punishes stealth; maybe rooms cleared instead (008 §8).</li>
-<li>The luck bonus was chosen over baking difficulty into dungeon <em>design</em> because it is <em>“much simpler to implement”</em> (M04540, CrunchyConniptions, 2023-10-22). Crunchy noted he liked the chalice-dungeon system but not the Lords-of-the-Fallen luck mechanic, and would <em>“have a look at them again and get back to”</em> the team (M04575, CrunchyConniptions, 2023-10-22) — left <strong>undecided</strong>.</li>
+<li>The luck bonus was chosen over baking difficulty into dungeon <em>design</em> because it is <em>“much simpler to implement”</em> (2023-10-22). Crunchy noted he liked the chalice-dungeon system but not the Lords-of-the-Fallen luck mechanic, and would <em>“have a look at them again and get back to”</em> the team (2023-10-22) — left <strong>undecided</strong>.</li>
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-debated">DEBATED</span></code> How to measure “time in dungeon without resting” for the luck bonus — fights won (punishes stealth) vs. rooms cleared (M04506; 008 §8).</li>
-<li><code><span class="badge b-debated">DEBATED</span></code> Whether the luck bonus or design-baked dungeon difficulty is the right “risk mechanic”; left for Crunchy to revisit (M04575, CrunchyConniptions, 2023-10-22).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> How to measure “time in dungeon without resting” for the luck bonus — fights won (punishes stealth) vs. rooms cleared (008 §8).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> Whether the luck bonus or design-baked dungeon difficulty is the right “risk mechanic”; left for Crunchy to revisit (2023-10-22).</li>
 <li><code><span class="badge b-debated">DEBATED</span></code> Whether the full reclaim-your-provisions death-run ships, given the proto’s simpler <code>lost</code>-state model (008 §8).</li>
 <li><code><span class="badge b-debated">DEBATED</span></code> The ambush-counter QTE (<em>“a bit meh”</em>) — kept sparingly or cut (008 §2).</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2021-02-16</strong> — earliest seed of “reward for effort”: <em>“The longer it takes you to find a treasure, the better it is”</em> (M00005, CrunchyConniptions, 2021-02-16), corrected to <em>“the more effort and resources you need to put in”</em> (M00006, FreshToast, 2021-02-16). This effort→reward ethos later underpins the harder-run-better-reward loop. <em>(See <a href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a>.)</em></li>
-<li><strong>2023-02-13</strong> — AoE-vs-multi-position bonus rule established for combat rewards on packed enemies (M01842, FreshToast, 2023-02-13). <em>(See <a href="../systems/treasure-and-rewards.html#aoe-vs-multi-position-bonus">Treasure &amp; Rewards</a>.)</em></li>
-<li><strong>2023-10-22 (morning)</strong> — the <strong>death-run / provisioning</strong> defeat loop proposed: defeat → nearest rest point → re-provision; reclaim left-behind provisions/glint by beating the enemy that beat you (M04502, M04503, FreshToast, 2023-10-22). Crunchy: <em>“I am happy with this. It fits in well with the provisioning system”</em> (M04510, 2023-10-22).</li>
-<li><strong>2023-10-22 (morning)</strong> — the <strong>luck bonus</strong> proposed as the push-your-luck reward for going deep without resting (M04506, M04516, FreshToast, 2023-10-22).</li>
-<li><strong>2023-10-22 (midday)</strong> — the loop reframed explicitly as <strong>“re-creating the chalice dungeons”</strong>: repeatable dungeons for weapon materials, harder = better rewards, difficulty controlled by a <strong>risk mechanic</strong> (M04547–M04569, CrunchyConniptions &amp; FreshToast, 2023-10-22). The luck bonus chosen as the simpler risk mechanic (M04540); Crunchy left to reconcile it against the chalice system (M04575, 2023-10-22) — <em>current, unresolved</em>.</li>
+<li><strong>2021-02-16</strong> — earliest seed of “reward for effort”: <em>“The longer it takes you to find a treasure, the better it is”</em> (2021-02-16), corrected to <em>“the more effort and resources you need to put in”</em> (2021-02-16). This effort→reward ethos later underpins the harder-run-better-reward loop. <em>(See <a href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a>.)</em></li>
+<li><strong>2023-02-13</strong> — AoE-vs-multi-position bonus rule established for combat rewards on packed enemies (2023-02-13). <em>(See <a href="../systems/treasure-and-rewards.html#aoe-vs-multi-position-bonus">Treasure &amp; Rewards</a>.)</em></li>
+<li><strong>2023-10-22 (morning)</strong> — the <strong>death-run / provisioning</strong> defeat loop proposed: defeat → nearest rest point → re-provision; reclaim left-behind provisions/glint by beating the enemy that beat you (2023-10-22). Crunchy: <em>“I am happy with this. It fits in well with the provisioning system”</em> (2023-10-22).</li>
+<li><strong>2023-10-22 (morning)</strong> — the <strong>luck bonus</strong> proposed as the push-your-luck reward for going deep without resting (2023-10-22).</li>
+<li><strong>2023-10-22 (midday)</strong> — the loop reframed explicitly as <strong>“re-creating the chalice dungeons”</strong>: repeatable dungeons for weapon materials, harder = better rewards, difficulty controlled by a <strong>risk mechanic</strong> (2023-10-22). The luck bonus chosen as the simpler risk mechanic; Crunchy left to reconcile it against the chalice system (2023-10-22) — <em>current, unresolved</em>.</li>
 <li><strong>2026-06-16</strong> — implemented-code pass: proto ships the compass node-graph run, ambush scatter, degrading ceilings, camp-rest, and run resources, but a <strong>simpler <code>lost</code>-state defeat</strong> rather than the reclaim death-run, and the risk/luck bonus is <strong>not coded</strong> (008 §13, §8; proto: <code>src/core/campaign/*</code>) — <em>supersedes the reclaim death-run and luck bonus as shipped behavior, though both remain design targets</em>.</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M04502, M04503, M04506, M04510, M04516, M04540, M04543, M04575 (provisioning + luck bonus, FreshToast/CrunchyConniptions, 2023-10-22); M04547–M04569 (chalice dungeons, 2023-10-22); M01842 (AoE bonus, FreshToast, 2023-02-13); M00005–M00007 (treasure effort seed, 2021-02-16–18)</li>
-<li><strong>Cleaned:</strong> 000 Part 17 §Provisioning; 000 lines 7332-7352 (chalice dungeons); 000 lines 8135-8136 &amp; 3141-3142 (grid/AoE)</li>
-<li><strong>Docs:</strong> 008 §13 Chalice-Dungeon Repeatable-Dungeon Loop; 008 §8 Dungeon Death-Run / Provisioning; 008 §8 Risk/Reward Luck Bonus; 008 §2 Ambush; 008 §4 Run-level resources; 008 §5 Healing &amp; Health Overhaul; 008 §13 Vertical-Slice Dungeon</li>
-<li><strong>Ledger:</strong> src_chunks R24 (chalice/luck/provisioning + death-run), R10 (AoE multi-position bonus), R01 (treasure effort seed) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../development/design-philosophy.html">Design Philosophy</a> <span class="blns">Development</span></li><li><a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a> <span class="blns">Systems</span></li><li><a href="../systems/navigation-compass.html">Navigation Compass (Compass-over-Maps)</a> <span class="blns">Systems</span></li><li><a href="../systems/treasure-and-rewards.html">Treasure &amp; Rewards</a> <span class="blns">Systems</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §13 Chalice-Dungeon Repeatable-Dungeon Loop · 008 §8 Dungeon Death-Run / Provisioning · 008 §8 Risk/Reward Luck Bonus · 008 §2 Ambush · 008 §4 Run-level resources · 008 §5 Healing &amp; Health Overhaul · 008 §13 Vertical-Slice Dungeon · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §13 Chalice-Dungeon Repeatable-Dungeon Loop · 008 §8 Dungeon Death-Run / Provisioning · 008 §8 Risk/Reward Luck Bonus · 008 §2 Ambush · 008 §4 Run-level resources · 008 §5 Healing &amp; Health Overhaul · 008 §13 Vertical-Slice Dungeon · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

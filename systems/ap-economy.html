@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Action Points (AP) Economy · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,14 +25,14 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Action Points (AP) Economy</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Action Points (AP) Economy</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>AP</i>, <i>Advantage Point System</i>, <i>Action Points</i>, <i>Zeal</i></div>
-      <div class="datemeta">First conceived <b>2023-02-02 (M00858, CrunchyConniptions)</b> · last in chat <b>2023-02-20 (M02627)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-02</b> · last updated <b>2023-02-20</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="action-points-ap-economy-canon" tabindex="-1"><a class="header-anchor" href="#action-points-ap-economy-canon">Action Points (AP) Economy <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>The per-turn action budget that gates how much a character can do in a round — the currency of every skill.</p>
 </blockquote>
-<p><strong>Summary</strong> — In the shipped proto, AP is a <strong>flat per-round budget that REFILLS each round</strong> — not a pool that starts at zero and is earned over the fight. Each hero has <code>maxAp = 3</code>; enemies have 2 (the boss has 4). Skills cost 1–3 AP; <strong>finishers cost 4+ AP</strong> and are gated to round 4+ or <a href="../systems/escalation.html">Escalation Mechanic</a> ≥ 20 (008 §2 Action Points System; proto <code>src/core/combat/content.ts</code>, <code>state.ts</code>). Unspent AP does <strong>not</strong> carry over. The original notes-era design was the opposite — a per-character pool starting at <strong>zero</strong> that certain actions <em>generate</em> and powerful actions <em>spend</em> (M00858, CrunchyConniptions, 2023-02-02); the proto rejected that generate-and-spend model in favour of the flat refill.</p>
+<p><strong>Summary</strong> — In the shipped proto, AP is a <strong>flat per-round budget that REFILLS each round</strong> — not a pool that starts at zero and is earned over the fight. Each hero has <code>maxAp = 3</code>; enemies have 2 (the boss has 4). Skills cost 1–3 AP; <strong>finishers cost 4+ AP</strong> and are gated to round 4+ or <a href="../systems/escalation.html">Escalation Mechanic</a> ≥ 20 (008 §2 Action Points System; proto <code>src/core/combat/content.ts</code>, <code>state.ts</code>). Unspent AP does <strong>not</strong> carry over. The original notes-era design was the opposite — a per-character pool starting at <strong>zero</strong> that certain actions <em>generate</em> and powerful actions <em>spend</em> (2023-02-02); the proto rejected that generate-and-spend model in favour of the flat refill.</p>
 <h2 id="rules-implemented-proto" tabindex="-1"><a class="header-anchor" href="#rules-implemented-proto">Rules — implemented (proto)</a></h2>
 <p><code><span class="badge b-canon">CANON · implemented</span></code> (008 §2 Action Points System; proto <code>src/core/combat/state.ts</code>)</p>
 <ul>
@@ -44,9 +44,9 @@
 </ul>
 <h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
 <ul>
-<li>The whole system exists to serve the <strong>“end fast” philosophy</strong>: skill strength was meant to scale with AP cost, and “if most fights end around turn 4, AP 4+ skills should be finishers” (M01868, M01869, FreshToast, 2023-02-13). See <a href="../systems/escalation.html">Escalation Mechanic</a>.</li>
-<li>Nearly all character skills consume AP; each weapon subtype has only 3–4 “neutral” skills (M01364, M01365, FreshToast, 2023-02-10).</li>
-<li><a href="../characters/locke.html">Locke</a> has a flame-based skill that <strong>grants AP to an ally</strong> (008 §Affinity Magic; M03070, spirit_noodle, 2023-03-18) — the “giving/taking/sharing” theme.</li>
+<li>The whole system exists to serve the <strong>“end fast” philosophy</strong>: skill strength was meant to scale with AP cost, and “if most fights end around turn 4, AP 4+ skills should be finishers” (2023-02-13). See <a href="../systems/escalation.html">Escalation Mechanic</a>.</li>
+<li>Nearly all character skills consume AP; each weapon subtype has only 3–4 “neutral” skills (2023-02-10).</li>
+<li><a href="../characters/locke.html">Locke</a> has a flame-based skill that <strong>grants AP to an ally</strong> (2023-03-18; 008 §Affinity Magic) — the “giving/taking/sharing” theme.</li>
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
@@ -55,24 +55,17 @@
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-02</strong> — original concept (“Advantage Point System”): starts at <strong>zero per battle</strong>, accrues over the battle, unique per character (unlike Voice of Cards); <strong>some actions generate AP, stronger actions spend AP</strong> (M00858, CrunchyConniptions). <em>(Ledger R05.)</em></li>
-<li><strong>2023-02-10</strong> — “maybe nearly all character skills use AP” (M01365, FreshToast).</li>
-<li><strong>2023-02-13</strong> — AP scaling settled toward finishers: skill strength should increase (near-exponentially) per AP cost assuming AP-per-turn gain; <strong>4+ AP skills = finishers</strong> because most fights end around turn 4 (M01868, M01869, FreshToast) — <em>this survives into the implemented finisher gate</em>.</li>
-<li><strong>2023-02-13</strong> — AP steal/remove effects are <strong>very rare and only available to enemies</strong> (M01872, FreshToast) — <em>notes intent; not coded in the proto</em>.</li>
-<li><strong>2023-02-20</strong> — AP listed alongside escalation/shields as a core system; briefly debated whether escalation was redundant with AP (“If anything I’d drop escalation… since it has the same goal as AP”; “AP’s pretty core rn”) (M02572, M02610, M02611, M02613, M02627, FreshToast).</li>
+<li><strong>2023-02-02</strong> — original concept (“Advantage Point System”): starts at <strong>zero per battle</strong>, accrues over the battle, unique per character (unlike Voice of Cards); <strong>some actions generate AP, stronger actions spend AP</strong>.</li>
+<li><strong>2023-02-10</strong> — “maybe nearly all character skills use AP”.</li>
+<li><strong>2023-02-13</strong> — AP scaling settled toward finishers: skill strength should increase (near-exponentially) per AP cost assuming AP-per-turn gain; <strong>4+ AP skills = finishers</strong> because most fights end around turn 4 — <em>this survives into the implemented finisher gate</em>.</li>
+<li><strong>2023-02-13</strong> — AP steal/remove effects are <strong>very rare and only available to enemies</strong> — <em>notes intent; not coded in the proto</em>.</li>
+<li><strong>2023-02-20</strong> — AP listed alongside escalation/shields as a core system; briefly debated whether escalation was redundant with AP (“If anything I’d drop escalation… since it has the same goal as AP”; “AP’s pretty core rn”).</li>
 <li><strong>Later (proto era)</strong> — the generate-and-spend pool was <strong>replaced</strong> by a flat <strong>3-per-round refill</strong> (heroes) with a single <strong>escalation-20 +2 AP surge</strong>; unspent AP does not carry over (008 §2, <code><span class="badge b-debated">DEBATED</span> design intent vs implemented</code>). <em>(This is the current presentation above; supersedes the zero-start pool.)</em></li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M00858 (CrunchyConniptions, 2023-02-02); M01364, M01365 (FreshToast, 2023-02-10); M01868, M01869, M01872 (FreshToast, 2023-02-13); M02572, M02610–M02613, M02627 (FreshToast, 2023-02-20)</li>
-<li><strong>Cleaned:</strong> 000 Game Mechanics §Advantage Point (AP) System (lines 1586–1591)</li>
-<li><strong>Docs:</strong> 008 §2 Action Points System (AP); 008 §4 Resource Systems; 007 §Advantage Point (AP) System</li>
-<li><strong>Ledger:</strong> rows R05 (M00858), R08 (M01364/M01365), R10 (M01868/M01869), R11 (M01872) in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../magic/character-skills.html">Character Skills (Per-Character Rosters)</a> <span class="blns">Magic</span></li><li><a href="../systems/position-system.html">Combat Position System</a> <span class="blns">Systems</span></li><li><a href="../systems/escalation.html">Escalation Mechanic</a> <span class="blns">Systems</span></li><li><a href="../magic/judgment-cut.html">Judgment Cut</a> <span class="blns">Magic</span></li><li><a href="../systems/shields-and-wounded.html">Shields &amp; Wounded State</a> <span class="blns">Systems</span></li><li><a href="../magic/skill-system.html">Skill System (Slots, Modular Skills, Costs)</a> <span class="blns">Magic</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §2 Action Points System (AP) · 008 §4 Resource Systems · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §2 Action Points System (AP) · 008 §4 Resource Systems · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

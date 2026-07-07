@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Enemy Intent Indicator System · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,14 +25,14 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Systems</a><span class="sep">/</span><span>Enemy Intent Indicator System</span></div>
     <div class="page-head"><div class="eyebrow">🎲 Systems</div><h1>Enemy Intent Indicator System</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Cross-Iteration</span><span class="facet f-real">Mixed</span></div><div class="aliases">Also known as: <i>Intent indicators</i>, <i>Foresight</i>, <i>telegraph system</i>, <i>Gambit indicator</i></div>
-      <div class="datemeta">First conceived <b>2023-02-09 (M01308, CrunchyConniptions)</b> · last in chat <b>2024-08-20 (M05444)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-09</b> · last updated <b>2024-08-20</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="enemy-intent-indicator-system-canon" tabindex="-1"><a class="header-anchor" href="#enemy-intent-indicator-system-canon">Enemy Intent Indicator System <code><span class="badge b-canon">CANON</span></code></a></h1>
 <blockquote>
 <p>Slay-the-Spire-style telegraphs that show what each enemy is about to do, so the player reacts with foreknowledge.</p>
 </blockquote>
-<p><strong>Summary</strong> — At the start of each round the game telegraphs every living enemy’s planned action; the player then reacts. The finalized <em>design</em> taxonomy is <strong>23 indicators</strong> built from a handful of base types (Attack, Protect, Support, Disrupt, Gambit, plus Prepare and Unknown) and their dual combinations (M05439–M05441, FreshToast, 2024-08-20). The proto ships a distillation — <strong>6 readable intent categories</strong> — rather than the full 23-icon set (008 §7; proto <code>src/core/combat/intents.ts</code>). The idea began as a heavily-debated “Foresight” mechanic on 2023-02-09 (M01308, CrunchyConniptions) and the exhaustive 23-indicator writeup was authored 2024-08-20.</p>
+<p><strong>Summary</strong> — At the start of each round the game telegraphs every living enemy’s planned action; the player then reacts. The finalized <em>design</em> taxonomy is <strong>23 indicators</strong> built from a handful of base types (Attack, Protect, Support, Disrupt, Gambit, plus Prepare and Unknown) and their dual combinations (2024-08-20). The proto ships a distillation — <strong>6 readable intent categories</strong> — rather than the full 23-icon set (008 §7; proto <code>src/core/combat/intents.ts</code>). The idea began as a heavily-debated “Foresight” mechanic on 2023-02-09 and the exhaustive 23-indicator writeup was authored 2024-08-20.</p>
 <h2 id="rules-implemented-proto" tabindex="-1"><a class="header-anchor" href="#rules-implemented-proto">Rules — implemented (proto)</a></h2>
 <p><code><span class="badge b-canon">CANON · implemented</span></code> (008 §7; proto <code>src/core/combat/intents.ts</code>, <code>state.ts</code>)</p>
 <ul>
@@ -42,16 +42,16 @@
 <li>Enemy <strong>targeting</strong> is currently auto-chosen (lowest-HP, front-most) rather than fully telegraphed per-icon (<code>chooseTarget</code>).</li>
 </ul>
 <h2 id="the-23-indicator-design-taxonomy-design-target" tabindex="-1"><a class="header-anchor" href="#the-23-indicator-design-taxonomy-design-target">The 23-indicator design taxonomy (design target)</a></h2>
-<p><code><span class="badge b-canon">CANON</span></code> design (008 §7; M05439–M05441, FreshToast, 2024-08-20):</p>
+<p><code><span class="badge b-canon">CANON</span></code> design (2024-08-20; 008 §7):</p>
 <p><strong>Core indicators:</strong> Attack (shows physical vs magical) · Protect (mitigate incoming) · Support (heal / buff / cleanse) · Disrupt (afflict debuffs) · Unknown (uncategorizable / movement only) · Prepare (turn taken without action) · <strong>Gambit</strong> (the most deadly action of powerful enemies; almost always a dual indicator).</p>
 <p><strong>Dual indicators</strong> combine two of Attack / Protect / Support / Disrupt / Gambit; the icon takes the <strong>primary</strong> indicator’s appearance with added visuals for the secondary. <strong>Precedence:</strong> Gambit &gt; Attack &gt; Protect (Defend) &gt; Disrupt/Support (which varies by case).</p>
-<p><strong>All 23</strong> (M05440): Physical Attack, Magical Attack, Phys/Magical Attack ×(Protect, Support, Disrupt), Protect, Protect/Support, Protect/Disrupt, Support, Support/Disrupt, Disrupt, Disrupt/Support, Gambit, Gambit/(Phys Attack, Mag Attack, Protect, Support, Disrupt), Prepare, Unknown = <strong>23 total</strong> (M05441).</p>
+<p><strong>All 23</strong>: Physical Attack, Magical Attack, Phys/Magical Attack ×(Protect, Support, Disrupt), Protect, Protect/Support, Protect/Disrupt, Support, Support/Disrupt, Disrupt, Disrupt/Support, Gambit, Gambit/(Phys Attack, Mag Attack, Protect, Support, Disrupt), Prepare, Unknown = <strong>23 total</strong>.</p>
 <p><code><span class="badge b-canon">CANON</span></code> <strong>The settled comparison is ~10 more indicators than Slay the Spire (23 vs ~13)</strong> — StS doesn’t specify attack type or have a Gambit; StS changes its attack symbol by damage amount, “but we shouldn’t do that” (008 §7). <em>(The in-session “only 5 more — no wait, 10 more” was an arithmetic self-correction, Part 23, not a design disagreement.)</em></p>
 <h2 id="design-notes-interaction" tabindex="-1"><a class="header-anchor" href="#design-notes-interaction">Design notes &amp; interaction</a></h2>
 <ul>
-<li><strong>Unknown is deliberate:</strong> “Unknown indicator is fun. To keep a degree of unpredictability” — used sparingly, like when StS goes “???” (M05442, M05443, CrunchyConniptions/FreshToast, 2024-08-20).</li>
+<li><strong>Unknown is deliberate:</strong> “Unknown indicator is fun. To keep a degree of unpredictability” — used sparingly, like when StS goes “???” (2024-08-20).</li>
 <li><strong>Conditional interruption:</strong> some actions are interruptible with a certain damage type or enough damage — “if a dragon’s about to breathe fire, it’s got flames flickering from the sides of its jaws”; deal enough damage to downgrade a scary Gambit (008 §7).</li>
-<li><strong>Player influence:</strong> players <em>can</em> interact with intents — “moving enemies around… forcing them into states where they must/want to change their action” (008 §7 Q&amp;A). There are abilities that do <strong>extra damage to enemies that are going to attack</strong> (M01403, FreshToast, 2023-02-10).</li>
+<li><strong>Player influence:</strong> players <em>can</em> interact with intents — “moving enemies around… forcing them into states where they must/want to change their action” (008 §7 Q&amp;A). There are abilities that do <strong>extra damage to enemies that are going to attack</strong> (2023-02-10).</li>
 <li><strong>Gambit telegraphing:</strong> animations, special visual/sound effects, or a bark signalling “BIG THING COMING THIS TURN OR NEXT” (008 §7 Q&amp;A).</li>
 </ul>
 <h2 id="related-systems" tabindex="-1"><a class="header-anchor" href="#related-systems">Related systems</a></h2>
@@ -61,27 +61,20 @@
 </ul>
 <h2 id="open-questions" tabindex="-1"><a class="header-anchor" href="#open-questions">Open questions</a></h2>
 <ul>
-<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Foresight vs tension.</strong> FreshToast initially preferred the tension of <em>not</em> knowing and worried telegraphing makes combat reactive rather than proactive, and easier; resolution: enemies signal future actions and the player is rewarded for reacting correctly — “let it simmer” (M01308–M01343, CrunchyConniptions/FreshToast, 2023-02-09).</li>
+<li><code><span class="badge b-debated">DEBATED</span></code> <strong>Foresight vs tension.</strong> FreshToast initially preferred the tension of <em>not</em> knowing and worried telegraphing makes combat reactive rather than proactive, and easier; resolution: enemies signal future actions and the player is rewarded for reacting correctly — “let it simmer” (2023-02-09).</li>
 <li>The proto’s <strong>6-category distillation vs the 23-icon set:</strong> the 23 are the design target; <code>GAME_DESIGN.md §5.4</code> lists them as content still to be authored (008 §7).</li>
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-09</strong> — original <strong>Foresight</strong> concept: a Slay-the-Spire-style mechanic where enemies signal their next move and the player attacks/defends/parries; heavily debated (FreshToast wary of it making combat reactive/easier), resolved as “enemies signal future actions and reward the player for reacting correctly,” left to simmer (M01308–M01343, CrunchyConniptions/FreshToast). <em>(Ledger R08.)</em></li>
-<li><strong>2023-02-10</strong> — early adjuncts: signals group into offensive/defensive/both; abilities that do extra damage to attacking enemies; “no purely self-defensive abilities except something like Thane’s taunt”; optional fade-on-their-own floating status-text reminders for accessibility (M01402–M01406, FreshToast, 2023-02-10).</li>
-<li><strong>2024-08-20</strong> — the <strong>full 23-indicator taxonomy</strong> was authored: 7 base types, dual-indicator precedence rules, all 23 combinations, the ~10-more-than-StS comparison, and the “Unknown is fun” note (M05439–M05444, FreshToast/CrunchyConniptions). <em>(This is the current design taxonomy above.)</em></li>
+<li><strong>2023-02-09</strong> — original <strong>Foresight</strong> concept: a Slay-the-Spire-style mechanic where enemies signal their next move and the player attacks/defends/parries; heavily debated (FreshToast wary of it making combat reactive/easier), resolved as “enemies signal future actions and reward the player for reacting correctly,” left to simmer.</li>
+<li><strong>2023-02-10</strong> — early adjuncts: signals group into offensive/defensive/both; abilities that do extra damage to attacking enemies; “no purely self-defensive abilities except something like Thane’s taunt”; optional fade-on-their-own floating status-text reminders for accessibility (2023-02-10).</li>
+<li><strong>2024-08-20</strong> — the <strong>full 23-indicator taxonomy</strong> was authored: 7 base types, dual-indicator precedence rules, all 23 combinations, the ~10-more-than-StS comparison, and the “Unknown is fun” note. <em>(This is the current design taxonomy above.)</em></li>
 <li><strong>Proto era</strong> — implemented as a <strong>6-category distillation</strong> (Attack/Dual/Disrupt/Support/Defend/Gambit) re-rolled each round; the 23-icon set remains the target (008 §7, <code><span class="badge b-canon">CANON · implemented</span></code>).</li>
-</ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M01308–M01343 (CrunchyConniptions/FreshToast, 2023-02-09); M01402–M01406 (FreshToast, 2023-02-10); M05439–M05444 (FreshToast/CrunchyConniptions, 2024-08-20)</li>
-<li><strong>Cleaned:</strong> 000 Part 5 §Foresight; 000 §Enemy Intent Indicators (M05439 block)</li>
-<li><strong>Docs:</strong> 008 §7 Enemy Intent Indicator System</li>
-<li><strong>Ledger:</strong> rows R08 (M01308…), and the M05439-block mechanics rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
 </ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../systems/accessibility-and-combat-signals.html">Accessibility &amp; Combat-Signal Taxonomy</a> <span class="blns">Systems</span></li><li><a href="../bestiary/encounters-and-ambushes.html">Encounters, Ambushes &amp; Enemy Areas</a> <span class="blns">Bestiary</span></li><li><a href="../systems/overview.html">Game Type &amp; Structure (Overview)</a> <span class="blns">Systems</span></li><li><a href="../bestiary/ossuary-sentinel.html">Ossuary Sentinel</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> <span class="blns">Bestiary</span></li><li><a href="../systems/rank-targeting-ui.html">Rank-Targeting / Combat-Readability UI</a> <span class="blns">Systems</span></li></ul></div>
-    <footer class="foot">Source docs: 008 §7 Enemy Intent Indicator System · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 008 §7 Enemy Intent Indicator System · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>

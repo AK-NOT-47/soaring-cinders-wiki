@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ossuary Sentinel · Soaring Cinders Wiki</title>
-<meta name="description" content="Soaring Cinders lore wiki — every fact traced to the source Discord chats.">
+<meta name="description" content="Soaring Cinders lore wiki — the living design canon, with each idea's evolution traced through dated Design history.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/wiki-theme.css?v=ba6dd6f708">
+<link rel="stylesheet" href="../assets/wiki-theme.css?v=ccffd770eb">
 <script>try{var t=localStorage.getItem('sc-wiki-theme');document.documentElement.dataset.theme=(t==='day'||t==='night')?t:'night';}catch(e){document.documentElement.dataset.theme='night';}</script>
 </head><body class="">
 <div id="progress"></div>
@@ -25,7 +25,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Bestiary</a><span class="sep">/</span><span>Ossuary Sentinel</span></div>
     <div class="page-head"><div class="eyebrow">🐉 Bestiary</div><h1>Ossuary Sentinel</h1>
       <div class="facets"><span class="badge b-canon">CANON</span><span class="facet f-iter">Caelian Odyssey</span><span class="facet f-real">Proto-Implemented</span></div><div class="aliases">Also known as: <i>Tomb Golem</i>, <i>Tomb Guardian</i></div>
-      <div class="datemeta">First conceived <b>2023-02-08 (M01162, CrunchyConniptions — adaptive-armor concept)</b> · last in chat <b>2023-02-16 (M02168, CrunchyConniptions — golem enemy type)</b></div>
+      <div class="datemeta">First conceived <b>2023-02-08</b> · last updated <b>2023-02-16</b></div>
     </div>
     <div class="rule"></div>
     <article class="prose"><h1 id="ossuary-sentinel-canon" tabindex="-1"><a class="header-anchor" href="#ossuary-sentinel-canon">Ossuary Sentinel <code><span class="badge b-canon">CANON</span></code></a></h1>
@@ -100,8 +100,8 @@
 </ul>
 <h2 id="design-history" tabindex="-1"><a class="header-anchor" href="#design-history">Design history</a></h2>
 <ul>
-<li><strong>2023-02-08</strong> — the adaptive-armor idea is first pitched as the <a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a>: “We fight blacksmith who changes their armor based on your attack” (M01162, CrunchyConniptions), one of the gaming-deconstruction pillars.</li>
-<li><strong>2023-02-16</strong> — Golems established as a baseline enemy type (M02168, CrunchyConniptions) with a soul-harvest origin under <a href="../characters/gideon-azurith.html">Gideon</a> (M02173–M02174, FreshToast); <a href="../characters/locke.html">Locke</a> is noted uneasy around them (M02180, FreshToast).</li>
+<li><strong>2023-02-08</strong> — the adaptive-armor idea is first pitched as the <a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a>: “We fight blacksmith who changes their armor based on your attack”, one of the gaming-deconstruction pillars.</li>
+<li><strong>2023-02-16</strong> — Golems established as a baseline enemy type with a soul-harvest origin under <a href="../characters/gideon-azurith.html">Gideon</a>; <a href="../characters/locke.html">Locke</a> is noted uneasy around them.</li>
 <li><strong>(proto, undated)</strong> — the vertical slice ships the golem <strong>only as this boss</strong>, the Ossuary Sentinel, a self-hardening tomb guardian decoupled from the soul-harvest origin; it inherits the Blacksmith’s adaptive-armor behavior via Adamant Shell. [IMPLEMENTED] — <em>current presentation.</em></li>
 </ul>
 <h2 id="related-pages" tabindex="-1"><a class="header-anchor" href="#related-pages">Related pages</a></h2>
@@ -111,18 +111,10 @@
 <li><a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a> — the design pitch whose adaptive-armor mechanic this boss prototypes.</li>
 <li><a href="../bestiary/encounters-and-ambushes.html">Encounters &amp; Ambushes</a> — how enemies (including this boss at <code>n5</code>) are deployed across the dungeon graph.</li>
 </ul>
-<h2 id="provenance" tabindex="-1"><a class="header-anchor" href="#provenance">Provenance</a></h2>
-<ul>
-<li><strong>Raw:</strong> M01162 (CrunchyConniptions, 2023-02-08, adaptive blacksmith); M02168 (CrunchyConniptions, 2023-02-16, golems); M02173–M02174, M02180 (FreshToast, 2023-02-16, golem origin &amp; Locke’s unease)</li>
-<li><strong>Cleaned:</strong> 000 Part 7 §Gaming Deconstruction; 000 Part 8 (golem origin)</li>
-<li><strong>Docs:</strong> 005 §Boss: Ossuary Sentinel (proto); §Implemented golem boss; §Encounter context (proto); §Proto reconciliation</li>
-<li><strong>Proto:</strong> src/core/combat/content.ts (<code>tomb_golem</code>, <code>g_slam</code>/<code>g_quake</code>/<code>g_curse</code>/<code>g_harden</code>); src/core/campaign/content.ts (node <code>n5</code>)</li>
-<li><strong>Ledger:</strong> golem-boss / adaptive-blacksmith rows in <code>Documentation/Verification/discord_provenance_ledger.csv</code></li>
-</ul>
 </article>
     <div class="backlinks"><h3>Linked from</h3><ul><li><a href="../bestiary/blacksmith-boss.html">Blacksmith Boss</a> <span class="blns">Bestiary</span></li><li><a href="../development/enemy-design-philosophy.html">Enemy Design Philosophy</a> <span class="blns">Development</span></li><li><a href="../bestiary/golems.html">Golems</a> <span class="blns">Bestiary</span></li><li><a href="../bestiary/proto-enemy-roster.html">Proto Enemy Roster (Implemented)</a> <span class="blns">Bestiary</span></li></ul></div>
-    <footer class="foot">Source docs: 005 §Boss: Ossuary Sentinel (proto) · 005 §Implemented golem boss · 005 §Encounter context (proto) · Provenance anchors resolve in <code>Documentation/Sources/raw_discord_canonical.csv</code>.</footer>
+    <footer class="foot">Source docs: 005 §Boss: Ossuary Sentinel (proto) · 005 §Implemented golem boss · 005 §Encounter context (proto) · Dates mark when each idea was recorded; see the page's Design history for how it evolved.</footer>
   </main>
 </div>
 </div>
-<script src="../assets/preview-index.js?v=ba6dd6f708"></script><script src="../assets/search-index.js?v=ba6dd6f708"></script><script src="../assets/app.js?v=ba6dd6f708"></script></body></html>
+<script src="../assets/preview-index.js?v=ccffd770eb"></script><script src="../assets/search-index.js?v=ccffd770eb"></script><script src="../assets/app.js?v=ccffd770eb"></script></body></html>
